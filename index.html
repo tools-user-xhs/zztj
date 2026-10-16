@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《资治通鉴》赏读 · 历史智慧与职场镜鉴</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0c1016;--panel:#151b24;--panel2:#1b232f;--line:#26303d;
+    --text:#e8eef5;--dim:#8d9bab;--gold:#d4a24e;--gold2:#f0c674}
+  html{scroll-behavior:smooth}
+  body{font-family:"Songti SC","STSong","SimSun","Noto Serif SC",Georgia,serif;
+    background:var(--bg);color:var(--text);min-height:100vh;line-height:1.7;
+    background-image:radial-gradient(circle at 12% 6%, rgba(212,162,78,.09), transparent 42%),
+      radial-gradient(circle at 88% 88%, rgba(96,165,250,.07), transparent 42%);
+    background-attachment:fixed}
+  ::-webkit-scrollbar{width:9px;height:9px}
+  ::-webkit-scrollbar-track{background:#0c1016}
+  ::-webkit-scrollbar-thumb{background:#2e3947;border-radius:9px}
+  ::-webkit-scrollbar-thumb:hover{background:#3d4c5e}
+
+  .hdr{border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(21,27,36,.95),rgba(12,16,22,.75));
+    backdrop-filter:blur(10px);position:sticky;top:0;z-index:60}
+  .hdr-in{max-width:1400px;margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:14px}
+  .seal{width:52px;height:52px;flex:0 0 52px;border-radius:12px;
+    background:linear-gradient(145deg,#8c2f22,#c0392b);display:flex;align-items:center;justify-content:center;
+    font-size:28px;color:#f7e6c4;font-weight:700;
+    box-shadow:0 6px 20px rgba(192,57,43,.35), inset 0 0 0 2px rgba(247,230,196,.25)}
+  .brand h1{font-size:23px;letter-spacing:2px;font-weight:700;
+    background:linear-gradient(90deg,#f0c674,#d4a24e 55%,#b8863b);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .brand p{font-size:12.5px;color:var(--dim);letter-spacing:1px;margin-top:2px}
+  .facts{display:flex;gap:10px;flex-wrap:wrap}
+  .fact{min-width:62px;padding:6px 12px;border-radius:10px;text-align:center;
+    background:rgba(255,255,255,.035);border:1px solid var(--line)}
+  .fact b{display:block;font-size:16px;color:var(--gold2);letter-spacing:.5px}
+  .fact span{font-size:11px;color:var(--dim)}
+
+  .tip-bar{max-width:1400px;margin:16px auto 0;padding:12px 18px;display:flex;gap:12px;align-items:flex-start;
+    background:linear-gradient(90deg,rgba(212,162,78,.11),rgba(212,162,78,.02));
+    border:1px solid rgba(212,162,78,.28);border-radius:12px;font-size:13.5px;color:#cfd9e3;line-height:1.65}
+  .tip-bar span{font-size:16px;line-height:1.3}
+  .tip-bar b{color:var(--gold2)}
+
+  .layout{max-width:1400px;margin:22px auto 0;padding:0 22px;
+    display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+  @media(max-width:960px){.layout{grid-template-columns:1fr;gap:16px}}
+
+  .v-timeline-wrap{position:sticky;top:90px;max-height:calc(100vh - 120px);
+    overflow-y:auto;padding-right:6px;
+    border-radius:16px;background:linear-gradient(180deg,var(--panel),rgba(21,27,36,.4));
+    border:1px solid var(--line)}
+  .v-timeline-wrap::-webkit-scrollbar{width:6px}
+  .v-timeline-wrap::-webkit-scrollbar-thumb{background:#2e3947;border-radius:6px}
+  @media(max-width:960px){.v-timeline-wrap{position:relative;top:0;max-height:440px}}
+
+  .v-tl-head{padding:16px 18px 12px;border-bottom:1px solid var(--line);
+    font-size:12.5px;color:var(--dim);letter-spacing:3px;
+    display:flex;align-items:center;gap:8px;position:sticky;top:0;
+    background:var(--panel);z-index:2;border-radius:16px 16px 0 0}
+  .v-tl-head::before{content:"◈";color:var(--gold);font-size:14px}
+
+  .v-timeline{padding:12px 10px 20px;position:relative}
+  .v-timeline::before{content:"";position:absolute;left:29px;top:0;bottom:20px;
+    width:2px;background:linear-gradient(180deg,var(--gold),rgba(212,162,78,.06));border-radius:2px}
+
+  .v-item{position:relative;padding:0 0 8px 52px;cursor:pointer;border-radius:10px;
+    transition:.22s;margin-bottom:4px}
+  .v-item:hover{background:rgba(255,255,255,.035)}
+  .v-item.on{background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 20%,transparent),transparent 90%)}
+  .v-item.on::after{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;
+    background:var(--acc);border-radius:3px}
+  .v-dot{position:absolute;left:23px;top:12px;width:13px;height:13px;border-radius:50%;
+    background:var(--panel);border:3px solid var(--acc);
+    box-shadow:0 0 0 3px rgba(12,16,22,.9), 0 0 12px -2px var(--acc);transition:.25s;z-index:1}
+  .v-item.on .v-dot{background:var(--acc);box-shadow:0 0 0 3px rgba(12,16,22,.9), 0 0 18px 2px var(--acc)}
+  .v-body{padding:9px 12px 10px;border-radius:10px;
+    border:1px solid transparent;transition:.25s}
+  .v-item.on .v-body{border-color:color-mix(in srgb,var(--acc) 40%,var(--line))}
+  .v-name{font-size:15.5px;font-weight:700;letter-spacing:.6px;color:#eaf1f8;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .v-name em{font-style:normal;font-size:11px;font-weight:400;color:var(--acc);
+    padding:2px 8px;border-radius:999px;
+    background:color-mix(in srgb,var(--acc) 14%,transparent);
+    border:1px solid color-mix(in srgb,var(--acc) 32%,transparent);letter-spacing:.5px}
+  .v-range{font-size:11.5px;color:var(--dim);margin-top:3px;letter-spacing:.5px}
+  .v-events{margin-top:8px;display:flex;flex-direction:column;gap:5px}
+  .v-event{font-size:12px;color:#b9c6d3;line-height:1.55;padding-left:16px;position:relative}
+  .v-event::before{content:"▹";position:absolute;left:2px;top:0;color:var(--acc);font-size:10px}
+  .v-event b{color:var(--gold2);font-weight:600}
+
+  .content{min-width:0}
+  .hero{position:relative;border-radius:18px;padding:26px 28px;margin-bottom:18px;
+    background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 17%,var(--panel)),var(--panel) 62%);
+    border:1px solid color-mix(in srgb,var(--acc) 38%,var(--line));overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--acc) 26%,transparent),transparent 68%);pointer-events:none}
+  .hero-tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:2px;color:var(--acc);
+    background:color-mix(in srgb,var(--acc) 14%,transparent);
+    border:1px solid color-mix(in srgb,var(--acc) 40%,transparent);
+    padding:4px 12px;border-radius:999px;margin-bottom:12px}
+  .hero h2{font-size:30px;letter-spacing:2px;margin-bottom:6px}
+  .hero .range{font-size:14px;color:var(--gold2);letter-spacing:1.5px;margin-bottom:12px}
+  .hero .intro{font-size:14.5px;color:#c3ceda;max-width:900px;line-height:1.85}
+
+  .figures-bar{position:relative;margin-bottom:22px;padding:16px 20px;
+    background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 11%,var(--panel)),var(--panel) 70%);
+    border:1px solid color-mix(in srgb,var(--acc) 32%,var(--line));
+    border-radius:14px;display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+  .figures-bar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--acc),transparent);border-radius:14px 0 0 14px}
+  .fb-label{font-size:12.5px;color:var(--acc);letter-spacing:2px;font-weight:600;
+    padding:5px 13px;border-radius:999px;
+    background:color-mix(in srgb,var(--acc) 14%,transparent);
+    border:1px solid color-mix(in srgb,var(--acc) 35%,transparent);
+    white-space:nowrap}
+  .fb-list{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+  .fb-chip{cursor:pointer;font-size:13px;padding:5px 13px;border-radius:999px;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);
+    color:#d6e0ea;transition:.2s;letter-spacing:.3px;white-space:nowrap}
+  .fb-chip:hover{background:color-mix(in srgb,var(--acc) 22%,transparent);
+    border-color:var(--acc);color:#fff;transform:translateY(-2px);
+    box-shadow:0 6px 16px -8px var(--acc)}
+
+  .grid-title{font-size:13px;color:var(--dim);letter-spacing:3px;margin:26px 0 14px;
+    display:flex;align-items:center;gap:10px}
+  .grid-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .grid-title em{font-style:normal;color:var(--gold2);letter-spacing:3px}
+
+  .cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{position:relative;cursor:pointer;overflow:hidden;border-radius:15px;padding:20px 20px 16px;
+    background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);
+    transition:transform .25s, box-shadow .25s, border-color .25s}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--c1),var(--c2))}
+  .card::after{content:"";position:absolute;right:-40px;bottom:-40px;width:130px;height:130px;border-radius:50%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--c1) 18%,transparent),transparent 70%);
+    opacity:0;transition:.3s;pointer-events:none}
+  .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--c1) 55%,var(--line));
+    box-shadow:0 16px 34px -18px var(--c1)}
+  .card:hover::after{opacity:1}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .card-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-size:16px;background:color-mix(in srgb,var(--c1) 16%,transparent);
+    border:1px solid color-mix(in srgb,var(--c1) 35%,transparent)}
+  .card-label{font-size:12px;letter-spacing:2.5px;font-weight:600;color:var(--c1)}
+  .card h3{font-size:16.5px;line-height:1.55;margin-bottom:8px;letter-spacing:.4px;color:#f2f7fc}
+  .card .brief{font-size:13px;color:var(--dim);line-height:1.65;min-height:42px}
+  .card-foot{margin-top:14px;padding-top:11px;border-top:1px dashed var(--line);
+    display:flex;align-items:center;justify-content:space-between;font-size:12px;
+    color:color-mix(in srgb,var(--c1) 85%,#fff)}
+  .card-foot .arrow{transition:.25s}
+  .card:hover .card-foot .arrow{transform:translateX(5px)}
+
+  .overlay{position:fixed;inset:0;z-index:200;display:none;background:rgba(5,8,12,.78);
+    backdrop-filter:blur(5px);padding:26px 18px;overflow-y:auto}
+  .overlay.show{display:block;animation:fade .22s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;
+    background:var(--panel);border:1px solid var(--line);
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.95);
+    animation:pop .28s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+  .modal-hd{padding:20px 24px;position:relative;
+    background:linear-gradient(135deg,color-mix(in srgb,var(--mc) 20%,var(--panel2)),var(--panel2));
+    border-bottom:1px solid color-mix(in srgb,var(--mc) 30%,var(--line))}
+  .modal-hd .tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:2px;
+    color:var(--mc);background:color-mix(in srgb,var(--mc) 15%,transparent);
+    border:1px solid color-mix(in srgb,var(--mc) 40%,transparent);
+    padding:3px 11px;border-radius:999px;margin-bottom:10px}
+  .modal-hd h3{font-size:21px;letter-spacing:.6px;line-height:1.5;padding-right:44px}
+  .modal-hd .sub{font-size:13px;color:var(--dim);margin-top:7px}
+  .close{position:absolute;right:18px;top:18px;width:34px;height:34px;border-radius:10px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:17px;
+    background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--dim);transition:.2s}
+  .close:hover{background:rgba(248,113,113,.16);color:#f87171;border-color:rgba(248,113,113,.5)}
+  .modal-bd{padding:22px 24px 28px;max-height:calc(100vh - 200px);overflow-y:auto}
+
+  .sec{margin-bottom:22px}
+  .sec:last-child{margin-bottom:0}
+  .sec h4{font-size:14.5px;letter-spacing:1.5px;margin-bottom:10px;color:var(--gold2);
+    display:flex;align-items:center;gap:9px}
+  .sec h4::before{content:"";width:3px;height:15px;border-radius:2px;
+    background:linear-gradient(180deg,var(--mc),transparent)}
+  .sec p{font-size:14.5px;color:#c8d4e0;line-height:1.95;letter-spacing:.2px}
+  .sec ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .sec li{font-size:14px;color:#c8d4e0;line-height:1.8;
+    padding:10px 14px 10px 32px;position:relative;background:rgba(255,255,255,.028);
+    border-radius:10px;border-left:2px solid color-mix(in srgb,var(--mc) 45%,transparent)}
+  .sec li::before{content:"◆";position:absolute;left:13px;top:10px;font-size:9px;color:var(--mc)}
+  .sec li b{color:var(--gold2)}
+
+  .quote{position:relative;margin:0 0 20px;padding:18px 22px 16px 26px;
+    background:linear-gradient(100deg,color-mix(in srgb,var(--mc) 12%,transparent),rgba(255,255,255,.02));
+    border-radius:12px;border-left:3px solid var(--mc);
+    font-size:16.5px;line-height:1.9;color:#f0e6d2;letter-spacing:.8px}
+  .quote::before{content:"“";position:absolute;left:6px;top:-8px;font-size:44px;
+    color:color-mix(in srgb,var(--mc) 40%,transparent);font-family:Georgia,serif}
+  .quote cite{display:block;margin-top:10px;font-size:12px;color:var(--dim);font-style:normal;letter-spacing:1px}
+  .quote cite::before{content:"—— "}
+
+  .cmp{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  @media(max-width:720px){.cmp{grid-template-columns:1fr}}
+  .cmp-col{border-radius:13px;padding:15px 16px;border:1px solid}
+  .cmp-col.pos{background:linear-gradient(160deg,rgba(74,222,128,.10),rgba(74,222,128,.02));border-color:rgba(74,222,128,.32)}
+  .cmp-col.neg{background:linear-gradient(160deg,rgba(248,113,113,.10),rgba(248,113,113,.02));border-color:rgba(248,113,113,.32)}
+  .cmp-col h5{font-size:13.5px;letter-spacing:1.5px;margin-bottom:12px}
+  .cmp-col.pos h5{color:#4ade80}
+  .cmp-col.neg h5{color:#f87171}
+  .cmp-item{margin-bottom:13px;padding-bottom:13px;border-bottom:1px dashed rgba(255,255,255,.08)}
+  .cmp-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .cmp-item b{display:block;font-size:14px;margin-bottom:5px;color:#eaf1f8}
+  .cmp-item p{font-size:13px;color:#a9b6c4;line-height:1.8}
+
+  .figure-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .figure-card{border-radius:13px;padding:15px 16px;
+    background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+    border:1px solid color-mix(in srgb,var(--mc) 28%,var(--line));
+    position:relative;overflow:hidden}
+  .figure-card::before{content:"";position:absolute;left:0;top:0;width:3px;bottom:0;
+    background:linear-gradient(180deg,var(--mc),transparent)}
+  .figure-name{font-size:15px;font-weight:700;color:#f2f7fc;margin-bottom:5px;letter-spacing:.5px}
+  .figure-trait{font-size:12px;letter-spacing:1px;color:var(--mc);margin-bottom:9px;
+    padding:3px 9px;border-radius:999px;display:inline-block;
+    background:color-mix(in srgb,var(--mc) 13%,transparent);
+    border:1px solid color-mix(in srgb,var(--mc) 32%,transparent)}
+  .figure-card p{font-size:13px;color:#a9b6c4;line-height:1.85}
+
+  .advice-list{list-style:none;display:flex;flex-direction:column;gap:11px;counter-reset:adv}
+  .advice-list li{counter-increment:adv;position:relative;
+    padding:13px 16px 13px 54px;border-radius:12px;
+    background:linear-gradient(100deg,color-mix(in srgb,var(--mc) 12%,transparent),rgba(255,255,255,.02));
+    border:1px solid color-mix(in srgb,var(--mc) 25%,var(--line));border-left:none}
+  .advice-list li::before{content:counter(adv,decimal-leading-zero);
+    position:absolute;left:15px;top:50%;transform:translateY(-50%);
+    font-family:Georgia,serif;font-size:19px;font-weight:700;
+    color:color-mix(in srgb,var(--mc) 80%,#fff);opacity:.85;letter-spacing:-.5px}
+  .advice-list li b{display:block;font-size:14.5px;color:var(--gold2);margin-bottom:4px;letter-spacing:.4px}
+  .advice-list li span{font-size:13.5px;color:#b8c4d1;line-height:1.8}
+
+  .work-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .work-list li{padding:14px 16px;border-radius:12px;
+    background:linear-gradient(120deg,rgba(96,165,250,.10),rgba(96,165,250,.02));
+    border:1px solid rgba(96,165,250,.28);border-left:3px solid #60a5fa}
+  .work-list li b{display:block;font-size:14.5px;color:#93c5fd;margin-bottom:5px;letter-spacing:.4px}
+  .work-list li span{font-size:13.5px;color:#b8c4d1;line-height:1.8}
+
+  .idiom-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .idiom-card{border-radius:13px;padding:15px 16px;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,rgba(244,114,182,.10),rgba(244,114,182,.02));
+    border:1px solid rgba(244,114,182,.30);border-left:3px solid #f472b6}
+  .idiom-word{font-size:17px;font-weight:700;color:#fbcfe8;letter-spacing:1.5px;margin-bottom:6px}
+  .idiom-source{font-size:11.5px;color:#9d174d;background:rgba(244,114,182,.14);
+    padding:2px 9px;border-radius:999px;display:inline-block;margin-bottom:9px;
+    border:1px solid rgba(244,114,182,.35);letter-spacing:.5px}
+  .idiom-card p{font-size:13px;color:#c9b5c1;line-height:1.85}
+
+  /* ===== 历史故事专属样式（更丰富） ===== */
+  .story-list{display:flex;flex-direction:column;gap:16px}
+  .story-item{border-radius:15px;overflow:hidden;
+    border:1px solid color-mix(in srgb,var(--mc) 26%,var(--line));
+    background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.006))}
+  .story-hd{padding:12px 18px;font-size:15.5px;font-weight:700;letter-spacing:.5px;color:#f2f7fc;
+    background:linear-gradient(100deg,color-mix(in srgb,var(--mc) 18%,transparent),transparent 85%);
+    border-bottom:1px solid color-mix(in srgb,var(--mc) 20%,var(--line));
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .story-hd .yr{font-size:11.5px;font-weight:400;color:var(--mc);
+    padding:2px 9px;border-radius:999px;
+    background:color-mix(in srgb,var(--mc) 15%,transparent);
+    border:1px solid color-mix(in srgb,var(--mc) 35%,transparent);letter-spacing:.5px}
+  .story-bd{padding:14px 18px;font-size:13.8px;color:#c2cedb;line-height:1.9}
+  .story-bd b{color:var(--gold2)}
+  .story-bd em{font-style:normal;color:#f9a8d4}
+  .story-moral{margin-top:10px;padding:9px 14px;border-radius:9px;font-size:13px;
+    background:rgba(251,146,60,.09);border-left:3px solid #fb923c;color:#e8c9a8}
+  .story-moral b{color:#fdba74}
+
+  .event-list{display:flex;flex-direction:column;gap:18px}
+  .event-item{border-radius:15px;overflow:hidden;
+    border:1px solid color-mix(in srgb,var(--mc) 28%,var(--line));
+    background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.008))}
+  .event-hd{padding:13px 18px;font-size:16px;font-weight:700;letter-spacing:.6px;color:#f2f7fc;
+    background:linear-gradient(100deg,color-mix(in srgb,var(--mc) 20%,transparent),transparent 85%);
+    border-bottom:1px solid color-mix(in srgb,var(--mc) 22%,var(--line));
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .event-hd .yr{font-size:11.5px;font-weight:400;color:var(--mc);
+    padding:2px 9px;border-radius:999px;
+    background:color-mix(in srgb,var(--mc) 15%,transparent);
+    border:1px solid color-mix(in srgb,var(--mc) 35%,transparent);letter-spacing:.5px}
+  .event-bd{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+  .ev-step{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:start}
+  @media(max-width:560px){.ev-step{grid-template-columns:1fr;gap:5px}}
+  .ev-key{font-size:12.5px;letter-spacing:1px;font-weight:700;
+    padding:4px 0;color:var(--mc);position:relative;padding-left:13px}
+  .ev-key::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;
+    background:var(--mc);box-shadow:0 0 6px var(--mc)}
+  .ev-val{font-size:13.5px;color:#c2cedb;line-height:1.85}
+  .ev-val b{color:var(--gold2)}
+  .ev-val em{font-style:normal;color:#f9a8d4}
+
+  footer{text-align:center;padding:26px 20px 40px;color:#5d6b7a;font-size:12.5px;letter-spacing:1px;
+    border-top:1px solid var(--line);margin-top:20px}
+  footer b{color:var(--gold)}
+
+  @media(max-width:640px){
+    .hdr-in{padding:12px 16px}
+    .brand h1{font-size:19px}
+    .seal{width:44px;height:44px;flex:0 0 44px;font-size:23px}
+    .tip-bar,.layout{padding-left:14px;padding-right:14px}
+    .hero{padding:20px 18px}
+    .hero h2{font-size:23px}
+    .figures-bar{padding:12px 14px;gap:10px}
+    .modal-bd{max-height:calc(100vh - 170px);padding:18px 16px 24px}
+    .modal-hd{padding:16px 18px}
+    .modal-hd h3{font-size:18px}
+    .advice-list li{padding-left:48px}
+    .v-timeline{padding-left:6px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <div class="seal">鉴</div>
+      <div>
+        <h1>《资治通鉴》赏读</h1>
+        <p>十大模块 · 历史智慧 · 职场镜鉴</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>前403</b><span>起</span></div>
+      <div class="fact"><b>959</b><span>止</span></div>
+      <div class="fact"><b>294</b><span>卷</span></div>
+      <div class="fact"><b>10</b><span>模块</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="tip-bar">
+  <span>💡</span>
+  <p>《资治通鉴》<b>止于公元 959 年（后周世宗显德六年）</b>，不含宋元明清。本期更新：<b>荆轲刺秦、萧何月下追韩信、鸿门宴</b>等经典历史故事，及更多能给人启发的故事，让历史不再碎片化。</p>
+</div>
+
+<div class="layout">
+  <aside class="v-timeline-wrap">
+    <div class="v-tl-head">历 史 时 间 轴</div>
+    <nav class="v-timeline" id="timeline"></nav>
+  </aside>
+
+  <div class="content">
+    <main id="main"></main>
+  </div>
+</div>
+
+<footer>
+  数据整理自《资治通鉴》原文 · 十大模块：时间节点 / 权力结构 / 核心思想 / 正反例证 / 帝王更迭 / 历史故事 / 历史事件 / 人物性格 / 历史成语 / 给人的忠告（含职场镜鉴）<br>
+  <b>读史使人明智</b> —— 以史为鉴，可以知兴替
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+/* =========================================================
+   本纪人物索引（新增荆轲、樊於期、项伯、樊哙等）
+   ========================================================= */
+const FIGURES = {
+  zhou:   ['智伯','赵襄子','赵简子','孙膑','庞涓','吴起','苏秦','张仪','张孟谈','尹铎'],
+  qin:    ['秦始皇','王翦','商鞅','李斯','赵高','扶苏','蒙恬','荆轲','樊於期','太子丹'],
+  xihan:  ['刘邦','韩信','张良','萧何','晁错','周亚夫','缇萦','周勃','袁盎','项羽','樊哙','项伯'],
+  donghan:['刘秀','冯异','杨震','班超','耿恭'],
+  wei:    ['曹操','曹丕','诸葛亮','关羽','邓艾','司马懿','曹植'],
+  jin:    ['祖逖','陶侃','谢安','晋惠帝','贾南风'],
+  nanbei: ['孝文帝','韦叡','陈庆之','梁武帝','侯景'],
+  sui:    ['杨坚','杨广','独孤皇后','李密'],
+  tang:   ['李世民','魏征','郭子仪','李泌','唐玄宗','李林甫'],
+  wudai:  ['柴荣','冯道','石敬瑭','郭威','朱温']
+};
+
+/* =========================================================
+   时间轴重大事件索引
+   ========================================================= */
+const EVENTS = {
+  zhou:   [
+    {y:'前403年', e:'三家分晋，周天子册命魏、赵、韩为诸侯'},
+    {y:'前376年', e:'周室名存实亡，战国七雄格局成形'},
+    {y:'前356年', e:'商鞅变法，秦国崛起'}
+  ],
+  qin:    [
+    {y:'前227年', e:'荆轲刺秦王，图穷匕见，功败垂成'},
+    {y:'前221年', e:'秦灭六国，废分封、行郡县，书同文、车同轨'},
+    {y:'前213年', e:'焚书坑儒，思想大一统，士人离心'}
+  ],
+  xihan:  [
+    {y:'前206年', e:'鸿门宴，刘邦险中求生，楚汉相争序幕'},
+    {y:'前206年', e:'萧何月下追韩信，刘邦拜将，汉得天下'},
+    {y:'前154年', e:'七国之乱，晁错削藩被腰斩，诸侯势力被削'}
+  ],
+  donghan:[
+    {y:'公元25年', e:'光武中兴，退功臣进文吏，柔道治国'},
+    {y:'公元88年', e:'外戚窦宪专权，外戚宦官交替乱政'},
+    {y:'公元184年', e:'黄巾起义，州牧掌兵，群雄割据之始'}
+  ],
+  wei:    [
+    {y:'公元220年', e:'曹丕代汉，九品中正制确立，士族门阀崛起'},
+    {y:'公元249年', e:'高平陵之变，司马氏夺权，曹魏名存实亡'},
+    {y:'公元263年', e:'魏灭蜀汉，三国鼎立开始瓦解'}
+  ],
+  jin:    [
+    {y:'公元280年', e:'西晋灭吴，三国归晋，占田制推行'},
+    {y:'公元291年', e:'八王之乱，宗室相残，西晋元气大伤'},
+    {y:'公元317年', e:'衣冠南渡，东晋建立，门阀与皇权共治'}
+  ],
+  nanbei: [
+    {y:'公元494年', e:'孝文帝迁都洛阳，汉化改革，民族大融合'},
+    {y:'公元548年', e:'侯景之乱，江南残破，士族门阀遭毁灭打击'},
+    {y:'公元581年', e:'北周府兵制成熟，关陇集团崛起，为隋唐奠基'}
+  ],
+  sui:    [
+    {y:'公元589年', e:'隋灭陈统一，创三省六部、科举取士'},
+    {y:'公元605年', e:'开凿大运河，营建东都，南北经济贯通'},
+    {y:'公元618年', e:'江都兵变，炀帝被杀，隋亡唐兴'}
+  ],
+  tang:   [
+    {y:'公元626年', e:'玄武门之变，贞观之治开启，纳谏用贤'},
+    {y:'公元755年', e:'安史之乱，藩镇割据，唐由盛转衰'},
+    {y:'公元780年', e:'两税法推行，赋税制度重大变革'}
+  ],
+  wudai:  [
+    {y:'公元907年', e:'朱温代唐，武人政治，礼崩乐坏之极'},
+    {y:'公元954年', e:'后周世宗高平之战，整军经武，改革图强'},
+    {y:'公元959年', e:'世宗崩，《资治通鉴》止笔于此'}
+  ]
+};
+
+/* =========================================================
+   数据层
+   ========================================================= */
+const DATA = [
+/* ============================ 1. 周纪 ============================ */
+{
+  id:'zhou', name:'周纪', era:'战国', range:'前403 — 前256', accent:'#d4a24e',
+  tagline:'三家分晋 · 礼制崩坏之始',
+  intro:'《资治通鉴》开篇之卷。司马光以"三家分晋"起笔，立下全书"尊礼守分"的总纲。智伯之亡、赵简子选嗣、孙膑斗庞涓、吴起杀妻求将、苏秦锥刺股、张仪欺楚——皆是千古镜鉴。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#d4a24e',c2:'#8a6420',
+      headline:'公元前403年 · 周威烈王二十三年',
+      brief:'三家分晋，全书开篇。司马光以此年为起点。',
+      sections:[
+        {type:'quote',text:'初命晋大夫魏斯、赵籍、韩虔为诸侯。',source:'《资治通鉴》卷一 · 周纪一'},
+        {type:'text',title:'为何从这一年写起？',text:'公元前403年，周威烈王正式册命晋国三位大夫为诸侯。司马光认为，正是周天子自己承认了臣子篡权，才导致礼制彻底崩坏。'},
+        {type:'list',title:'全书时间坐标',items:[
+          '<b>起点</b>　公元前403年（周威烈王二十三年）',
+          '<b>终点</b>　公元959年（后周世宗显德六年）',
+          '<b>跨度</b>　16朝 · 1362年 · 294卷',
+          '<b>不写北宋</b>　因北宋属司马光当代，不作"史鉴"之用'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'周天子册命三晋大夫为诸侯',
+      brief:'魏斯 · 赵籍 · 韩虔 —— 由臣而君，等级链条断裂。',
+      sections:[
+        {type:'quote',text:'晋大夫魏斯、赵籍、韩虔……',source:'《资治通鉴》卷一'},
+        {type:'text',title:'权力的越级跃迁',text:'三人本是晋国大夫（臣），却被周天子册命为诸侯（君）。西周以来的"天子—诸侯—卿大夫—士庶人"等级链条，在此被天子亲手打破。'},
+        {type:'list',title:'西周以来的等级秩序',items:[
+          '<b>天子</b>　统三公，为天下之共主',
+          '<b>三公</b>　率诸侯，辅佐天子',
+          '<b>诸侯</b>　制卿大夫，守一方之土',
+          '<b>卿大夫</b>　治士庶人，食采邑',
+          '<b>士庶人</b>　供赋役，安其分'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'天子之职莫大于礼',
+      brief:'礼 → 分 → 名：司马光的治国三纲，全书总纲。',
+      sections:[
+        {type:'quote',text:'臣闻天子之职莫大于礼，礼莫大于分，分莫大于名。',source:'司马光 · 臣光曰'},
+        {type:'text',title:'白话直译',text:'圣上的职责中，没有比尊崇礼制更重要的；礼制中，没有比分清君臣之分更重要的；君臣之分中，没有比明确公侯卿大夫之名更重要的。'},
+        {type:'list',title:'三纲释义',items:[
+          '<b>礼</b>　纲纪，是维系天下的总绳',
+          '<b>分</b>　君臣上下之别，是秩序的分界',
+          '<b>名</b>　公、侯、卿、大夫的名号，是身份的标志'
+        ]}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'守名分则存，坏名分则亡',
+      brief:'晋文公请隧被拒 · 叔孙通制礼 · 三家分晋 · 智伯之亡',
+      sections:[
+        {type:'text',title:'礼制的地位',text:'司马光认为，四海之广、兆民之众，能受制于一人，靠的就是"礼"为纲纪。上下相保而国家治安。'},
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'晋文公请隧被拒',text:'晋文公请求死后用天子规格的"隧葬"，周襄王以"未有代德而有二王"拒绝。晋文公畏惧而不敢违抗。周室虽弱，名分尚存。'},
+            {name:'叔孙通制朝仪',text:'汉高祖统一后群臣争功喧哗。叔孙通制朝仪，群臣按尊卑行礼。高祖感叹："吾乃今日知为皇帝之贵也。"'}
+          ],
+          negative:[
+            {name:'三家分晋',text:'晋国大夫瓜分晋国，以下犯上。周天子反册命他们为诸侯，"是区区之名分复不能守而并弃之也"。天下倾颓遂不可挽回。'},
+            {name:'智伯之亡',text:'智伯恃强凌弱、贪得无厌，最终被赵、魏、韩三家联合消灭，头骨被漆为饮器。'}
+          ]},
+        {type:'quote',text:'履霜坚冰至。',source:'《易经》· 司马光引以警示'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'周威烈王崩 → 其子姬骄继位',
+      brief:'前402年 · 周安王立，周室自此益微。',
+      sections:[
+        {type:'list',title:'周纪帝王更替',items:[
+          '<b>前402年</b>　周威烈王姬午去世，其子姬骄继位，是为<b>周安王</b>',
+          '<b>前376年</b>　周安王崩，其子姬喜继位，是为<b>周烈王</b>',
+          '<b>前369年</b>　周烈王崩，其弟姬扁继位，是为<b>周显王</b>',
+          '<b>前256年</b>　秦昭襄王灭西周，周赧王卒，周朝名实俱亡'
+        ]},
+        {type:'text',title:'更迭背后的意义',text:'周威烈王在位时册命三家诸侯，亲手打开了礼制崩坏的口子。他死后，周室再无力约束诸侯。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'智伯索地 · 孙膑斗庞涓 · 吴起杀妻求将 · 苏秦锥刺股 · 张仪欺楚 · 毛遂自荐',
+      brief:'周纪一卷，晋国故事最堪玩味；吴起、苏秦、张仪、毛遂，更是战国最锋利的几把刀。',
+      sections:[
+        {type:'story',title:'智伯索地：贪欲是无底洞',
+          year:'前455年',
+          content:'智伯向韩康子索地，韩康子想拒绝。段规说："智伯好利而愎，不与，将伐我；不如与之。他得地必骄，骄必轻敌，轻敌则亡。"韩康子于是给了万家之邑。智伯又向魏桓子索地，魏桓子也想拒绝。任章说："无故索地，诸大夫必惧；吾与之地，智伯必骄。骄而轻敌，智氏之命必不长矣。"魏桓子也给了。智伯又向赵襄子索地，赵襄子断然拒绝。智伯怒，率韩、魏之兵围晋阳。',
+          moral:'<b>贪欲的可怕在于：每一次得手都在降低你的警惕，也在积累他人的怨恨。</b>韩、魏的"予"不是软弱，而是"将欲取之，必先与之"的谋略。智伯以为别人怕他，其实是别人在等他自己作死。'
+        },
+        {type:'story',title:'孙膑斗庞涓：同学相害的经典悲剧',
+          year:'前354年',
+          content:'孙膑与庞涓同拜鬼谷子为师学习兵法。庞涓先出仕魏国，做了将军，自知才能不如孙膑，便暗中派人把孙膑骗到魏国。孙膑到后，庞涓嫉妒其才，捏造罪名，施以膑刑（挖去膝盖骨）并黥面，想让他永无出头之日。孙膑装疯卖傻，后来在齐国使者的帮助下逃到齐国，被齐威王拜为军师。公元前354年，孙膑用"围魏救赵"之计，在桂陵大败魏军；十三年后，又在马陵道设伏，命人在树上刻下"庞涓死于此树之下"，万箭齐发，庞涓自刎，死前叹道："遂成竖子之名！"',
+          moral:'<b>嫉妒会让人失去理智，骄傲会让人失去性命。</b>庞涓以为把孙膑弄残就万事大吉，却没想到孙膑逃到齐国后，两次用计把他逼入绝境。那些看似被踩到泥里的人，可能正在积累翻盘的能量。'
+        },
+        {type:'story',title:'吴起杀妻求将：为了功名，他杀了自己的妻子',
+          year:'前412年',
+          content:'吴起是卫国人，早年师从曾申学习儒术。母亲去世，他不奔丧，曾申与他断绝关系。他来到鲁国，齐国攻打鲁国，鲁君想用吴起为将，但吴起的妻子是齐国人，鲁君犹豫不决。吴起为了得到将位，竟然杀死了自己的妻子，以表明与齐国断绝关系。鲁君最终用他为将，大破齐军。但有人进谗言说："吴起残忍薄行，母死不奔丧，杀妻求将，这样的人不可重用。"鲁君疑之，吴起遂投奔魏国。',
+          moral:'<b>能力是入场券，人品是通行证。</b>吴起军事才能卓绝，在魏国与士卒同甘苦，在楚国变法强兵。但他母死不奔丧、杀妻求将，人品有亏，最终在鲁国被疑、在魏国被排挤、在楚国被射杀。能力再强，人品有亏也走不远。'
+        },
+        {type:'story',title:'苏秦锥刺股：从落魄书生到六国宰相',
+          year:'前334年',
+          content:'苏秦是东周洛阳人，师从鬼谷子。他先游说秦惠王连横，上书十次，不被采纳。黑貂皮衣破了，百斤黄金花光了，他落魄回家。妻子不下织机，嫂子不给他做饭，父母不跟他说话。苏秦感叹："妻不以我为夫，嫂不以我为叔，父母不以我为子，是皆秦之罪也。"于是发愤读书，读书欲睡，引锥自刺其股，血流至足。学成后游说燕、赵、韩、魏、齐、楚六国，合纵抗秦，佩六国相印，为纵约长。秦兵十五年不敢窥函谷关。',
+          moral:'<b>低谷期是最好的增值期。</b>苏秦落魄回家，妻不下纫、嫂不为炊、父母不与言。他没有抱怨，而是发愤读书，引锥刺股。你读过的书、练过的技能，终会成为你翻盘的资本。'
+        },
+        {type:'story',title:'张仪欺楚：六百里变六里',
+          year:'前313年',
+          content:'秦想攻齐，齐楚联盟。张仪出使楚国，对楚怀王说："若楚绝齐，秦愿献商於之地六百里。"楚怀王贪利，与齐断交，派人去秦国要地。张仪装病三个月不上朝，后来见楚使说："我有奉邑六里，愿献于楚王。"楚怀王大怒，发兵攻秦，大败，失汉中之地。',
+          moral:'<b>靠欺骗得来的利益，终将付出代价。</b>张仪用一张嘴，骗得楚国与齐国断交，又赖掉六百里土地，为秦国拆散了最大的威胁。但他无信无义，秦惠王死后，秦武王不喜他，他被迫离秦去魏，一年后死于魏国。'
+        },
+        {type:'story',title:'毛遂自荐：锥处囊中，其末立见',
+          year:'前258年',
+          content:'秦围赵国邯郸，赵平原君奉命赴楚求救，欲选二十名门客同行。已选十九人，余无可取者。门客毛遂自荐。平原君说："夫贤士之处世也，譬若锥之处囊中，其末立见。今先生处胜之门下三年于此矣，左右未有所称诵，胜未有所闻，是先生无所有也。"毛遂说："臣乃今日请处囊中耳。使遂蚤得处囊中，乃颖脱而出，非特其末见而已。"平原君遂带他同行。到了楚国，平原君与楚王谈判，从早晨谈到中午，楚王犹豫不决。毛遂按剑登阶，慷慨陈词，分析利害，楚王终于同意结盟。平原君感叹："毛先生一至楚，而使赵重于九鼎大吕。毛先生以三寸之舌，强于百万之师。"',
+          moral:'<b>机会不会主动找你，你要主动争取。</b>毛遂自荐的故事告诉我们：真正的人才，要敢于在关键时刻站出来。锥处囊中，其末立见——你要先把自己放进囊中，才有机会脱颖而出。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'三家分晋 · 智伯之亡 · 围魏救赵',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 三家分晋：礼制崩坏的开端',
+          background:'春秋末期，晋国国君权力衰落，国政由智、赵、魏、韩四家大夫把持。其中智伯（智瑶）势力最强，恃强凌弱，不断向其他三家索地。周王室衰微，已无力约束诸侯，天下正处于"礼崩乐坏"的前夜。',
+          figures:'智伯（智瑶）— 恃才傲物、贪得无厌；赵襄子（无恤）— 隐忍坚毅、临危不乱；韩康子、魏桓子 — 忍让待机；张孟谈 — 赵襄子谋臣，智勇双全；周威烈王 — 天下共主，却自坏礼制。',
+          event:'智伯先后向韩、魏索地，二家皆予。又向赵襄子索地，赵襄子断然拒绝。智伯怒，率韩、魏之兵围晋阳，引汾水灌城。赵襄子夜遣张孟谈潜出，说动韩、魏二子倒戈。三家反灌智伯军营，智伯被擒杀，头骨被漆为饮器，智氏灭族。随后韩、赵、魏三家瓜分晋国。公元前403年，周威烈王册命魏斯、赵籍、韩虔为诸侯。',
+          trigger:'<em>智伯的贪欲与傲慢</em>。他先向韩、魏索地轻易得手，误判赵襄子也会屈服；蓝台宴上当众戏辱韩康子、侮辱段规，埋下仇恨的种子。智国谏曰"主不备，难必至矣"，智伯傲然答："难将由我。我不为难，谁敢兴之？"——这句话，成了他的墓志铭。',
+          result:'<b>智氏灭族，三家分晋。</b>周天子不但不能讨伐以下犯上的三家大夫，反而册命他们为诸侯，亲手抛弃了礼制名分。司马光痛心地说："是区区之名分复不能守而并弃之也。"从此天下进入战国时代，礼制彻底崩坏。'
+        },
+        {type:'event',title:'事件二 · 智伯之亡：才胜德者，必遭其殃',
+          background:'智伯是晋国四卿之首，身材高大、须发俊美，射御、才艺、巧文、强毅、果敢五项才能皆过人。但他"甚不仁"——恃才傲物、贪得无厌、刚愎拒谏。当时晋国四卿并立，智伯最强，赵、魏、韩三家皆在其下。',
+          figures:'智伯 — 五项才能过人，唯独不仁；智国 — 智伯族人，屡次进谏，不被采纳；韩康子、魏桓子 — 被智伯戏辱，隐忍待机；赵襄子 — 拒绝索地，被围晋阳。',
+          event:'智伯向韩、魏索地，二家皆予。又向赵索地，赵襄子拒绝。智伯率韩、魏围晋阳三年，引汾水灌城，城墙只差三版就被淹没。智伯巡视水势时得意地说："吾乃今知水可以亡人国也。"魏桓子用手肘碰韩康子，韩康子踩魏桓子的脚——两人同时想到：汾水可以灌魏都安邑，绛水可以灌韩都平阳。于是韩、魏倒戈，与赵联合灭智。',
+          trigger:'<em>晋阳城下的那句话</em>。智伯说"吾乃今知水可以亡人国也"，本是得意之语，却让韩、魏二子意识到：智伯今天能用水灌赵，明天就能用水灌韩、魏。一句无心之言，暴露了智伯的野心，也断送了他的性命。',
+          result:'<b>智伯身死族灭，头骨被漆为饮器。</b>司马光在"臣光曰"中评价："智伯之亡也，才胜德也。"他指出：才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。智伯五项才能过人，唯独不仁，正是"才胜德"的典型。'
+        },
+        {type:'event',title:'事件三 · 围魏救赵：孙膑的以智取胜',
+          background:'孙膑与庞涓同拜鬼谷子为师学习兵法。庞涓先出仕魏国，做了将军，自知才能不如孙膑，便暗中派人把孙膑骗到魏国，捏造罪名，施以膑刑（挖去膝盖骨）并黥面。孙膑装疯卖傻，后来在齐国使者的帮助下逃到齐国，被齐威王拜为军师。',
+          figures:'孙膑 — 忍辱负重、谋略过人；庞涓 — 嫉贤妒能、骄傲轻敌；齐威王 — 重用孙膑；田忌 — 齐将，与孙膑配合。',
+          event:'公元前354年，魏国围攻赵国邯郸。赵向齐求救。孙膑建议齐军不直接救赵，而是直捣魏国都城大梁，迫使魏军回救。齐军在桂陵设伏，大败魏军，此为"围魏救赵"。十三年后，魏国攻韩国，孙膑再用"围魏救韩"之计，并在马陵道设伏。他命人在树上刻下"庞涓死于此树之下"，并约定"暮见火举而俱发"。庞涓夜间追至马陵道，举火看树上的字，齐军万箭齐发。庞涓自知智穷兵败，拔剑自刎，死前叹道："遂成竖子之名！"',
+          trigger:'<em>庞涓的嫉妒与骄傲</em>。他因嫉妒而陷害同学，因骄傲而轻敌冒进。马陵道之战，他轻信孙膑的"减灶"假象，以为齐军溃散，遂轻兵追击，最终自刎。嫉妒让他失去了同窗，骄傲让他失去了性命。',
+          result:'<b>孙膑两败庞涓，庞涓自刎马陵道。</b>孙膑以"围魏救赵""减灶诱敌"等计谋，展示了真正的军事智慧——不以硬碰硬，而以谋略取胜。忍辱是为了最后的胜利，这是孙膑留给后人的最大启示。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'智伯恃才 · 孙膑坚忍 · 吴起残忍 · 苏秦发愤 · 张仪无信',
+      brief:'战国人物，性格即是命运；吴起、苏秦、张仪，照见职场最锋利的三种活法。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'智伯（智瑶）',trait:'恃才傲物 · 贪得无厌 · 刚愎拒谏',
+           desc:'身材高大、须发俊美，射御、才艺、巧文、强毅、果敢皆过人，唯独"甚不仁"。他恃强凌弱，向三家索地；蓝台设宴当众戏辱韩康子与段规。最终身死族灭。司马光评："智伯之亡也，才胜德也。"'},
+          {name:'赵襄子（无恤）',trait:'隐忍坚毅 · 纳谏用人 · 临危不乱',
+           desc:'身为幼子，凭三年不忘竹简的恭谨赢得继承权。面对智伯索地，他审时度势、断然拒绝。晋阳被围三年，城池将破而"民无叛意"，临危不乱，采纳张孟谈之策，一举翻盘。'},
+          {name:'孙膑',trait:'忍辱负重 · 谋略过人 · 以智取胜 · 不逞匹夫之勇',
+           desc:'被同学庞涓陷害，遭受膑刑和黥面。但他没有选择以卵击石，而是装疯卖傻保全性命。逃到齐国后，以"围魏救赵""减灶诱敌"等计谋，两次大败庞涓，最终在马陵道逼其自刎。忍辱是为了最后的胜利。'},
+          {name:'庞涓',trait:'嫉贤妒能 · 阴险狠毒 · 骄傲轻敌 · 死于自负',
+           desc:'与孙膑同门学艺，自知才能不如，便设计陷害同学。他手段狠毒，膑刑黥面，想彻底毁掉孙膑。得势后骄傲轻敌，马陵道之战中被孙膑的"减灶"假象迷惑，最终自刎。'},
+          {name:'吴起',trait:'才能卓绝 · 残忍薄行 · 与士卒同甘苦 · 变法强楚',
+           desc:'战国最杰出的军事家、政治家之一。他母死不奔丧、杀妻求将，为功名不择手段，司马光斥其"残忍薄行"。但他在魏国与士卒同衣食，亲自为士兵吮疮，将士愿为他效死。在楚国变法，明法审令、废公族、养战斗之士，使楚国强大。最终被宗室射杀，临死以王尸为盾，为自己报仇。'},
+          {name:'苏秦',trait:'发愤图强 · 锥刺股 · 合纵六国 · 智谋过人',
+           desc:'落魄时妻不下纫、嫂不为炊、父母不与言，他发愤读书，引锥刺股，血流至足。学成后佩六国相印，为纵约长，秦兵十五年不敢窥函谷关。临死前用"车裂自己"之计，诱出刺客，为自己报仇。'},
+          {name:'张仪',trait:'能言善辩 · 无信无义 · 连横破纵 · 视舌如命',
+           desc:'被楚人打得遍体鳞伤，回家只问妻子"视吾舌尚在不"。他的舌头，就是他的武器。张仪欺楚，以"商於六百里"诱骗楚怀王与齐断交，事后只给六里。他用一张嘴，为秦国拆散了六国合纵。'},
+          {name:'毛遂',trait:'自信果敢 · 敢于自荐 · 能言善辩 · 临危不惧',
+           desc:'平原君门客，三年默默无闻。秦围邯郸，他自荐随平原君赴楚求救。平原君说"锥处囊中，其末立见"，毛遂答"臣乃今日请处囊中耳"。到了楚国，他按剑登阶，慷慨陈词，说服楚王结盟。平原君感叹："毛先生以三寸之舌，强于百万之师。"'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'三家分晋 · 唇亡齿寒 · 围魏救赵 · 锥刺股 · 毛遂自荐',
+      brief:'周纪一卷，诞生了战国最经典的成语群，每一个都藏着血与火。',
+      sections:[
+        {type:'idiom',title:'周纪衍生的经典成语',items:[
+          {word:'三家分晋',source:'《资治通鉴》卷一',
+           desc:'晋国被韩、赵、魏三家大夫瓜分，周天子册命其为诸侯。比喻权臣瓜分君权，也标志着战国时代的开始。'},
+          {word:'唇亡齿寒',source:'《资治通鉴》周纪 · 张孟谈说韩魏',
+           desc:'嘴唇没有了，牙齿就会感到寒冷。张孟谈用此语说动韩、魏二子倒戈，共同灭智。比喻关系密切，利害相关。'},
+          {word:'围魏救赵',source:'《资治通鉴》周纪 · 孙膑',
+           desc:'孙膑不直接救赵，而是直捣魏都大梁，迫使魏军回救，在桂陵设伏大败魏军。指攻击敌人后方，迫使其撤兵的战术。'},
+          {word:'锥刺股',source:'《战国策》· 苏秦',
+           desc:'苏秦读书欲睡，用锥子刺自己的大腿，血流至足。形容刻苦学习、发愤图强。'},
+          {word:'前倨后恭',source:'《战国策》· 苏秦',
+           desc:'苏秦落魄时，嫂子对他傲慢；佩六国相印回家时，嫂子匍匐在地。形容对人态度前后截然不同，多指势利眼。'},
+          {word:'毛遂自荐',source:'《资治通鉴》周纪 · 毛遂',
+           desc:'毛遂自荐随平原君出使楚国，说服楚王结盟。指自告奋勇，自己推荐自己担任某项工作。'},
+          {word:'锥处囊中',source:'《资治通鉴》周纪 · 毛遂',
+           desc:'平原君说"夫贤士之处世也，譬若锥之处囊中，其末立见"。毛遂答"臣乃今日请处囊中耳"。指有才能的人终会显露锋芒。'},
+          {word:'马陵之战',source:'《资治通鉴》周纪 · 孙膑',
+           desc:'孙膑在马陵道设伏，刻"庞涓死于此树之下"于树上，万箭齐发，庞涓自刎。此战成为以智取胜的经典战例。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'才德之辨 · 忍辱之智 · 发愤之功 · 自荐之勇',
+      brief:'周纪一卷，足以警醒一生；吴起、苏秦、张仪、毛遂，照见职场最锋利的几种活法。',
+      sections:[
+        {type:'advice',title:'周纪留给后人的六条忠告',items:[
+          {title:'才与德，绝不可混为一谈',text:'司马光说：才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。智伯五项才能过人，唯独不仁，正是"才胜德"的典型。宁用愚人，不用小人。'},
+          {title:'贪欲是无底洞，得寸进尺必招祸',text:'智伯先向韩、魏索地，轻易得手后更加骄纵，再向赵索地，终于踢到铁板。贪欲的可怕在于：每一次得手都在降低你的警惕，也在积累他人的怨恨。'},
+          {title:'待人以礼，轻慢侮辱是祸根',text:'蓝台宴上智伯戏弄韩康子、侮辱段规，看似小事，段规却记恨在心。后来正是段规力劝韩康子"不可不与地"，加速了智伯的灭亡。'},
+          {title:'看人要看长期表现，不看一时印象',text:'赵简子把训辞写在竹简上交二子，三年后才考问。伯鲁早已遗忘，无恤倒背如流。识人、选人、托付重任，都该用时间做筛子。'},
+          {title:'经营人心，是最长远的投资',text:'尹铎治晋阳，宁可少收赋税也要宽民。晋阳被围三年而不叛，靠的不是城墙厚，是民心厚。'},
+          {title:'忍辱，是为了走更远的路',text:'孙膑受膑刑黥面，身心遭受巨大摧残，但他没有选择以卵击石。真正的强者不是没有愤怒，而是懂得把愤怒换算成代价与收益。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：吴起的才与德、苏秦的发愤、毛遂的自荐',items:[
+          {title:'吴起的教训：能力再强，人品有亏也走不远',text:'吴起军事才能卓绝，在魏国与士卒同甘苦，在楚国变法强兵。但他母死不奔丧、杀妻求将，人品有亏，最终在鲁国被疑、在魏国被排挤、在楚国被射杀。职场中，能力是入场券，人品是通行证。'},
+          {title:'苏秦的启示：落魄时，用锥刺股的狠劲读书',text:'苏秦落魄回家，妻不下纫、嫂不为炊、父母不与言。他没有抱怨，而是发愤读书，引锥刺股。职场中，低谷期是最好的增值期。'},
+          {title:'张仪的舌头：核心技能，是你最后的底气',text:'张仪被打得遍体鳞伤，回家只问妻子"视吾舌尚在不"。他的舌头，就是他的核心竞争力。职场中，无论环境如何变化，都要有一项拿得出手的核心技能。'},
+          {title:'毛遂自荐：机会不会主动找你，你要主动争取',text:'毛遂在平原君门下三年默默无闻，但他敢于自荐，最终说服楚王结盟。职场中，不要等着被发掘，要学会主动展示自己的价值。'},
+          {title:'张仪的骗术：无信之人，终将被时代抛弃',text:'张仪以"商於六百里"骗楚怀王，事后只给六里。虽然为秦国拆散了齐楚联盟，但他无信无义，秦惠王死后，秦武王不喜他，他被迫离秦去魏。职场中，靠欺骗得来的利益，终将付出代价。'},
+          {title:'吴起吮疮：与团队同甘共苦，才能赢得真心',text:'吴起与士卒同衣食，亲自为士兵吮疮。士卒母亲听说后大哭，因为她知道儿子会为吴起效死。职场中，那些与团队同甘共苦的领导，才能赢得真正的追随。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 2. 秦纪 ============================ */
+{
+  id:'qin', name:'秦纪', era:'战国末 — 秦朝', range:'前255 — 前207', accent:'#8b5cf6',
+  tagline:'横扫六合 · 二世而亡',
+  intro:'秦以耕战立国，终并天下；然严刑峻法、仁义不施，十五年而亡。荆轲刺秦、商鞅徙木立信、王翦求田问舍、李斯黄犬之叹，都是职场人最该读懂的历史智慧。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#8b5cf6',c2:'#5b3bb5',
+      headline:'前246年秦王政即位 · 前221年统一六国',
+      brief:'从诸侯到皇帝，中国进入帝国时代。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元前246年，年仅13岁的嬴政继位为秦王。公元前221年，秦灭齐，六国尽亡，嬴政自称"始皇帝"。'},
+        {type:'list',title:'秦灭六国时间线',items:[
+          '<b>前230年</b>　灭韩','<b>前228年</b>　灭赵','<b>前225年</b>　灭魏',
+          '<b>前223年</b>　灭楚','<b>前222年</b>　灭燕','<b>前221年</b>　灭齐，天下一统'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'废分封 · 行郡县 · 皇权独揽',
+      brief:'从封建制到中央集权制的根本变革。',
+      sections:[
+        {type:'text',title:'制度的根本变革',text:'秦统一后，丞相王绾建议分封诸子，廷尉李斯反对，主张郡县。秦始皇采纳李斯之议，分天下为三十六郡，官员由中央任免，不得世袭。'},
+        {type:'list',title:'权力结构对比',items:[
+          '<b>周制</b>　天子—诸侯—卿大夫，层层分封，权力分散',
+          '<b>秦制</b>　皇帝—三公—郡守—县令，垂直管辖，权力集中',
+          '<b>三公</b>　丞相（行政）、太尉（军事）、御史大夫（监察）',
+          '<b>核心</b>　天下之事无小大皆决于上'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'仁义不施而攻守之势异也',
+      brief:'马上得天下，不可马上治天下。',
+      sections:[
+        {type:'quote',text:'仁义不施，而攻守之势异也。',source:'贾谊《过秦论》· 司马光引其意'},
+        {type:'text',title:'司马光的评述',text:'秦以法治国、以耕战强兵，取天下若摧枯拉朽；但统一后仍以严刑峻法驭民，焚书坑儒、筑长城、修阿房，民不堪命。'},
+        {type:'list',title:'秦之得失',items:[
+          '<b>得</b>　商鞅变法，奖励耕战，国力冠绝诸侯',
+          '<b>得</b>　统一文字、度量衡、车轨，奠定大一统格局',
+          '<b>失</b>　严刑峻法，赋役繁重，民怨沸腾',
+          '<b>失</b>　不早立太子，皇权继承无序'
+        ]}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'变法则强，失德则亡',
+      brief:'商鞅变法 · 书同文车同轨 · 焚书坑儒 · 二世而亡',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'商鞅变法',text:'废井田、开阡陌、奖军功、明法度。十年之间，秦民大悦，道不拾遗，山无盗贼。秦国由西陲弱邦一跃而为战国首强。'},
+            {name:'书同文 · 车同轨',text:'推行文字、度量衡、货币、车轨标准化，废除六国杂乱制度，使天下政令通行无阻。'}
+          ],
+          negative:[
+            {name:'焚书坑儒',text:'焚《诗》《书》、百家语，坑杀方士儒生四百六十余人。此举断绝文化传承，使士人离心。'},
+            {name:'二世而亡',text:'赵高、李斯矫诏立胡亥。前207年，子婴降刘邦，秦亡，距统一仅十五年。'}
+          ]},
+        {type:'quote',text:'灭六国者，六国也，非秦也；族秦者，秦也，非天下也。',source:'杜牧《阿房宫赋》'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'始皇崩于沙丘 → 少子胡亥继位',
+      brief:'前210年 · 沙丘之变，矫诏夺位。',
+      sections:[
+        {type:'list',title:'秦纪帝王更替',items:[
+          '<b>前251年</b>　秦昭襄王崩，其子孝文王继位，即位三天而崩',
+          '<b>前250年</b>　孝文王子子楚继位，是为<b>秦庄襄王</b>',
+          '<b>前246年</b>　庄襄王崩，其子嬴政继位，是为<b>秦王政</b>',
+          '<b>前221年</b>　嬴政称<b>始皇帝</b>',
+          '<b>前210年</b>　始皇崩于沙丘平台，少子胡亥继位，是为<b>秦二世</b>',
+          '<b>前207年</b>　赵高弑二世，立子婴；子婴降刘邦，秦亡'
+        ]},
+        {type:'text',title:'沙丘之变的教训',text:'秦始皇病重时遗诏扶苏"与丧会咸阳而葬"，实为传位之意。赵高与李斯合谋秘不发丧，矫诏赐死扶苏、蒙恬，立胡亥。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'荆轲刺秦 · 图穷匕见 · 商鞅徙木立信 · 王翦求田问舍 · 指鹿为马',
+      brief:'秦纪一卷，最动人的是荆轲的悲壮；最深刻的是王翦的自保智慧。',
+      sections:[
+        {type:'story',title:'荆轲刺秦：风萧萧兮易水寒',
+          year:'前227年',
+          content:'战国末期，秦军逼近燕国。燕太子丹曾质于秦，受辱而归，决心报复。他找到荆轲，尊为上卿，请求他去刺杀秦王嬴政。荆轲说："今行而无信，则秦未可亲也。夫今樊将军，秦王购之金千斤，邑万家。诚能得樊将军首，与燕督亢之地图献秦王，秦王必说见臣。"太子丹不忍。荆轲私见樊於期，说："秦之遇将军，可谓深矣。父母宗族，皆为戮没。今闻购将军首，金千斤，邑万家，将奈何？"樊於期仰天大息流涕曰："於期每念之，常痛于骨髓，顾计不知所出耳！"荆轲说："愿得将军之首以献秦王，秦王必喜而见臣，臣左手把其袖，右手揕其胸，则将军之仇报，而燕见陵之愧除矣。"樊於期遂自刎。太子丹又求天下利匕首，以药淬之，又派秦舞阳为副。易水送别时，高渐离击筑，荆轲和而歌："风萧萧兮易水寒，壮士一去兮不复还！"到了秦国，荆轲献图，图穷而匕首见。荆轲左手把秦王袖，右手持匕首刺之。秦王惊，自引而起，袖绝。荆轲追秦王，秦王绕柱走。侍医夏无且以药囊提荆轲。秦王拔剑，斩荆轲左股。荆轲废，乃引匕首提秦王，中铜柱。荆轲自知事不就，倚柱而笑，箕踞以骂曰："事所以不成者，乃欲以生劫之，必得约契以报太子也。"秦王左右杀荆轲。',
+          moral:'<b>明知不可为而为之，是悲壮，也是无奈。</b>荆轲刺秦，终究失败。但他的勇气和忠诚，成为千古传颂的悲壮史诗。司马光对此评论说：燕丹不忍一朝之忿，轻虑浅谋，挑怨速祸，使燕国提前灭亡，荆轲虽勇，但"欲以尺八匕首强燕而弱秦"，岂不愚哉？<em>职场中，光有勇气不够，还要有实力和策略。</em>'
+        },
+        {type:'story',title:'商鞅徙木立信：取信于民，方能推行改革',
+          year:'前356年',
+          content:'商鞅变法之初，新法已定但尚未公布。他在都城市场南门立了一根三丈长的木头，宣布："谁能把它搬到北门，赏十金。"百姓觉得奇怪，没人敢搬。商鞅把赏格提高到五十金，终于有人搬了过去，当场兑现。随后新法颁布，秦国上下肃然遵行。',
+          moral:'<b>信任是改革的前提。</b>商鞅用"徙木立信"的方式，向百姓证明政府言出必行。没有信任，再好的政策也无法推行。职场中，管理者要先建立信任，才能推动变革。'
+        },
+        {type:'story',title:'王翦求田问舍：功高震主的自保智慧',
+          year:'前225年',
+          content:'秦国灭楚，需要六十万大军。王翦率军出发前，向秦始皇请求赏赐大量的良田美宅。秦始皇说："将军放心去吧，何必担心贫穷？"王翦说："为大王带兵，有功也不能封侯，所以趁大王还信任我，多要点田宅给子孙留点家业。"行军途中，他又五次派使者回去请求赏赐。部下觉得他太过分了，王翦私下解释："秦王粗暴而不信人，现在把全国的军队都交给我，我不多请求田宅为子孙谋业，难道让秦王怀疑我吗？"王翦最终功成名就，善始善终。',
+          moral:'<b>功高震主时，主动"自污"是最好的保护。</b>王翦不是贪财，而是让皇帝觉得他没有政治野心。职场中，当你手握重权、功勋卓著时，主动暴露一些"小缺点"，反而能让领导更放心。'
+        },
+        {type:'story',title:'李斯黄犬之叹：临刑才知平凡最珍贵',
+          year:'前208年',
+          content:'李斯辅佐秦始皇统一天下，位极人臣。沙丘之变，他为保相位而与赵高合谋，矫诏赐死扶苏。后来赵高诬陷他谋反，李斯被腰斩于咸阳。临刑前，他对儿子说："吾欲与若复牵黄犬，俱出上蔡东门逐狡兔，岂可得乎！"父子相哭，夷三族。',
+          moral:'<b>贪恋权位，最终会失去一切。</b>李斯临死前想起的，不是他位极人臣的荣耀，而是当年在上蔡牵黄犬逐狡兔的平凡日子。有些底线一旦突破，就再也回不去了。'
+        },
+        {type:'story',title:'赵高指鹿为马：权力的傲慢与群臣的沉默',
+          year:'前207年',
+          content:'赵高专权，想试探群臣是否听命，便牵了一只鹿献给秦二世，说："这是马。"二世笑道："丞相错了，这是鹿。"赵高问左右大臣，有人沉默，有人附和说是马，也有直言是鹿的。赵高暗中陷害那些说是鹿的人。此后群臣皆畏赵高，无人敢言真话。',
+          moral:'<b>当说真话的人被惩罚，沉默就成为大多数人的选择。</b>赵高的"指鹿为马"，是一场权力的服从性测试。职场中，如果组织里说真话的人被打压，沉默就会蔓延，最终没人敢说真话。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'荆轲刺秦 · 沙丘之变 · 大泽乡起义',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 荆轲刺秦：风萧萧兮易水寒',
+          background:'战国末期，秦军逼近燕国。燕太子丹曾质于秦，受辱而归，决心报复。他找到荆轲，尊为上卿，请求他去刺杀秦王嬴政。当时秦国已灭韩、赵，燕国危在旦夕。',
+          figures:'荆轲 — 卫国人，好读书击剑，慷慨悲歌；燕太子丹 — 燕国太子，急于报复秦国；樊於期 — 秦国叛将，逃到燕国，秦王悬赏他的首级；秦舞阳 — 燕国勇士，荆轲的副手；高渐离 — 荆轲好友，击筑送别；秦王嬴政 — 后来的秦始皇。',
+          event:'荆轲带着樊於期的首级和燕国督亢地图，前往秦国刺杀秦王。易水送别时，高渐离击筑，荆轲和而歌："风萧萧兮易水寒，壮士一去兮不复还！"到了秦国，荆轲献图，图穷而匕首见。荆轲左手把秦王袖，右手持匕首刺之。秦王惊，自引而起，袖绝。荆轲追秦王，秦王绕柱走。侍医夏无且以药囊提荆轲。秦王拔剑，斩荆轲左股。荆轲废，乃引匕首提秦王，中铜柱。荆轲自知事不就，倚柱而笑，箕踞以骂曰："事所以不成者，乃欲以生劫之，必得约契以报太子也。"秦王左右杀荆轲。',
+          trigger:'<em>燕太子丹的复仇之心与燕国的危亡</em>。秦军逼近燕国，太子丹急于报复，找到荆轲去刺杀秦王。但司马光批评太子丹"不忍一朝之忿，轻虑浅谋，挑怨速祸"，认为他的冲动加速了燕国的灭亡。',
+          result:'<b>荆轲刺秦失败，秦王大怒，派大军攻燕。</b>燕王喜逃到辽东，杀太子丹献秦，但燕国最终仍被秦所灭。荆轲虽败，但"风萧萧兮易水寒"的悲壮，成为千古传颂的英雄史诗。司马光评曰：燕丹"欲以尺八匕首强燕而弱秦"，岂不愚哉？'
+        },
+        {type:'event',title:'事件二 · 沙丘之变：一封假诏书，断送一个帝国',
+          background:'公元前210年，秦始皇第五次巡游天下，途中病重于沙丘平台。他自知不起，遗诏给长子扶苏："以兵属蒙恬，与丧会咸阳而葬。"这实际上是传位给扶苏。但诏书尚未发出，秦始皇便驾崩。',
+          figures:'秦始皇 — 雄才大略却刚愎自用；扶苏 — 仁厚宽和、有政治远见；蒙恬 — 忠勇名将，扶苏的支持者；赵高 — 阴险奸诈，掌管印信；李斯 — 才高学博却贪恋权位；胡亥 — 秦始皇少子，昏庸无能。',
+          event:'秦始皇驾崩后，赵高扣下遗诏，找到胡亥，说："上崩，无诏封王诸子，而独赐长子书。长子至，即立为皇帝，而子无尺寸之地，为之奈何？"胡亥心动。赵高又找到李斯，说："君侯自料能孰与蒙恬？功高孰与蒙恬？谋远不失孰与蒙恬？无怨于天下孰与蒙恬？长子旧而信之孰与蒙恬？"李斯自知不如，为保相位，遂与赵高合谋。三人秘不发丧，矫诏立胡亥为太子，另写一封诏书赐死扶苏、蒙恬。',
+          trigger:'<em>赵高的野心与李斯的贪权</em>。赵高想掌权，必须扳倒扶苏、蒙恬；李斯想保相位，害怕扶苏即位后用蒙恬为相。两人的私心合在一起，就成了一封假诏书。扶苏接到诏书，蒙恬劝他上书申辩，扶苏却说："父而赐子死，尚安复请！"遂自杀。',
+          result:'<b>扶苏自杀，蒙恬被囚杀，胡亥继位为秦二世。</b>赵高专权，诛杀宗室大臣，指鹿为马；李斯最终被赵高诬陷，腰斩于咸阳。三年后，秦朝灭亡。一封假诏书，断送了一个帝国。'
+        },
+        {type:'event',title:'事件三 · 大泽乡起义：王侯将相宁有种乎',
+          background:'秦二世继位后，赋役繁重，刑罚严苛。公元前209年，朝廷征发九百名戍卒前往渔阳戍边，陈胜、吴广被任命为屯长。队伍行至大泽乡（今安徽宿州），遇到大雨，道路不通，估计已经误了期限。按秦法，误期当斩。',
+          figures:'陈胜 — 佣耕出身，有鸿鹄之志；吴广 — 陈胜同伴，素得人心；秦二世 — 昏庸无能；赵高 — 专权乱政。',
+          event:'陈胜、吴广商议："今亡亦死，举大计亦死，等死，死国可乎！"陈胜说："天下苦秦久矣。吾闻二世少子也，不当立，当立者乃公子扶苏。扶苏以数谏故，上使外将兵。今或闻无罪，二世杀之。百姓多闻其贤，未知其死也。项燕为楚将，数有功，爱士卒，楚人怜之。或以为死，或以为亡。今诚以吾众诈自称公子扶苏、项燕，为天下唱，宜多应者。"吴广以为然。于是陈胜、吴广杀押送军官，召集戍卒，喊出："王侯将相宁有种乎！"揭竿而起。',
+          trigger:'<em>戍卒失期当斩</em>。当法律严苛到让人"怎么做都是死"，人们就会选择拼死一搏。陈胜吴广的起义，是被逼到绝路后的必然选择。',
+          result:'<b>大泽乡起义，天下云集响应。</b>陈胜自立为王，国号"张楚"。六国旧贵族和各地百姓纷纷响应，秦朝统治土崩瓦解。虽然陈胜后来被车夫庄贾所杀，但起义的火种已经燎原。三年后，秦朝灭亡。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'荆轲悲壮 · 王翦老成 · 商鞅刚烈 · 李斯贪权 · 赵高奸佞',
+      brief:'秦国的兴亡，是一部职场教科书；荆轲的悲壮与王翦的自保，形成鲜明对比。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'荆轲',trait:'慷慨悲歌 · 重义轻生 · 明知不可为而为之',
+           desc:'卫国人，好读书击剑。受燕太子丹之托，前往秦国刺杀秦王。易水送别时，高渐离击筑，荆轲和而歌："风萧萧兮易水寒，壮士一去兮不复还！"图穷匕见，刺秦失败。他倚柱而笑，箕踞以骂，慷慨就义。他的勇气和忠诚，成为千古传颂的悲壮史诗。'},
+          {name:'王翦',trait:'老成持重 · 深谙人性 · 功高不震主 · 善始善终',
+           desc:'战国四大名将之一，灭赵、灭燕、灭楚，功勋卓著。但他最厉害的，是懂得"自污求安"：出征前反复向秦始皇要田宅，让皇帝觉得他贪财、没有政治野心。他深知"功高震主"的危险，用表面的贪婪换取了真正的安全。'},
+          {name:'商鞅',trait:'刚烈果决 · 变法图强 · 刻薄寡恩 · 作法自毙',
+           desc:'以铁腕推行变法，使秦国强大。但他为人刻薄，曾对太子师傅施刑；又缺乏圆融，得罪了太多人。秦孝公一死，他立刻失去保护。最终被自己的法困死，是"刚者易折"的典型。'},
+          {name:'李斯',trait:'才高学博 · 贪恋权位 · 明哲保身 · 终遭反噬',
+           desc:'楚国布衣，从荀子学帝王之术，入秦佐始皇统一天下。他才华卓绝，却将个人权位置于原则之上。沙丘之变，他为保相位而与赵高合谋。最终被赵高诬陷，腰斩于咸阳。临刑前对儿子说"吾欲与若复牵黄犬，俱出上蔡东门逐狡兔，岂可得乎！"'},
+          {name:'秦始皇嬴政',trait:'雄才大略 · 刚毅果决 · 暴戾专断 · 求长生',
+           desc:'十三岁即位，二十二岁亲政，三十九岁统一天下。他废分封、行郡县、书同文、车同轨，功业亘古未有。但他刚愎自用，拒谏饰非，焚书坑儒，滥用民力；晚年痴迷长生，最终暴崩于沙丘。'},
+          {name:'赵高',trait:'阴险奸诈 · 善于揣摩 · 睚眦必报 · 不得善终',
+           desc:'宦官出身，精通狱法，深得始皇信任。始皇崩后，他策划沙丘之变，矫诏杀扶苏、蒙恬。后又构陷李斯，弑杀二世，权倾朝野。"指鹿为马"是他试探群臣的手段。最终被子婴设计诛杀，夷三族。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'图穷匕见 · 风萧萧兮易水寒 · 徙木立信 · 作法自毙 · 指鹿为马',
+      brief:'秦纪一卷，成语多是血泪教训，字字千钧。',
+      sections:[
+        {type:'idiom',title:'秦纪衍生的经典成语',items:[
+          {word:'图穷匕见',source:'《资治通鉴》秦纪 · 荆轲',
+           desc:'荆轲献燕国地图，图卷展到最后，露出匕首。比喻事情发展到最后，真相或本意显露出来。'},
+          {word:'风萧萧兮易水寒',source:'《资治通鉴》秦纪 · 荆轲',
+           desc:'荆轲易水送别时所歌："风萧萧兮易水寒，壮士一去兮不复还！"形容慷慨悲壮的离别。'},
+          {word:'徙木立信',source:'《资治通鉴》秦纪 · 商鞅',
+           desc:'商鞅在南门立木，宣布搬木者赏十金，无人敢搬；提高到五十金，终于有人搬了，当场兑现。后用此表示取信于民、树立威信。'},
+          {word:'作法自毙',source:'《资治通鉴》秦纪 · 商鞅',
+           desc:'商鞅逃亡时，因自己制定的"留宿需凭证"之法而无法住店，长叹"为法之敝，一至此哉"。比喻自己立法反而使自己受害。'},
+          {word:'指鹿为马',source:'《资治通鉴》秦纪 · 赵高',
+           desc:'赵高牵鹿献给秦二世，硬说是马，试探群臣。附和者留下，说是鹿者遭陷害。比喻故意颠倒黑白、混淆是非。'},
+          {word:'焚书坑儒',source:'《资治通鉴》秦纪 · 秦始皇',
+           desc:'秦始皇焚《诗》《书》、百家语，坑杀方士儒生四百六十余人。指对文化和知识分子的摧残。'},
+          {word:'揭竿而起',source:'《资治通鉴》秦纪 · 陈胜吴广',
+           desc:'陈胜吴广戍卒失期当斩，遂斩木为兵、揭竿为旗，喊出"王侯将相宁有种乎"。指人民起义反抗暴政。'},
+          {word:'黄犬之叹',source:'《资治通鉴》秦纪 · 李斯',
+           desc:'李斯临刑前对儿子说"吾欲与若复牵黄犬，俱出上蔡东门逐狡兔，岂可得乎"。指临死前对平凡生活的追悔。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'悲壮与自保 · 严法可以取天下 · 自污可以保全身',
+      brief:'荆轲的悲壮与王翦的自保，是两种截然不同的活法。',
+      sections:[
+        {type:'advice',title:'秦纪留给后人的六条忠告',items:[
+          {title:'明知不可为而为之，是悲壮，也是无奈',text:'荆轲刺秦，终究失败。但他的勇气和忠诚，成为千古传颂的悲壮史诗。司马光批评燕丹"不忍一朝之忿，轻虑浅谋"，认为他的冲动加速了燕国的灭亡。光有勇气不够，还要有实力和策略。'},
+          {title:'你能打下什么，不代表你能守住什么',text:'秦以耕战立国，军队天下无双，取六国如摧枯拉朽。但统一后仍以战时之法驭民，民不堪命。取天下与守天下，需要完全不同的逻辑——前者靠力，后者靠德。'},
+          {title:'制度要早定，尤其继承人',text:'秦始皇不早立太子、不明确遗诏，给赵高、李斯留下了可乘之机。一个再强大的帝国，只要继承规则模糊，就可能在一夜之间易主。'},
+          {title:'用人要察其德，才高而德薄者最危险',text:'李斯才华卓绝，却因贪权而参与沙丘之变；赵高精通律法，却将聪明用于构陷。小人若有才，危害远大于无才的庸人。'},
+          {title:'防微杜渐，奸臣不是一天养成的',text:'赵高从宦官到权倾天下，经历了漫长的积累。每一次纵容、每一次沉默，都在为最后的崩塌添砖。'},
+          {title:'民为邦本，逼到绝路必反噬',text:'戍卒失期当斩，是陈胜吴广起义的直接导火索。当法律严苛到让人"怎么做都是死"，人们就会选择拼死一搏。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：荆轲的悲壮与王翦的自保',items:[
+          {title:'功高震主时，主动"自污"是最好的保护',text:'王翦率六十万大军灭楚，出发前反复向秦始皇要田宅。他不是贪财，而是让皇帝觉得他没有政治野心。职场中，当你手握重权、功勋卓著时，主动暴露一些"小缺点"，反而能让领导更放心。'},
+          {title:'让老板觉得你"可控"，比能力更重要',text:'秦始皇为什么放心把六十万大军交给王翦？因为王翦表现得只关心田宅子孙，不关心权力。能力再强，如果让老板觉得"不可控"，早晚会被收拾。'},
+          {title:'光有勇气不够，还要有实力和策略',text:'荆轲刺秦，勇气可嘉，但终究失败。司马光批评燕丹"轻虑浅谋"，认为他的冲动加速了燕国的灭亡。职场中，做大事要有勇气，更要有实力和策略。'},
+          {title:'商鞅的悲剧：做事太绝，没有退路',text:'商鞅变法让秦国强大，但他对太子师傅施刑、得罪太多人，秦孝公一死便失去保护。做事可以坚决，但做人要留余地。'},
+          {title:'李斯的教训：别为了保住位置而放弃底线',text:'李斯为了保住相位，参与沙丘之变，矫诏赐死扶苏。他以为保住了权力，实际上把自己推向了深渊。有些底线一旦突破，就再也回不去了。'},
+          {title:'商鞅作法自毙：你定的规则，最后可能困住你自己',text:'商鞅逃亡时因自己定的"留宿需凭证"之法而无法住店。职场中，你制定的苛刻规则、你对待他人的方式，最终都可能反噬到自己身上。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 3. 西汉 ============================ */
+{
+  id:'xihan', name:'汉纪 · 西汉', era:'西汉', range:'前206 — 公元25', accent:'#3b82f6',
+  tagline:'鸿门宴 · 萧何追韩信 · 汉承秦制',
+  intro:'刘邦入关灭秦，建立汉朝。鸿门宴上险中求生，萧何月下追韩信，韩信百战百胜却无善终，晁错削藩被腰斩——这些鲜活的历史，照见职场中最残酷的生存法则。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#3b82f6',c2:'#1d4ed8',
+      headline:'前206年刘邦入关 · 前202年称帝',
+      brief:'秦亡汉兴，天下更始，定都长安。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元前206年，刘邦率先入关中，秦王子婴出降。此后楚汉相争四年，前202年项羽败亡于垓下，刘邦即皇帝位，定都长安。'},
+        {type:'list',title:'西汉大事年表',items:[
+          '<b>前206年</b>　刘邦入关，秦亡；鸿门宴','<b>前206年</b>　萧何月下追韩信，刘邦拜将',
+          '<b>前202年</b>　垓下之战，刘邦称帝','<b>前195年</b>　刘邦崩，惠帝继位',
+          '<b>前180年</b>　诸吕被诛，汉文帝继位','<b>前141年</b>　汉武帝刘彻继位',
+          '<b>前91年</b>　巫蛊之祸，太子刘据自杀'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'郡国并行 → 推恩削藩',
+      brief:'中央与地方的百年博弈，集权终胜分权。',
+      sections:[
+        {type:'text',title:'汉初的妥协',text:'刘邦分封同姓子弟为诸侯王，形成"郡国并行"制。诸侯王跨州连郡、自置官吏、自铸钱币，尾大不掉，终致景帝时七国之乱。'},
+        {type:'list',title:'权力收束三步走',items:[
+          '<b>第一步</b>　文帝采贾谊"众建诸侯而少其力"之策',
+          '<b>第二步</b>　景帝用晁错削藩，引发七国之乱，三月而平',
+          '<b>第三步</b>　武帝行主父偃"推恩令"，诸侯封地分予子弟'
+        ]},
+        {type:'text',title:'结果',text:'至汉武帝时，诸侯王"惟得衣食租税，不与政事"，中央集权彻底确立。'}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'礼者，所以辨上下、定民志',
+      brief:'汉初以礼制重建天下秩序。',
+      sections:[
+        {type:'quote',text:'礼者，所以辨上下，定民志也。',source:'《资治通鉴》汉纪'},
+        {type:'text',title:'为什么汉初急需礼制？',text:'秦末大乱，纲纪荡然。刘邦称帝后，群臣多是草莽功臣，饮酒争功、醉后喧哗、拔剑击柱，朝堂如同市井。'},
+        {type:'text',title:'司马光的用意',text:'借汉初制礼之事，重申《资治通鉴》开篇之旨：礼是维系天下的纲纪，天子之职莫大于礼。'}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'制礼则治，失序则乱',
+      brief:'叔孙通制朝仪 · 文景之治 · 七国之乱 · 巫蛊之祸',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'叔孙通制朝仪',text:'叔孙通征鲁儒生三十余人共制朝仪。长乐宫落成，诸侯群臣按礼朝贺。高祖感叹："吾乃今日知为皇帝之贵也。"'},
+            {name:'文景之治',text:'汉文帝、景帝轻徭薄赋，与民休息，废除肉刑，躬行节俭。至景帝末年，京师之钱累巨万，太仓之粟陈陈相因。'}
+          ],
+          negative:[
+            {name:'七国之乱',text:'汉景帝用晁错削藩，吴王刘濞联合楚、赵等七国反叛。虽三月而平，但暴露出诸侯坐大、名分不清的祸患。'},
+            {name:'巫蛊之祸',text:'汉武帝晚年多疑，江充构陷太子刘据行巫蛊之术。太子被迫起兵，兵败自杀，皇后卫子夫亦自尽。'}
+          ]},
+        {type:'quote',text:'前事之不忘，后事之师也。',source:'《资治通鉴》引《战国策》'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'汉高祖崩 → 其子刘盈继位',
+      brief:'前195年 · 惠帝立，吕后临朝。',
+      sections:[
+        {type:'list',title:'西汉帝王更替',items:[
+          '<b>前195年</b>　汉高祖刘邦崩，其子刘盈继位，是为<b>汉惠帝</b>',
+          '<b>前188年</b>　惠帝崩于未央宫，吕后立少帝，临朝称制八年',
+          '<b>前180年</b>　吕后崩，周勃、陈平诛诸吕，代王刘恒继位，是为<b>汉文帝</b>',
+          '<b>前157年</b>　文帝崩，其子刘启继位，是为<b>汉景帝</b>',
+          '<b>前141年</b>　景帝崩，其子刘彻继位，是为<b>汉武帝</b>',
+          '<b>前87年</b>　武帝崩，少子刘弗陵继位，是为<b>汉昭帝</b>'
+        ]},
+        {type:'text',title:'继承制度的教训',text:'刘邦崩后，吕后专权、诸吕乱政；惠帝早逝，皇位继承几经波折。嫡长继承须早定，名分须早明。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'鸿门宴 · 萧何月下追韩信 · 韩信胯下之辱 · 韩信之死 · 缇萦救父',
+      brief:'鸿门宴上险中求生，萧何月下追韩信，韩信百战百胜却无善终——这些故事，每一个职场人都该读。',
+      sections:[
+        {type:'story',title:'鸿门宴：项庄舞剑，意在沛公',
+          year:'前206年',
+          content:'刘邦率先入关，秦王子婴出降。刘邦派兵守函谷关，不让诸侯军入关。项羽大怒，率四十万大军攻破函谷关，进驻鸿门，准备攻打刘邦。刘邦只有十万军队，驻在霸上。项羽的叔父项伯，与张良有旧交，连夜骑马到刘邦军中，私见张良，劝他逃走。张良说："臣为韩王送沛公，沛公今事有急，亡去不义，不可不语。"于是把项伯引见给刘邦。刘邦与项伯约为婚姻，说："吾入关，秋毫不敢有所近，籍吏民，封府库，而待将军。所以遣将守关者，备他盗之出入与非常也。日夜望将军至，岂敢反乎！"项伯回去后，劝项羽说："沛公不先破关中，公岂敢入乎？今人有大功而击之，不义也。不如因善遇之。"项羽同意。第二天，刘邦带百余骑到鸿门见项羽，说："臣与将军戮力而攻秦，将军战河北，臣战河南，然不自意能先入关破秦，得复见将军于此。今者有小人之言，令将军与臣有隙。"项羽说："此沛公左司马曹无伤言之，不然，籍何以至此？"项羽留刘邦饮酒。范增多次示意项羽杀刘邦，项羽不忍。范增于是叫来项庄，说："君王为人不忍。若入前为寿，寿毕，请以剑舞，因击沛公于坐，杀之。"项庄拔剑起舞。项伯也拔剑起舞，常以身翼蔽沛公。张良见形势危急，出召樊哙。樊哙带剑拥盾入军门，卫士欲止之，樊哙侧其盾以撞，卫士仆地。樊哙入，披帷西向立，瞋目视项羽，头发上指，目眦尽裂。项羽按剑而跽曰："客何为者？"张良说："沛公之参乘樊哙者也。"项羽说："壮士！赐之卮酒。"樊哙拜谢，起，立而饮之。项羽说："赐之彘肩。"樊哙覆其盾于地，加彘肩上，拔剑切而啖之。项羽说："壮士！能复饮乎？"樊哙说："臣死且不避，卮酒安足辞！夫秦王有虎狼之心，杀人如不能举，刑人如恐不胜，天下皆叛之。怀王与诸将约曰：先破秦入咸阳者王之。今沛公先破秦入咸阳，毫毛不敢有所近，封闭宫室，还军霸上，以待大王来。故遣将守关者，备他盗出入与非常也。劳苦而功高如此，未有封侯之赏，而听细说，欲诛有功之人，此亡秦之续耳。窃为大王不取也！"项羽未有以应，说："坐。"樊哙从良坐。坐须臾，沛公起如厕，因招樊哙出。沛公说："今者出，未辞也，为之奈何？"樊哙说："大行不顾细谨，大礼不辞小让。如今人方为刀俎，我为鱼肉，何辞为？"于是刘邦带着樊哙、夏侯婴、靳强、纪信等四人，从骊山脚下抄小路逃回霸上。张良留下献礼。项羽问："沛公安在？"张良说："闻大王有意督过之，脱身独去，已至军矣。"项羽接受了玉璧。范增拔剑撞破玉斗，叹曰："唉！竖子不足与谋。夺项王天下者，必沛公也。吾属今为之虏矣！"',
+          moral:'<b>在绝对劣势时，示弱和妥协是最聪明的选择。</b>刘邦在鸿门宴上，面对项羽四十万大军，选择了低头示弱。他能屈能伸，最终反败为胜。职场中，当你处于劣势时，不要硬碰硬，学会示弱、保存实力，才能等待翻盘的机会。'
+        },
+        {type:'story',title:'萧何月下追韩信：人才是最大的竞争力',
+          year:'前206年',
+          content:'韩信投奔刘邦后，不受重用，只做了个连敖（管粮仓的小官）。后来因为犯法当斩，同案的十三人都已被斩，轮到韩信时，他抬头看见夏侯婴，说："上不欲就天下乎？何为斩壮士！"夏侯婴奇之，释放了他，与他交谈，大为欣赏，推荐给刘邦。刘邦让韩信做了治粟都尉，仍未重用。韩信多次与萧何交谈，萧何认为他是奇才。当时刘邦被项羽封为汉王，封地在偏远的巴蜀，将士们思乡心切，纷纷逃亡。韩信见自己不被重用，也逃走了。萧何听说韩信逃走，来不及报告刘邦，亲自骑马追赶。有人报告刘邦说："丞相萧何逃走了！"刘邦大怒，如失左右手。过了两天，萧何回来见刘邦。刘邦又怒又喜，骂道："若亡，何也？"萧何说："臣不敢亡也，臣追亡者。"刘邦问："所追者谁？"萧何说："韩信。"刘邦又骂道："诸将亡者以十数，公无所追；追信，诈也。"萧何说："诸将易得耳。至如信者，国士无双。王必欲长王汉中，无所事信；必欲争天下，非信无所与计事者。顾王策安所决耳。"刘邦说："吾亦欲东耳，安能郁郁久居此乎？"萧何说："王计必欲东，能用信，信即留；不能用，信终亡耳。"刘邦说："吾为公以为将。"萧何说："虽为将，信必不留。"刘邦说："以为大将。"萧何说："幸甚。"于是刘邦要召见韩信拜将。萧何说："王素慢无礼，今拜大将如呼小儿耳，此乃信所以去也。王必欲拜之，择良日，斋戒，设坛场，具礼，乃可耳。"刘邦同意。众将听说要拜大将，皆喜，人人各自以为得大将。至拜大将，乃韩信也，一军皆惊。',
+          moral:'<b>人才是最大的竞争力，而发现人才的人，比人才更难得。</b>萧何月下追韩信，体现了他对人才的重视和识别能力。刘邦能得天下，靠的就是张良、萧何、韩信这三位人杰。职场中，学会识别人才、尊重人才、用好人才，是领导者的核心能力。'
+        },
+        {type:'story',title:'韩信胯下之辱：忍辱是为了走更远的路',
+          year:'前200年',
+          content:'韩信早年贫困，淮阴屠户中有一少年当众挑衅："你要是不怕死，就刺我；怕死，就从我裤裆下爬过去。"韩信盯着他看了很久，最终俯身从他胯下爬过。满街人都笑他怯懦。多年后韩信被封为楚王，召见当年那个少年，任命他为中尉，说："此壮士也。方辱我时，我宁不能杀之邪？杀之无名，故忍而就于此。"',
+          moral:'<b>真正的强者不是没有愤怒，而是懂得把愤怒换算成代价与收益。</b>韩信受胯下之辱时，杀那个少年易如反掌，但他选择了忍。因为他知道，杀之无名，反而会毁了自己的前程。忍一时之辱，是为了走更远的路。'
+        },
+        {type:'story',title:'韩信之死：百战百胜，却无善终',
+          year:'前196年',
+          content:'韩信是刘邦取天下的第一功臣，定三秦、灭魏、破代、下赵、降燕、平齐、灭楚，百战百胜，从无败绩。刘邦曾与他论兵，韩信说："陛下不过能将十万。"刘邦问："于君何如？"韩信答："臣多多而益善耳。"刘邦笑道："多多益善，何为为我禽？"韩信答："陛下不能将兵，而善将将，此乃信之所以为陛下禽也。"然而功高震主，刘邦先夺其兵权，降为淮阴侯。韩信心中怨望，与陈豨密谋反叛，事泄，被吕后与萧何诱杀于长乐宫。临死前长叹："吾悔不用蒯通之计，乃为儿女子所诈，岂非天哉！"夷三族。',
+          moral:'<b>功高震主时，主动交权比死扛更明智。</b>韩信百战百胜，功高震主，却始终抓着兵权不放。刘邦两次夺其兵权，他都不知收敛。对比王翦"求田问舍"、张良"功成身退"，韩信的问题不是能力不够，而是不懂"退"的智慧。'
+        },
+        {type:'story',title:'缇萦救父：一个少女的上书，改变了千年刑罚',
+          year:'前167年',
+          content:'齐太仓令淳于意获罪，按律当受肉刑。他的小女儿缇萦随父到长安，上书汉文帝："妾父为吏，齐中皆称其廉平，今坐法当刑。妾切痛死者不可复生，而刑者不可复续，虽欲改过自新，其道莫由，终不可得。妾愿没入为官婢，以赎父刑罪，使得自新。"文帝读后深受触动，下令废除肉刑。',
+          moral:'<b>一个社会的进步，往往始于一个人愿意为陌生人说话。</b>缇萦救父，靠的不是权势，而是最朴素的道理：死者不可复生，刑者不可复续。她的上书，改变了千年刑罚。职场中，不要低估一个人的善意和勇气。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'鸿门宴 · 萧何追韩信 · 晁错之死与七国之乱',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌与因果链条。',
+      sections:[
+        {type:'event',title:'事件一 · 鸿门宴：一场饭局，决定了天下归属',
+          background:'公元前206年，刘邦率先入关，秦王子婴出降。刘邦派兵守函谷关，不让诸侯军入关。项羽大怒，率四十万大军攻破函谷关，进驻鸿门，准备攻打刘邦。刘邦只有十万军队，驻在霸上。',
+          figures:'刘邦 — 能屈能伸、善于用人；项羽 — 勇冠三军、刚愎自用；范增 — 项羽谋士，主张杀刘邦；项伯 — 项羽叔父，与张良有旧交；张良 — 刘邦谋士，运筹帷幄；樊哙 — 刘邦部将，勇猛无畏；项庄 — 项羽部将，舞剑助兴。',
+          event:'项伯连夜到刘邦军中，私见张良，劝他逃走。张良引项伯见刘邦，刘邦与项伯约为婚姻。项伯回去后劝项羽善待刘邦。第二天，刘邦带百余骑到鸿门见项羽，卑辞谢罪。项羽留刘邦饮酒。范增多次示意项羽杀刘邦，项羽不忍。范增叫来项庄，舞剑助兴，意在刺杀刘邦。项伯也拔剑起舞，以身翼蔽刘邦。张良出召樊哙。樊哙带剑拥盾入军门，瞋目视项羽，慷慨陈词，项羽为之动容。刘邦趁机起如厕，带着樊哙等人从小路逃回霸上。',
+          trigger:'<em>刘邦先入关中，触怒了项羽</em>。刘邦派兵守函谷关，不让诸侯军入关，项羽大怒。但更根本的原因，是刘邦和项羽争夺天下的矛盾已经不可调和。',
+          result:'<b>刘邦险中求生，逃回霸上；范增叹曰"竖子不足与谋"。</b>鸿门宴后，项羽进入咸阳，杀秦王子婴，烧阿房宫，分封诸侯。刘邦被封为汉王，封地在偏远的巴蜀。但鸿门宴上，刘邦的示弱和项羽的犹豫，已经埋下了楚汉相争的结局。范增叹曰："唉！竖子不足与谋。夺项王天下者，必沛公也。"'
+        },
+        {type:'event',title:'事件二 · 萧何月下追韩信：人才是最大的竞争力',
+          background:'韩信投奔刘邦后，不受重用，只做了个管粮仓的小官。刘邦被项羽封为汉王，封地在偏远的巴蜀，将士们思乡心切，纷纷逃亡。韩信见自己不被重用，也逃走了。',
+          figures:'韩信 — 军事天才，但不受重用；萧何 — 刘邦丞相，善于识别人才；刘邦 — 汉王，起初不重视韩信；夏侯婴 — 刘邦部将，首先发现韩信之才。',
+          event:'萧何听说韩信逃走，来不及报告刘邦，亲自骑马追赶。有人报告刘邦说："丞相萧何逃走了！"刘邦大怒，如失左右手。过了两天，萧何回来见刘邦。刘邦又怒又喜，骂道："若亡，何也？"萧何说："臣不敢亡也，臣追亡者。"刘邦问："所追者谁？"萧何说："韩信。"刘邦又骂道："诸将亡者以十数，公无所追；追信，诈也。"萧何说："诸将易得耳。至如信者，国士无双。王必欲长王汉中，无所事信；必欲争天下，非信无所与计事者。"刘邦说："吾为公以为将。"萧何说："虽为将，信必不留。"刘邦说："以为大将。"萧何说："幸甚。"于是刘邦择良日，斋戒，设坛场，拜韩信为大将。',
+          trigger:'<em>韩信不受重用，失望逃走</em>。韩信多次与萧何交谈，萧何认为他是奇才。但刘邦不重视韩信，只让他做治粟都尉。韩信见自己不被重用，也逃走了。',
+          result:'<b>萧何追回韩信，刘邦拜为大将，韩信成为汉朝开国第一功臣。</b>萧何月下追韩信，体现了他对人才的重视和识别能力。刘邦能得天下，靠的就是张良、萧何、韩信这三位人杰。<em>人才是最大的竞争力，而发现人才的人，比人才更难得。</em>'
+        },
+        {type:'event',title:'事件三 · 晁错之死与七国之乱：忠心为何被腰斩',
+          background:'汉高祖刘邦建立汉朝后，分封同姓子弟为诸侯王，形成"郡国并行"制。诸侯王跨州连郡、自置官吏、自铸钱币，势力越来越大。至汉景帝时，吴王刘濞经营吴地四十余年，煮盐铸钱，招纳亡命，富可敌国，已有不臣之心。御史大夫晁错敏锐地看到了诸侯王的威胁，多次上书主张削藩。',
+          figures:'<b>晁错</b> — 御史大夫，力主削藩，眼光长远但性格刚直，不善于处理人际关系；<b>袁盎</b> — 曾任吴相，与晁错素有旧怨，主张杀晁错以谢天下；<b>汉景帝</b> — 采纳削藩之议，但在七国之乱面前犹豫动摇；<b>吴王刘濞</b> — 七国之乱的首领，以"诛晁错、清君侧"为名反叛；<b>周亚夫</b> — 太尉，率军平定七国之乱。',
+          event:'晁错对景帝说："今削之亦反，不削亦反。削之，其反亟，祸小；不削，反迟，祸大。"景帝采纳，先后削夺赵王、胶西王、楚王的郡县。吴王刘濞遂联合楚、赵、胶西、胶东、菑川、济南六国，以"诛晁错、清君侧"为名起兵反叛。景帝慌了，与袁盎商议。袁盎说："吴楚反，皆以诛晁错为名。今斩晁错，发使赦吴楚七国，复其故地，则兵可无血刃而俱罢。"景帝沉默良久，说："顾诚何如，吾不爱一人以谢天下。"于是命人将晁错骗至东市，穿着朝服腰斩。',
+          trigger:'<em>袁盎的进言与景帝的动摇</em>。袁盎与晁错素有旧怨，七国之乱起，袁盎趁机建议杀晁错以谢天下。景帝在叛军压力下动摇，寄希望于杀晁错换取七国罢兵。但吴王刘濞的目的根本不是"清君侧"，而是夺取皇位——杀晁错，只是让他更加轻视朝廷。',
+          result:'<b>晁错被腰斩于东市，但七国之乱并未因此平息。</b>吴王刘濞得知晁错已死，不但不退兵，反而自称"东帝"，继续进攻。景帝这才明白杀了晁错也无济于事，遂派周亚夫率军平叛。周亚夫用三个月时间平定七国之乱，吴王刘濞被杀。晁错成了政治牺牲品，穿着朝服被斩于刑场，至死不知自己为何而死。<em>苏东坡评曰："天下之患，最不可为者，名为治平无事，而其实有不测之忧。"</em>'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'刘邦能屈 · 韩信居功 · 萧何识人 · 樊哙勇猛 · 张良知退',
+      brief:'同样是功臣，不同的结局，差别就在一个"退"字。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'刘邦',trait:'能屈能伸 · 知人善任 · 豁达大度 · 轻慢无礼',
+           desc:'出身亭长，不喜读书，常轻慢儒生。但他最大的本事是"能用人"：张良运筹帷幄，萧何镇国家抚百姓，韩信连百万之军，他都能放手使用。鸿门宴上，他能屈能伸，卑辞谢罪，最终反败为胜。'},
+          {name:'韩信',trait:'忍辱负重 · 用兵如神 · 居功自傲 · 不善自保',
+           desc:'能忍胯下之辱，也能统百万之军。背水一战、十面埋伏，用兵出神入化。但功成之后，他自恃功高，言语之间多有怨望。刘邦夺其兵权、降其王位，他仍不知收敛，最终被吕后与萧何诱杀于长乐宫。成也萧何，败也萧何。'},
+          {name:'萧何',trait:'稳重谨慎 · 善于治理 · 慧眼识人 · 明哲保身',
+           desc:'刘邦的丞相，镇国家、抚百姓、给馈饷，是汉朝建立的后勤总指挥。他月下追韩信，举荐韩信为大将，体现了他的识人之明。但他晚年为了自保，不得不参与诱杀韩信的阴谋。"成也萧何，败也萧何"。'},
+          {name:'樊哙',trait:'勇猛无畏 · 忠心耿耿 · 粗中有细 · 临危不惧',
+           desc:'刘邦的连襟，以屠狗为业。鸿门宴上，他带剑拥盾入军门，瞋目视项羽，慷慨陈词，为刘邦争取了逃跑的时间。他勇猛无畏，粗中有细，是刘邦最信任的将领之一。'},
+          {name:'张良',trait:'运筹帷幄 · 淡泊名利 · 功成身退 · 明哲保身',
+           desc:'辅佐刘邦定天下，被封为留侯。但他自称"以三寸舌为帝者师，封万户，位列侯，此布衣之极，于良足矣"，遂学辟谷、导引之术，远离朝堂纷争，得以善终。'},
+          {name:'项羽',trait:'勇冠三军 · 刚愎自用 · 有妇人之仁 · 宁死不渡',
+           desc:'力能扛鼎，才气过人，巨鹿之战破釜沉舟，威震诸侯。但他刚愎自用，韩信、陈平、英布皆从楚营投汉。他有"妇人之仁"——见士兵受伤会流泪分食，却舍不得封赏功臣。垓下被围，四面楚歌，他叹"天亡我，非用兵之罪也"，自刎乌江。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'鸿门宴 · 项庄舞剑 · 成也萧何 · 多多益善 · 约法三章',
+      brief:'西汉成语，多与功臣命运、楚汉相争相关，读来令人唏嘘。',
+      sections:[
+        {type:'idiom',title:'西汉衍生的经典成语',items:[
+          {word:'鸿门宴',source:'《资治通鉴》汉纪 · 项羽刘邦',
+           desc:'项羽在鸿门设宴招待刘邦，范增想借机杀刘邦，项庄舞剑，项伯翼蔽。刘邦最终逃脱。指不怀好意的宴会。'},
+          {word:'项庄舞剑，意在沛公',source:'《资治通鉴》汉纪 · 鸿门宴',
+           desc:'项庄在鸿门宴上舞剑，表面助兴，实际想刺杀刘邦。指说话或行动表面上有正当名目，实际上另有意图。'},
+          {word:'成也萧何，败也萧何',source:'《资治通鉴》汉纪 · 韩信',
+           desc:'萧何月下追韩信，举荐他为大将；后来又是萧何参与诱杀韩信。指事情的成败都由同一个人造成。'},
+          {word:'多多益善',source:'《资治通鉴》汉纪 · 韩信',
+           desc:'刘邦问韩信能带多少兵，韩信说"臣多多而益善耳"。形容越多越好。后也指贪多不厌。'},
+          {word:'胯下之辱',source:'《资治通鉴》汉纪 · 韩信',
+           desc:'韩信早年受淮阴屠户少年挑衅，从其胯下爬过。后封楚王，召见少年任为中尉，说"杀之无名，故忍而就于此"。指能忍辱负重，终成大器。'},
+          {word:'约法三章',source:'《资治通鉴》汉纪 · 刘邦',
+           desc:'刘邦入关，与父老约法三章："杀人者死，伤人及盗抵罪。"废除秦朝苛法。指订立简明规矩，共同遵守。'},
+          {word:'运筹帷幄',source:'《资治通鉴》汉纪 · 刘邦',
+           desc:'刘邦说张良"运筹帷幄之中，决胜千里之外"。指在后方制定作战策略，指挥前方作战。'},
+          {word:'四面楚歌',source:'《资治通鉴》汉纪 · 垓下之战',
+           desc:'项羽被围垓下，夜闻汉军四面皆楚歌，以为楚地尽失，遂自刎乌江。比喻孤立无援、四面受敌的处境。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'知人者智 · 忍辱者强 · 功成者退 · 鸿门宴的示弱智慧',
+      brief:'西汉开国群像，是一部职场生存百科；鸿门宴的示弱、萧何的识人、韩信的教训，都值得深思。',
+      sections:[
+        {type:'advice',title:'西汉留给后人的六条忠告',items:[
+          {title:'在绝对劣势时，示弱和妥协是最聪明的选择',text:'鸿门宴上，刘邦面对项羽四十万大军，选择了低头示弱。他能屈能伸，最终反败为胜。职场中，当你处于劣势时，不要硬碰硬，学会示弱、保存实力，才能等待翻盘的机会。'},
+          {title:'人才是最大的竞争力，而发现人才的人，比人才更难得',text:'萧何月下追韩信，体现了他对人才的重视和识别能力。刘邦能得天下，靠的就是张良、萧何、韩信这三位人杰。职场中，学会识别人才、尊重人才、用好人才，是领导者的核心能力。'},
+          {title:'忍一时之辱，是为了走更远的路',text:'韩信受胯下之辱时，杀那个少年易如反掌，但他选择了忍。真正的强者不是没有愤怒，而是懂得把愤怒换算成代价与收益。'},
+          {title:'知进退，比知进取更难',text:'张良功成身退，学辟谷导引，得以善终；韩信居功自傲，言语怨望，终被诛杀。同样的功劳，不同的结局，差别就在一个"退"字。'},
+          {title:'礼制是秩序的成本最低的维护方式',text:'叔孙通制朝仪前，朝堂如同菜市场；制礼之后，"莫不振恐肃敬"。礼制看似繁琐，实则是用最小的成本，让人各安其位、各守其分。'},
+          {title:'老臣厚重，是国家的压舱石',text:'刘邦临终说"安刘氏者必勃也"。周勃不善言辞、不会写文章，却厚重可靠。关键时刻，是这种人扛住了局面。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：鸿门宴的示弱、萧何的识人、韩信的教训',items:[
+          {title:'在绝对劣势时，示弱是最聪明的选择',text:'鸿门宴上，刘邦面对项羽四十万大军，选择了低头示弱。他能屈能伸，最终反败为胜。职场中，当你处于劣势时，不要硬碰硬，学会示弱、保存实力，才能等待翻盘的机会。'},
+          {title:'发现人才的人，比人才更难得',text:'萧何月下追韩信，体现了他对人才的重视和识别能力。职场中，学会识别人才、尊重人才、用好人才，是领导者的核心能力。'},
+          {title:'功高震主时，主动交权比死扛更明智',text:'韩信百战百胜，功高震主，却始终抓着兵权不放。刘邦两次夺其兵权，他都不知收敛。对比王翦"求田问舍"、张良"功成身退"，韩信的问题不是能力不够，而是不懂"退"的智慧。'},
+          {title:'不要跟老板说"你不行，我行"',text:'韩信对刘邦说"陛下不过能将十万，臣多多益善"，虽然后面补了一句"陛下善将将"，但这句话已经让刘邦不舒服了。职场中，即使你能力再强，也要给老板留面子。'},
+          {title:'晁错的教训：做对的事，也要讲方法',text:'晁错削藩的出发点是对的，但他性格刚直、不善于处理人际关系，得罪了袁盎等大臣。七国之乱一起，他成了政治牺牲品。职场中，推动改革或做正确的事时，也要讲究策略，争取同盟，而不是四面树敌。'},
+          {title:'不要在老板犹豫时替他做决定',text:'晁错力主削藩，汉景帝其实一直犹豫。七国之乱起，景帝杀晁错以求和。职场中，当你推动一件有风险的事时，要确保老板真正下定决心，而不是你替他下决心。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 4. 东汉 ============================ */
+{
+  id:'donghan', name:'汉纪 · 东汉', era:'东汉', range:'公元25 — 220', accent:'#06b6d4',
+  tagline:'光武中兴 · 外戚宦官',
+  intro:'刘秀重建汉室，以柔道治国，开光武中兴。然自和帝以后，外戚与宦官交替专权。杨震"四知"、班超投笔、耿恭守疏勒，是东汉风骨，也是职场人的精神坐标。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#06b6d4',c2:'#0e7490',
+      headline:'公元25年刘秀称帝于鄗',
+      brief:'王莽新朝覆灭，汉室重建，定都洛阳。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元25年，刘秀在鄗城即皇帝位，国号仍为"汉"，定都洛阳，史称东汉。此后十余年削平群雄，天下复归一统。'},
+        {type:'list',title:'东汉大事年表',items:[
+          '<b>公元25年</b>　刘秀称帝，是为光武帝','<b>公元36年</b>　灭公孙述，天下统一',
+          '<b>公元57年</b>　光武帝崩，明帝继位','<b>公元73年</b>　班超出使西域',
+          '<b>公元105年</b>　蔡伦改进造纸术','<b>公元166年</b>　党锢之祸起',
+          '<b>公元220年</b>　曹丕代汉，东汉亡'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'外戚与宦官交替专权',
+      brief:'皇权旁落，朝纲日坏，士人遭锢。',
+      sections:[
+        {type:'text',title:'权力失衡的恶性循环',text:'东汉自和帝以后，皇帝多年幼继位，太后临朝，外戚掌权；皇帝长大后依靠宦官铲除外戚，宦官又继而专权。'},
+        {type:'list',title:'权力结构演变',items:[
+          '<b>光武时期</b>　"退功臣而进文吏"，尚书台掌实权，皇权集中',
+          '<b>和帝以后</b>　外戚窦氏、邓氏、梁氏相继专权',
+          '<b>桓灵时期</b>　宦官集团把持朝政，卖官鬻爵',
+          '<b>士人集团</b>　太学生与清流士大夫抨击时政，遭党锢之祸'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'柔道治国，亦须纲纪分明',
+      brief:'光武以柔道取天下，然柔而无纲则乱。',
+      sections:[
+        {type:'quote',text:'吾理天下，亦欲以柔道行之。',source:'汉光武帝刘秀'},
+        {type:'text',title:'司马光的评述',text:'光武帝以柔道治国，退功臣、进文吏，与民休息，故能致中兴之治。但柔道须以纲纪为骨，若一味宽柔而无制度约束，则外戚、宦官、豪强皆可坐大。'},
+        {type:'list',title:'光武之得与失',items:[
+          '<b>得</b>　释放奴婢、减轻赋税、精简官吏','<b>得</b>　加强尚书台，抑制三公',
+          '<b>失</b>　过分倚重内朝，为宦官专权埋下伏笔','<b>失</b>　未妥善解决外戚问题'
+        ]}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'中兴在德，衰亡在纲',
+      brief:'光武中兴 · 明章之治 · 党锢之祸 · 黄巾起义',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'光武中兴',text:'刘秀重建汉室，释放奴婢、减免赋税、裁并郡县、整顿吏治。数十年间，天下户口殷盛。'},
+            {name:'明章之治',text:'汉明帝、章帝承光武之业，吏治清明，重视儒学，遣班超通西域。'}
+          ],
+          negative:[
+            {name:'党锢之祸',text:'桓帝、灵帝时，宦官集团诬告李膺等清流士大夫结党营私，大批名士被捕、禁锢终身。'},
+            {name:'黄巾起义',text:'灵帝时政治腐败，太平道张角率众起义，八州并起。东汉朝廷无力镇压，不得不放权于地方州牧。'}
+          ]},
+        {type:'quote',text:'亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。',source:'诸葛亮《出师表》'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'光武帝崩 → 其子刘庄继位',
+      brief:'公元57年 · 明帝立，东汉盛世开端。',
+      sections:[
+        {type:'list',title:'东汉帝王更替',items:[
+          '<b>公元57年</b>　光武帝刘秀崩，其子刘庄继位，是为<b>汉明帝</b>',
+          '<b>公元75年</b>　明帝崩，其子刘炟继位，是为<b>汉章帝</b>',
+          '<b>公元88年</b>　章帝崩，其子刘肇继位，是为<b>汉和帝</b>',
+          '<b>公元106年</b>　和帝崩，少子刘隆继位（殇帝），八月而夭',
+          '<b>公元125年</b>　安帝崩，刘保继位，是为<b>汉顺帝</b>',
+          '<b>公元168年</b>　桓帝崩，刘宏继位，是为<b>汉灵帝</b>',
+          '<b>公元189年</b>　灵帝崩，董卓废少帝，立刘协为<b>汉献帝</b>',
+          '<b>公元220年</b>　献帝禅位于曹丕，东汉亡'
+        ]},
+        {type:'text',title:'更迭背后的乱象',text:'东汉中后期皇帝多幼年继位、早年夭折，太后临朝、外戚辅政成为常态。每一次皇位更迭，都伴随着外戚与宦官的殊死争斗。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'昆阳之战 · 大树将军 · 杨震四知 · 班超投笔 · 耿恭守疏勒',
+      brief:'东汉风骨，尽在这些细节里；大树将军的谦退、耿恭的坚守，都是职场最稀缺的品质。',
+      sections:[
+        {type:'story',title:'昆阳之战：三千破四十二万',
+          year:'公元23年',
+          content:'王莽派四十二万大军围攻昆阳，城中守军仅八九千人。刘秀率十三骑趁夜突围求援，归来时带回三千敢死队，从城外猛冲莽军中军。恰逢大雷风，屋瓦皆飞，暴雨如注。莽军大溃，自相践踏，溺死者数以万计。刘秀一战成名，新莽政权由此土崩瓦解。',
+          moral:'<b>以少胜多，靠的是谋略、士气和出其不意。</b>刘秀在昆阳之战中，以三千敢死队冲垮四十二万大军，创造了军事史上的奇迹。他的胆略和谋略，为东汉的建立奠定了基础。'
+        },
+        {type:'story',title:'大树将军冯异：谦退不伐，反而被人记住',
+          year:'公元25年',
+          content:'冯异为人谦退不伐，与其他将领相遇时，总是主动让道。行军休息时，诸将坐在一起争功论赏，冯异却独自退到树下，从不参与。军中于是称他为"大树将军"。光武帝刘秀因此格外器重他。',
+          moral:'<b>急着表现的人往往被忽略，踏实做事的人终会被看见。</b>诸将争功，冯异独坐树下，结果全军都叫他"大树将军"，光武帝也因此格外器重他。职场中，越是急着表功的人，越容易让人反感。'
+        },
+        {type:'story',title:'杨震"四知"：天知地知你知我知',
+          year:'公元108年',
+          content:'杨震赴任东莱太守，途经昌邑。他当年举荐的荆州秀才王密正任昌邑县令，夜里怀揣十斤黄金来送。杨震说："故人知君，君不知故人，何也？"王密说："暮夜无知者。"杨震答："天知，神知，我知，子知。何谓无知！"王密羞愧退出。',
+          moral:'<b>真正的自律，不是怕被人看见，而是即便无人看见也不越界。</b>杨震的"四知"，成为千古名言。一个人独处时的选择，才定义了他是什么样的人。'
+        },
+        {type:'story',title:'班超投笔从戎：不入虎穴，焉得虎子',
+          year:'公元73年',
+          content:'班超早年家贫，为官府抄书谋生。一日投笔长叹："大丈夫无它志略，犹当效傅介子、张骞立功异域，以取封侯，安能久事笔研间乎？"旁人都笑他。他说："小子安知壮士志哉！"后来他出使西域三十一年，收服五十余国，官至西域都护，封定远侯。出使鄯善时，他以三十六人袭杀匈奴使者，说："不入虎穴，焉得虎子。"',
+          moral:'<b>所有的成就，都始于迈出那一步的勇气。</b>班超抄书时投笔长叹，若他安于现状，历史上就少了一位定远侯。"不入虎穴，焉得虎子"——职场中，敢于冒险、敢于行动，才能抓住机会。'
+        },
+        {type:'story',title:'耿恭守疏勒：十三将士归玉门',
+          year:'公元75年',
+          content:'东汉明帝时，耿恭率数百人驻守疏勒城，被北匈奴大军围困。城中粮尽，士兵煮铠甲弓弩，吃上面的筋革。耿恭与士卒推诚同死生，誓死不降。他们坚守了将近一年，最后仅剩二十六人。朝廷派援军接应，匈奴追兵不断，到玉门关时，只剩十三人。中郎将郑众为耿恭及部下洗沐更衣，上疏说："恭以单兵固守孤城，当匈奴之冲，对数万之众，连月逾年，心力困尽。凿山为井，煮弩为粮，出于万死无一生之望。前后杀伤丑虏数百千计，卒全忠勇，不为大汉耻。"',
+          moral:'<b>坚守，是职场最稀缺的品质。</b>耿恭守疏勒，粮尽时煮铠甲弓弩，吃上面的筋革，誓死不降。职场中，遇到困难就想跳槽的人，很难积累真正的核心竞争力。坚守一段足够长的时间，才能形成真正的壁垒。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'光武中兴 · 党锢之祸 · 黄巾起义',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 光武中兴：退功臣而进文吏',
+          background:'西汉末年，王莽篡汉，天下大乱。绿林、赤眉起义蜂起，群雄割据。刘秀以汉室宗亲身份起兵，在昆阳之战中以三千破四十二万，一战成名。公元25年称帝，建立东汉，定都洛阳。',
+          figures:'刘秀 — 宽仁大度、善于用人、以柔治国；冯异 — 谦退不伐，大树将军；邓禹 — 云台二十八将之首；耿弇 — 有志者事竟成的典范。',
+          event:'刘秀称帝后，面临的首要问题是：如何处理开国功臣？他吸取刘邦杀功臣的教训，采取"退功臣而进文吏"的策略——给功臣高爵厚禄，但不让他们掌实权；同时大力提拔文吏，加强尚书台权力，将皇权集中于自己手中。他又释放奴婢、减轻赋税、裁并郡县、整顿吏治，使天下迅速安定。',
+          trigger:'<em>刘秀对历史教训的深刻反思</em>。他亲眼目睹西汉末年外戚专权、王莽篡汉的乱局，深知功臣掌权的危险。但他不愿像刘邦那样杀功臣，而是用"高爵厚禄换实权"的方式，既保全了功臣，又巩固了皇权。',
+          result:'<b>光武中兴，天下户口殷盛。</b>数十年间，东汉经济恢复，社会安定，史称"光武中兴"。但刘秀过分倚重内朝，为后来宦官专权埋下伏笔；又未妥善解决外戚问题，成为东汉中后期外戚宦官交替专权的根源。'
+        },
+        {type:'event',title:'事件二 · 党锢之祸：清流士大夫的悲剧',
+          background:'东汉自和帝以后，皇帝多年幼继位，太后临朝，外戚掌权；皇帝长大后依靠宦官铲除外戚，宦官又继而专权。至桓帝、灵帝时，宦官集团把持朝政，卖官鬻爵，朝纲日坏。太学生与清流士大夫激于义愤，纷纷抨击时政，形成"清议"之风。',
+          figures:'李膺 — 清流领袖，被誉为"天下模楷"；陈蕃 — 太傅，与李膺齐名；宦官集团 — 侯览、曹节等，把持朝政；桓帝、灵帝 — 昏庸无能，听信宦官。',
+          event:'宦官集团诬告李膺等人"共为部党，诽讪朝廷"，桓帝大怒，下令逮捕党人。李膺等二百余人被捕，后虽释放，但禁锢终身。灵帝时，宦官再次大兴党狱，杀李膺、陈蕃等百余人，受牵连者六七百人。所有党人及其门生故吏、父子兄弟，全部免官禁锢。',
+          trigger:'<em>清流士大夫与宦官集团的激烈冲突</em>。清流士大夫以天下为己任，抨击宦官专权；宦官集团为保权势，先下手为强，诬告党人谋反。桓帝、灵帝昏庸，听信宦官，大兴党狱。',
+          result:'<b>清流士大夫集团被摧毁，朝堂再无正直之声。</b>党锢之祸使东汉失去了最后一批有担当的士人，朝政彻底腐败。不久黄巾起义爆发，东汉朝廷无力镇压，不得不放权于地方州牧，从此群雄割据，汉室名存实亡。'
+        },
+        {type:'event',title:'事件三 · 黄巾起义：苍天已死，黄天当立',
+          background:'东汉末年，政治腐败，赋税沉重，民不聊生。太平道首领张角以治病传教为名，在青、徐、幽、冀、荆、扬、兖、豫八州发展信徒，十余年间聚集数十万人。张角提出"苍天已死，黄天当立，岁在甲子，天下大吉"的口号。',
+          figures:'张角 — 太平道首领，自称"大贤良师"；张宝、张梁 — 张角之弟；汉灵帝 — 昏庸无能；皇甫嵩、朱儁、卢植 — 率军镇压的汉将。',
+          event:'公元184年，张角率众起义，起义者头裹黄巾，故称"黄巾军"。黄巾军攻占州郡，焚烧官府，天下震动。汉灵帝慌忙派皇甫嵩、朱儁、卢植率军镇压，同时下令解除党锢，允许地方州牧自行招募军队。黄巾军虽然英勇，但缺乏统一指挥，最终被各个击破。张角病死，张宝、张梁相继被杀。',
+          trigger:'<em>政治腐败与民不聊生</em>。东汉末年，宦官专权，赋税繁重，百姓活不下去，只能揭竿而起。张角的太平道给了他们希望，"苍天已死，黄天当立"成为他们的信仰。',
+          result:'<b>黄巾起义被镇压，但东汉朝廷不得不放权于地方州牧。</b>州牧掌兵、掌财、掌民，形同独立王国。从此群雄割据，曹操、刘备、孙权等纷纷崛起，东汉名存实亡。公元220年，曹丕代汉，东汉灭亡。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'光武宽仁 · 冯异谦退 · 杨震刚正 · 班超志远 · 耿恭忠勇',
+      brief:'东汉人物，以风骨见长。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'汉光武帝刘秀',trait:'宽仁大度 · 善于用人 · 以柔治国 · 勤政节俭',
+           desc:'昆阳之战以三千破四十二万，显示其胆略；称帝后"退功臣而进文吏"，不杀开国功臣。他每日早朝，日昃乃罢，夜间还召大臣论政。'},
+          {name:'冯异',trait:'谦退不伐 · 治军严整 · 不争功名',
+           desc:'"大树将军"的称号，是全军将士给他的。诸将争功时他独坐树下，从不多言。但战场上他治军严整，攻必克、守必固。'},
+          {name:'杨震',trait:'清廉刚正 · 不畏权贵 · 以清白传家',
+           desc:'"天知、神知、我知、子知"，四知之语成为千古名言。他为官正直，多次上疏弹劾宦官、外戚，最终被诬罢官，饮鸩而死。'},
+          {name:'班超',trait:'投笔从戎 · 智勇双全 · 坚毅不拔 · 经营西域',
+           desc:'不甘于抄书度日，投笔从戎。出使西域时，以三十六人袭杀匈奴使者，威震鄯善；此后三十一年间，收服五十余国。他说"不入虎穴，焉得虎子"。'},
+          {name:'耿恭',trait:'忠勇无双 · 与士卒同死生 · 坚守孤城 · 气节感人',
+           desc:'率数百人守疏勒城，被数万匈奴围困将近一年。粮尽时煮铠甲弓弩，吃上面的筋革。他与士卒推诚同死生，誓死不降。最终仅十三人生还玉门关。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'投笔从戎 · 不入虎穴 · 四知 · 大树将军 · 有志者事竟成',
+      brief:'东汉成语，多与风骨气节相关，读来令人振奋。',
+      sections:[
+        {type:'idiom',title:'东汉衍生的经典成语',items:[
+          {word:'投笔从戎',source:'《资治通鉴》汉纪 · 班超',
+           desc:'班超为官府抄书谋生，一日投笔长叹，愿效傅介子、张骞立功异域。后出使西域三十一年，封定远侯。指弃文从武，投身疆场。'},
+          {word:'不入虎穴，焉得虎子',source:'《资治通鉴》汉纪 · 班超',
+           desc:'班超出使鄯善，夜袭匈奴使者，说"不入虎穴，焉得虎子"。指不冒危险，就不能取得成功。'},
+          {word:'四知',source:'《资治通鉴》汉纪 · 杨震',
+           desc:'王密夜送黄金，说"暮夜无知者"，杨震答"天知，神知，我知，子知"。指做人要廉洁自律，对得起良知。'},
+          {word:'大树将军',source:'《资治通鉴》汉纪 · 冯异',
+           desc:'冯异谦退不伐，诸将争功时独坐树下，军中称"大树将军"。指谦逊不争功的人。'},
+          {word:'有志者事竟成',source:'《资治通鉴》汉纪 · 光武帝',
+           desc:'光武帝刘秀评价耿弇："有志者事竟成也。"指有志向的人，终究会取得成功。'},
+          {word:'失之东隅，收之桑榆',source:'《资治通鉴》汉纪 · 光武帝',
+           desc:'光武帝评价冯异先败后胜："始虽垂翅回溪，终能奋翼黾池，可谓失之东隅，收之桑榆。"指这里失败，那里得到补偿。'},
+          {word:'疾风知劲草',source:'《资治通鉴》汉纪 · 光武帝',
+           desc:'光武帝称赞王霸："颍川从我者皆逝，而子独留，始验疾风知劲草。"指在艰苦环境中，才能看出人的坚强意志。'},
+          {word:'推心置腹',source:'《资治通鉴》汉纪 · 光武帝',
+           desc:'光武帝收编铜马军，推心置腹以待降者，降者皆服。指真心待人，坦诚相见。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'清白传家 · 谦退自守 · 志在四方 · 坚守到底',
+      brief:'东汉人物，教你怎么做人；冯异的谦退、耿恭的坚守，更是职场稀缺品。',
+      sections:[
+        {type:'advice',title:'东汉留给后人的六条忠告',items:[
+          {title:'天知地知你知我知，做人要对得起良知',text:'王密说"暮夜无知者"，杨震用"四知"回答他。真正的自律，不是怕被人看见，而是即便无人看见也不越界。'},
+          {title:'谦退不争，反而被人记住',text:'诸将争功，冯异独坐树下，结果全军都叫他"大树将军"，光武帝也因此格外器重他。急着表现的人往往被忽略，踏实做事的人终会被看见。'},
+          {title:'以柔治国，也需有纲纪做骨',text:'光武帝的"柔道"是仁政，但他从未放弃核心权力的掌控。对人可以宽，对制度必须严。'},
+          {title:'志在四方，不要困于眼前',text:'班超抄书时投笔长叹，若他安于现状，历史上就少了一位定远侯。"不入虎穴，焉得虎子"——所有的成就，都始于迈出那一步的勇气。'},
+          {title:'留给孩子最厚的遗产，是清白',text:'杨震说："使后世称为清白吏子孙，以此遗之，不亦厚乎！"留钱财会花光，留房产会贬值，唯独清白的名声，能让子孙世代受益。'},
+          {title:'衰亡往往从内部开始',text:'东汉不是被外敌打垮的，而是被外戚和宦官的内斗掏空的。最坚固的堡垒，总是从内部瓦解。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：冯异的谦退与耿恭的坚守',items:[
+          {title:'不争功的人，往往得到最多',text:'诸将争功时，冯异独坐树下，从不参与。结果全军都叫他"大树将军"，光武帝也因此格外器重他。职场中，越是急着表功的人，越容易让人反感。'},
+          {title:'你的价值，不在你说了什么，而在你做了什么',text:'冯异从不自夸，但战场上攻必克、守必固。职场中，与其在会议上滔滔不绝，不如用结果说话。'},
+          {title:'在无人看见的地方自律，才是真自律',text:'杨震的"四知"告诉我们：真正的自律不是做给别人看，而是对得起自己的良心。'},
+          {title:'坚守，是职场最稀缺的品质',text:'耿恭守疏勒，粮尽时煮铠甲弓弩，吃上面的筋革，誓死不降。职场中，遇到困难就想跳槽的人，很难积累真正的核心竞争力。'},
+          {title:'跟团队同甘共苦，才能赢得真心',text:'耿恭与士卒推诚同死生，所以数百人愿随他死守孤城。职场中，那些在困难时与团队共进退的人，才能赢得真正的信任。'},
+          {title:'志向要远大，但脚步要踏实',text:'班超投笔从戎，志向远大；但他从抄书小吏做起，一步步积累，最终封侯。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 5. 魏纪 ============================ */
+{
+  id:'wei', name:'魏纪', era:'三国', range:'220 — 265', accent:'#ec4899',
+  tagline:'曹魏代汉 · 司马崛起',
+  intro:'曹丕代汉建魏，三国鼎立。诸葛亮鞠躬尽瘁、邓艾灭蜀被诬、司马懿装病夺权——这些故事，写尽了职场的忠诚、功劳与隐忍。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#ec4899',c2:'#9d174d',
+      headline:'公元220年曹丕代汉称帝',
+      brief:'汉献帝禅位，三国时代正式开启。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元220年，魏王曹丕接受汉献帝禅让，称帝于洛阳，国号魏。次年刘备称帝于成都，229年孙权称帝于建业，三国鼎立之势成。'},
+        {type:'list',title:'三国大事年表',items:[
+          '<b>208年</b>　赤壁之战，三分之势初现','<b>220年</b>　曹丕代汉，建立魏国',
+          '<b>221年</b>　刘备称帝，国号汉','<b>222年</b>　夷陵之战，刘备大败',
+          '<b>229年</b>　孙权称帝，国号吴','<b>263年</b>　魏灭蜀汉',
+          '<b>265年</b>　司马炎代魏建晋'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'曹魏代汉，司马氏渐掌兵权',
+      brief:'名分与实力的反复博弈。',
+      sections:[
+        {type:'text',title:'权力的转移路径',text:'曹操挟天子以令诸侯，掌握实权而不称帝；曹丕代汉称帝，完成名分转换。但曹魏宗室力量薄弱，司马懿通过高平陵之变夺取兵权，最终司马炎代魏。'},
+        {type:'list',title:'权力结构特点',items:[
+          '<b>曹魏</b>　宗室受抑，士族门阀势力强大','<b>蜀汉</b>　以汉室正统自居，诸葛亮总揽军政',
+          '<b>东吴</b>　江东世族与孙氏皇权共治','<b>趋势</b>　门阀士族取代皇权成为实际主导力量'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'名分与实力的双重博弈',
+      brief:'有实无名则危，有名无实则弱。',
+      sections:[
+        {type:'quote',text:'臣光曰：以魏武之暴戾强伉，加有大功于天下，其蓄无君之心久矣……',source:'《资治通鉴》魏纪'},
+        {type:'text',title:'司马光的评述',text:'曹操有功于汉室，却始终不称帝；曹丕无功，却急于代汉。代汉者终被代，曹氏如何取天下，司马氏便如何取曹氏。'},
+        {type:'text',title:'历史的循环',text:'公元220年曹丕受汉禅，公元265年司马炎受魏禅，相隔仅45年。以不正当手段得天下者，其子孙必以同样方式失去天下。'}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'忠贞则名垂，骄纵则身灭',
+      brief:'诸葛亮鞠躬尽瘁 · 曹爽骄纵被诛 · 高平陵之变',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'诸葛亮鞠躬尽瘁',text:'受刘备托孤之重，辅佐后主刘禅，事无巨细皆亲自过问。六出祁山，鞠躬尽瘁，死而后已。'},
+            {name:'羊祜镇守襄阳',text:'羊祜镇襄阳十年，与吴人开诚布公，降者欲去皆听之。死后襄阳百姓罢市痛哭，吴国守边将士亦为之泣。'}
+          ],
+          negative:[
+            {name:'曹爽骄纵被诛',text:'曹爽受魏明帝托孤，却骄奢无度、排斥异己。高平陵之变中，曹爽犹豫不决，终被夷三族。'},
+            {name:'曹髦之死',text:'魏帝曹髦不甘做傀儡，率僮仆数百人讨伐司马昭，被成济当街刺杀。君臣名分彻底崩坏。'}
+          ]},
+        {type:'quote',text:'司马昭之心，路人所知也。',source:'魏帝曹髦'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'魏文帝崩 → 其子曹叡继位',
+      brief:'226年 · 明帝立，托孤失当埋祸根。',
+      sections:[
+        {type:'list',title:'魏纪帝王更替',items:[
+          '<b>220年</b>　曹丕代汉称帝，是为<b>魏文帝</b>',
+          '<b>226年</b>　文帝曹丕崩，其子曹叡继位，是为<b>魏明帝</b>',
+          '<b>239年</b>　明帝崩，养子曹芳继位，曹爽与司马懿共同辅政',
+          '<b>249年</b>　高平陵之变，司马懿诛曹爽，独揽大权',
+          '<b>254年</b>　司马师废曹芳，立曹髦为帝',
+          '<b>260年</b>　曹髦被弑，司马昭立曹奂为帝',
+          '<b>265年</b>　司马炎代魏称帝，曹魏亡'
+        ]},
+        {type:'text',title:'托孤的教训',text:'魏明帝临终托孤，本欲以曹爽、司马懿互相制衡，却选人不当。曹爽骄纵无能，司马懿老谋深算，权力天平迅速倾斜。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'诸葛亮出师表 · 关羽走麦城 · 七步诗 · 邓艾灭蜀被诬 · 高平陵之变',
+      brief:'三国风云，尽在人情与权谋之间；邓艾的功高被诬，是职场最痛的教训。',
+      sections:[
+        {type:'story',title:'诸葛亮出师表：鞠躬尽瘁，死而后已',
+          year:'227年',
+          content:'刘备白帝城托孤后，诸葛亮辅佐后主刘禅。227年，他准备北伐，上《出师表》，劝刘禅"亲贤臣，远小人"，并自述"受任于败军之际，奉命于危难之间，尔来二十有一年矣"。表中"鞠躬尽瘁，死而后已"一句，成为千古忠臣的写照。',
+          moral:'<b>真正的忠诚，是在诱惑面前的自我约束。</b>诸葛亮受刘备托孤，完全可以"自取"皇位，但他选择了终身辅佐。他的忠贞不是因为不能，而是因为不愿。'
+        },
+        {type:'story',title:'关羽大意失荆州：骄傲是名将最大的敌人',
+          year:'219年',
+          content:'关羽镇守荆州，水淹七军，擒于禁、斩庞德，威震华夏。但他刚愎自用，轻视东吴，拒绝孙权联姻，辱骂来使。孙权派吕蒙白衣渡江，偷袭荆州。关羽腹背受敌，败走麦城，被吴军擒杀。一代名将，死于自己的骄傲。',
+          moral:'<b>能力越强的人，越要警惕骄傲。</b>关羽水淹七军、威震华夏，却因看不起东吴、辱骂来使，丢了荆州、丢了性命。你的强项会掩盖你的盲区。'
+        },
+        {type:'story',title:'曹植七步诗：同根相煎，何太急',
+          year:'220年',
+          content:'曹丕称帝后，对才华横溢的弟弟曹植心存忌惮。一日，曹丕命曹植在七步之内作诗一首，不成则处死。曹植应声而作："煮豆持作羹，漉菽以为汁。萁在釜下燃，豆在釜中泣。本自同根生，相煎何太急？"曹丕听后深感惭愧。一首诗，救了自己一命。',
+          moral:'<b>才华需要自控力来护航。</b>曹植才高八斗，却因任性饮酒、擅开司马门而失去继承权。才华让你走得快，自控力让你走得远。'
+        },
+        {type:'story',title:'邓艾灭蜀被诬：功劳太大，也是一种罪',
+          year:'263年',
+          content:'公元263年，邓艾率军偷渡阴平，翻越无人区，出其不意攻入成都，蜀汉后主刘禅投降。邓艾灭蜀，功勋盖世。但他进入成都后，擅自以天子名义任命蜀汉降臣，又对司马昭说可以趁势伐吴。司马昭派监军卫瓘警告他："事当须报，不宜辄行。"邓艾却回信说："《春秋》之义，大夫出疆，有可以安社稷、利国家，专之可也。"钟会趁机诬告邓艾谋反，司马昭下令逮捕邓艾。邓艾被囚车押送洛阳，途中被卫瓘派人杀害。灭蜀第一功臣，最终死于"擅权"之罪。',
+          moral:'<b>功劳越大，越要谦虚谨慎。</b>邓艾灭蜀，功勋盖世，但他居功自傲，擅自以天子名义任命降臣，又对司马昭说"专之可也"。功劳越大，越要谦虚谨慎。你的功劳，在老板眼里可能是一种威胁。'
+        },
+        {type:'story',title:'高平陵之变：誓言如纸，权力如刀',
+          year:'249年',
+          content:'公元249年，司马懿趁曹爽陪魏帝曹芳出城祭扫高平陵之机，发动政变，关闭洛阳城门，占据武库。他指洛水为誓，承诺只要曹爽交出兵权，就保其性命富贵。曹爽犹豫一夜，最终投降。司马懿随即以谋反罪将曹爽及其党羽夷三族。誓言如纸，权力如刀。',
+          moral:'<b>不要轻信对手的承诺，尤其是在权力斗争中。</b>曹爽轻信司马懿"指洛水为誓"的承诺，交出兵权，最终被夷三族。职场中，涉及核心利益的承诺，要留有后手。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'高平陵之变 · 邓艾灭蜀被诬 · 诸葛亮北伐',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 高平陵之变：誓言如纸，权力如刀',
+          background:'魏明帝曹叡临终，托孤于曹爽和司马懿，本意是让两人互相制衡。但曹爽骄纵无能，排斥司马懿，将其明升暗降为太傅，独揽大权。司马懿称病在家，暗中等待时机。',
+          figures:'司马懿 — 隐忍深沉、老谋深算；曹爽 — 骄纵无能、优柔寡断；魏帝曹芳 — 年幼无知；桓范 — 曹爽谋臣，建议曹爽挟天子赴许昌，但曹爽不听。',
+          event:'公元249年正月，魏帝曹芳出城祭扫高平陵，曹爽兄弟随行。司马懿趁机发动政变，关闭洛阳城门，占据武库，派兵守住洛水浮桥。他上奏太后，列举曹爽罪状。曹爽在城外得知消息，惊慌失措。司马懿派侍中许允、尚书陈泰劝曹爽投降，并指洛水为誓，承诺只要交出兵权，就保其性命富贵。曹爽犹豫一夜，最终说："司马公正当欲夺吾权耳。吾得以侯还第，不失为富家翁。"遂交出兵权。',
+          trigger:'<em>曹爽的犹豫与轻信</em>。桓范劝曹爽挟天子赴许昌，调集四方兵力讨伐司马懿，但曹爽舍不得城中的家眷财产，犹豫不决。他轻信司马懿"指洛水为誓"的承诺，以为交出兵权就能保全性命。',
+          result:'<b>曹爽及其党羽被夷三族，司马懿独揽大权。</b>司马懿随即以谋反罪将曹爽及其党羽全部诛杀，夷三族。誓言如纸，权力如刀。此后司马氏逐步取代曹魏，公元265年司马炎代魏建晋。'
+        },
+        {type:'event',title:'事件二 · 邓艾灭蜀被诬：功劳太大，也是一种罪',
+          background:'公元263年，魏国派钟会、邓艾率军伐蜀。钟会率主力进攻剑阁，被姜维阻挡；邓艾率军偷渡阴平，翻越无人区，出其不意攻入成都，蜀汉后主刘禅投降。邓艾灭蜀，功勋盖世。',
+          figures:'邓艾 — 出身寒微、军事天才、居功自傲、不谙政治；钟会 — 伐蜀主帅，嫉妒邓艾之功；司马昭 — 魏国权臣，猜忌邓艾；卫瓘 — 监军，奉命逮捕邓艾。',
+          event:'邓艾进入成都后，擅自以天子名义任命蜀汉降臣，又对司马昭说可以趁势伐吴。司马昭派监军卫瓘警告他："事当须报，不宜辄行。"邓艾却回信说："《春秋》之义，大夫出疆，有可以安社稷、利国家，专之可也。"钟会趁机诬告邓艾谋反，司马昭下令逮捕邓艾。邓艾被囚车押送洛阳，途中被卫瓘派人杀害。',
+          trigger:'<em>邓艾的居功自傲与越权</em>。他擅自任命蜀汉降臣，又擅自决定伐吴，触犯了司马昭的猜忌。钟会的嫉妒与诬告，成为压垮他的最后一根稻草。',
+          result:'<b>邓艾被诬谋反，死于囚车途中，灭蜀第一功臣身败名裂。</b>对比王翦"求田问舍"、邓艾"居功自傲"，同样的功劳，不同的结局。功劳越大，越要谦虚谨慎；越权，是职场大忌。'
+        },
+        {type:'event',title:'事件三 · 诸葛亮北伐：鞠躬尽瘁，死而后已',
+          background:'刘备白帝城托孤后，诸葛亮辅佐后主刘禅，总揽蜀汉军政。蜀汉偏居益州，地狭民寡，诸葛亮深知"汉贼不两立，王业不偏安"，决心北伐中原，兴复汉室。',
+          figures:'诸葛亮 — 鞠躬尽瘁、事必躬亲、忠贞不二；刘禅 — 后主，庸弱无能；姜维 — 诸葛亮继承人，继续北伐；司马懿 — 魏军主帅，坚守不出。',
+          event:'公元227年，诸葛亮率军进驻汉中，上《出师表》，劝刘禅"亲贤臣，远小人"。此后六年，他六出祁山，与魏军多次交战。司马懿深知蜀军粮草转运困难，采取坚守不出的策略，与诸葛亮打消耗战。公元234年，诸葛亮最后一次北伐，屯兵五丈原，与司马懿对峙百余日。诸葛亮积劳成疾，病逝于军中，时年五十四岁。',
+          trigger:'<em>诸葛亮的政治理想与蜀汉的生存压力</em>。他深知蜀汉偏居一隅，若不主动出击，早晚被魏国吞并。他选择以攻为守，通过北伐凝聚蜀汉人心，延续汉室正统。',
+          result:'<b>诸葛亮病逝五丈原，北伐未竟，但忠贞之名垂千古。</b>他"鞠躬尽瘁，死而后已"的精神，成为后世忠臣的楷模。虽然北伐未能成功，但他以攻为守的策略，使蜀汉又延续了三十年。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'诸葛亮忠贞 · 邓艾居功 · 司马懿隐忍 · 关羽刚傲',
+      brief:'三国人物的性格，就是他们的命运。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'诸葛亮',trait:'鞠躬尽瘁 · 事必躬亲 · 忠贞不二 · 谨严有余',
+           desc:'未出茅庐而知天下三分，出山后辅佐刘备建立蜀汉。白帝城托孤时，刘备说"若嗣子可辅，辅之；如其不才，君可自取"，他泣拜于地，誓死效忠。事无巨细皆亲自过问，积劳成疾，五十四岁病逝五丈原。'},
+          {name:'邓艾',trait:'出身寒微 · 军事天才 · 居功自傲 · 不谙政治',
+           desc:'从小放牛，口吃，但军事才能出众。偷渡阴平灭蜀，功勋盖世。但他居功自傲，擅自以天子名义任命蜀汉降臣，又对司马昭说"《春秋》之义，大夫出疆，有可以安社稷、利国家，专之可也"。他不懂政治，最终被诬谋反，死于囚车途中。'},
+          {name:'司马懿',trait:'隐忍深沉 · 老谋深算 · 装病待机 · 一击致命',
+           desc:'曹操在世时便看出他"有雄豪志"。他辅佐曹魏四代，始终隐忍。曹爽专权时，他称病在家，装得口不能言、须发皆白。高平陵之变一举夺权。忍了三十年，赢了一辈子。'},
+          {name:'关羽',trait:'忠义千秋 · 刚而自矜 · 傲上恤下 · 死于骄傲',
+           desc:'与刘备、张飞桃园结义，终身不二。千里走单骑，过五关斩六将。但他"刚而自矜"，看不起东吴，辱骂孙权来使。最终被吕蒙偷袭荆州，败走麦城。'},
+          {name:'曹植',trait:'才华横溢 · 任性而行 · 饮酒无度 · 失于自控',
+           desc:'建安文学的代表人物，"天下才共一石，曹子建独占八斗"。但他任性而行，饮酒无度，曾擅开王宫司马门出城，让曹操大怒。七步诗救了他一命，却改变不了被猜忌的一生。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'三顾茅庐 · 鞠躬尽瘁 · 七步成诗 · 司马昭之心 · 乐不思蜀',
+      brief:'三国成语，多与忠义、权谋相关，家喻户晓。',
+      sections:[
+        {type:'idiom',title:'魏纪衍生的经典成语',items:[
+          {word:'三顾茅庐',source:'《资治通鉴》魏纪 · 刘备',
+           desc:'刘备三次到隆中拜访诸葛亮，诚心请教天下大计。诸葛亮感其诚意，出山辅佐。指真心诚意地一再邀请、拜访贤才。'},
+          {word:'鞠躬尽瘁，死而后已',source:'《资治通鉴》魏纪 · 诸葛亮',
+           desc:'诸葛亮《后出师表》中语："臣鞠躬尽力，死而后已。"指勤勤恳恳，竭尽心力，到死为止。'},
+          {word:'七步成诗',source:'《资治通鉴》魏纪 · 曹植',
+           desc:'曹丕命曹植七步内作诗，曹植应声而作"煮豆燃豆萁"之诗。指才思敏捷，出口成章。'},
+          {word:'司马昭之心，路人皆知',source:'《资治通鉴》魏纪 · 曹髦',
+           desc:'魏帝曹髦说："司马昭之心，路人所知也。"指野心非常明显，人所共知。'},
+          {word:'乐不思蜀',source:'《资治通鉴》魏纪 · 刘禅',
+           desc:'蜀汉灭亡后，刘禅被迁洛阳。司马昭问他是否思念蜀国，刘禅答："此间乐，不思蜀。"指乐而忘返，也指忘本。'},
+          {word:'出师未捷身先死',source:'《资治通鉴》魏纪 · 诸葛亮',
+           desc:'诸葛亮六出祁山，病逝五丈原，壮志未酬。杜甫有诗："出师未捷身先死，长使英雄泪满襟。"'},
+          {word:'望梅止渴',source:'《资治通鉴》魏纪 · 曹操',
+           desc:'曹操行军途中缺水，谎称前方有梅林，士兵闻之口中生津。指用空想安慰自己。'},
+          {word:'割发代首',source:'《资治通鉴》魏纪 · 曹操',
+           desc:'曹操行军，下令不得践踏麦田，自己的马却受惊踏入麦田，遂割发代首以自罚。指以身作则，严于律己。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'忠贞可垂千古 · 隐忍可成大业 · 骄傲必致败亡 · 功劳太大要低调',
+      brief:'三国人物的命运，是最生动的教科书；邓艾的教训，尤其值得职场人深思。',
+      sections:[
+        {type:'advice',title:'魏纪留给后人的六条忠告',items:[
+          {title:'骄傲是名将最大的敌人',text:'关羽水淹七军、威震华夏，却因看不起东吴、辱骂来使，丢了荆州、丢了性命。能力越强的人，越要警惕骄傲。'},
+          {title:'忍，是一种高级的力量',text:'司马懿装病十年，骗过曹爽，一击夺权。真正的高手不急于出招，而是等待对手犯错。'},
+          {title:'忠诚不是表演，是长期的坚持',text:'诸葛亮受刘备托孤，完全可以"自取"皇位，但他选择了终身辅佐。真正的忠诚，是在诱惑面前的自我约束。'},
+          {title:'托付重任，德才要一起看',text:'魏明帝托孤给曹爽和司马懿，想让他们互相制衡，却选错了人。托孤是最高风险的决策，必须德才兼备。'},
+          {title:'才华需要自控力来护航',text:'曹植才高八斗，却因任性饮酒、擅开司马门而失去继承权。才华让你走得快，自控力让你走得远。'},
+          {title:'历史会重复，模式不会变',text:'曹丕如何代汉，司马炎就如何代魏，相隔仅45年。用不正当手段得到的东西，往往会被同样的方式夺走。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：邓艾的教训与司马懿的隐忍',items:[
+          {title:'功劳太大时，更要低调',text:'邓艾灭蜀，功勋盖世，但他进入成都后擅自以天子名义任命降臣，又对司马昭说"专之可也"。功劳越大，越要谦虚谨慎。'},
+          {title:'不要替老板做决定',text:'邓艾擅自任命蜀汉降臣，又擅自决定伐吴，这是越权。职场中，即使你认为自己的判断是对的，也要先请示、先汇报。'},
+          {title:'功高震主时，主动"自污"是最好的保护',text:'对比王翦"求田问舍"、邓艾"居功自傲"，同样的功劳，不同的结局。'},
+          {title:'忍，是为了最后的胜利',text:'司马懿装病十年，骗过曹爽，一击夺权。职场中，遇到不利局面时，不要急于反击。隐忍等待，往往比正面硬刚更有效。'},
+          {title:'不要跟老板说"你不行，我行"',text:'邓艾对司马昭说"《春秋》之义，大夫出疆，有可以安社稷、利国家，专之可也"，这话没错，但让司马昭很不舒服。'},
+          {title:'选择平台，比努力更重要',text:'邓艾在曹魏得到重用，灭蜀立功；但他不懂政治，最终死于非命。选对平台、跟对老板，是职业生涯最关键的一步。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 6. 晋纪 ============================ */
+{
+  id:'jin', name:'晋纪', era:'西晋 — 东晋', range:'265 — 420', accent:'#f59e0b',
+  tagline:'大封宗室 · 八王之乱',
+  intro:'司马炎代魏建晋，短暂统一。然大封宗室、立嗣不当，酿成八王之乱。祖逖闻鸡起舞、谢安镇定退敌、陶侃运甓自励，是晋代最亮的光。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#f59e0b',c2:'#b45309',
+      headline:'公元265年司马炎代魏 · 280年灭吴统一',
+      brief:'三国归晋，然统一仅三十余年即乱。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元265年，司马炎代魏称帝，建立晋朝。公元280年灭吴，结束三国分裂。但晋武帝大封宗室、立痴愚之子为太子，埋下大乱之根。'},
+        {type:'list',title:'晋纪大事年表',items:[
+          '<b>265年</b>　司马炎代魏建晋，是为晋武帝','<b>280年</b>　灭吴，三国归晋',
+          '<b>290年</b>　晋武帝崩，惠帝继位，贾后专权','<b>291年</b>　八王之乱起',
+          '<b>316年</b>　匈奴刘曜陷长安，西晋亡','<b>317年</b>　司马睿建康称帝，东晋始',
+          '<b>383年</b>　淝水之战，东晋大败前秦'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'大封宗室 · 门阀共治',
+      brief:'分封诸王掌兵，反成祸乱之源。',
+      sections:[
+        {type:'text',title:'分封的致命失误',text:'晋武帝吸取曹魏宗室孤弱而亡的教训，大封同姓诸王二十七人，并允许诸王都督诸州军事、掌握军队。结果宗室坐大，中央无法制衡，酿成八王之乱。'},
+        {type:'list',title:'权力结构演变',items:[
+          '<b>西晋初</b>　宗室诸王掌兵，门阀士族把持朝政','<b>八王之乱</b>　诸王互相攻杀，中央权威荡然无存',
+          '<b>东晋</b>　"王与马，共天下"，门阀与皇权共治','<b>特点</b>　皇权衰弱，士族门阀成为实际主导'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'封建失度，则骨肉相残',
+      brief:'分封本为屏藩，过度则成祸乱。',
+      sections:[
+        {type:'quote',text:'封建亲戚，以为藩屏，然不得其道，则反为祸乱。',source:'司马光论晋室分封'},
+        {type:'text',title:'司马光的评述',text:'晋武帝惩曹魏之失，大封宗室，本意是让诸王屏卫皇室。但诸王既掌兵权又领州郡，中央无力节制，最终兄弟相残、天下大乱。'},
+        {type:'text',title:'历史的对比',text:'西汉有七国之乱，西晋有八王之乱，皆因分封过度。礼制的核心是"分"，分定则上下安，分乱则骨肉相残。'}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'守分则安，越分则乱',
+      brief:'太康之治 · 淝水之战 · 八王之乱 · 永嘉之乱',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'太康之治',text:'晋武帝统一后，推行占田制、户调式，减轻赋税，人口增长，史称"太康之治"。'},
+            {name:'淝水之战',text:'公元383年，前秦苻坚率百万大军南下，东晋以谢安为帅、谢玄率北府兵八万迎战。晋军以少胜多，苻坚大败。'}
+          ],
+          negative:[
+            {name:'八王之乱',text:'晋惠帝愚弱，贾后干政，八王相继起兵，互相攻杀十六年。中原残破，人口锐减。'},
+            {name:'永嘉之乱',text:'公元311年，匈奴刘曜攻陷洛阳，俘晋怀帝；316年陷长安，西晋灭亡。中原士族大批南渡。'}
+          ]},
+        {type:'quote',text:'衣冠南渡，中原板荡。',source:'史家论晋室之乱'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'晋武帝崩 → 其子司马衷继位',
+      brief:'290年 · 惠帝立，愚弱致乱。',
+      sections:[
+        {type:'list',title:'晋纪帝王更替',items:[
+          '<b>265年</b>　司马炎代魏称帝，是为<b>晋武帝</b>',
+          '<b>290年</b>　武帝崩，其子司马衷继位，是为<b>晋惠帝</b>（"何不食肉糜"）',
+          '<b>307年</b>　惠帝被毒死，司马炽继位，是为<b>晋怀帝</b>',
+          '<b>313年</b>　怀帝被刘聪所杀，司马邺继位，是为<b>晋愍帝</b>',
+          '<b>316年</b>　愍帝降汉，西晋亡',
+          '<b>317年</b>　司马睿在建康称帝，是为<b>晋元帝</b>，东晋始',
+          '<b>420年</b>　刘裕代晋建宋，东晋亡'
+        ]},
+        {type:'text',title:'立嗣的致命错误',text:'晋武帝明知太子司马衷愚钝，却因宠爱皇孙司马遹而不肯废立。储君之选关系社稷安危，以私情废公义，必致大乱。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'闻鸡起舞 · 中流击楫 · 淝水之战 · 陶侃运甓 · 石崇斗富 · 周处除三害',
+      brief:'乱世之中，有人起舞，有人运甓，有人斗富；陶侃的自律、周处的改过，是职场人最该学的。',
+      sections:[
+        {type:'story',title:'闻鸡起舞 · 中流击楫：立志趁早，自励每日',
+          year:'公元289年',
+          content:'祖逖与刘琨同为司州主簿，同床共被。半夜听到鸡叫，祖逖踢醒刘琨说："这不是坏声音！"于是两人起身舞剑。后来祖逖率军北伐，渡长江时在江中击楫发誓："祖逖不能清中原而复济者，有如大江！"辞色壮烈，众人皆慨叹。',
+          moral:'<b>真正驱动一个人成长的，不是外部的压力，而是内心的不甘。</b>祖逖、刘琨半夜听到鸡叫就起身舞剑，这份自觉来自内心的志向。职场中，立志要趁早，自励要每日。'
+        },
+        {type:'story',title:'陶侃运甓：每天搬砖，是为了不忘进取',
+          year:'公元315年',
+          content:'陶侃是东晋名将，晚年位极人臣。但他每天早上把一百块砖搬到书房外，晚上再搬回书房内。有人问他为什么，他说："吾方致力中原，过尔优逸，恐不堪事。"意思是：我正致力于收复中原，如果过于安逸，恐怕将来担不起重任。陶侃一生勤勉，珍惜每一寸光阴。他常对人说："大禹圣者，乃惜寸阴；至于众人，当惜分阴，岂可逸游荒醉，生无益于时，死无闻于后，是自弃也。"',
+          moral:'<b>每天做一点"无用"的事，保持状态。</b>陶侃每天早上把一百块砖搬到书房外，晚上再搬回，以此自励不忘进取。职场中，即使当前工作安逸，也要保持学习、保持锻炼。'
+        },
+        {type:'story',title:'淝水之战：风声鹤唳，草木皆兵',
+          year:'公元383年',
+          content:'前秦苻坚率百万大军南下，东晋谢玄率八万北府兵迎战。谢玄派使者对苻坚说："您孤军深入，却逼水布阵，不如稍退，让我军渡河决战。"苻坚想趁晋军半渡时突击，便下令后退。谁知秦军一退就停不下来，朱序在阵后大喊"秦兵败了"，全军大溃。苻坚逃窜时，听到风声鹤唳，都以为是晋军追兵。此战成为以少胜多的经典。',
+          moral:'<b>临大事要有静气，稳住自己就是稳住全局。</b>淝水之战，谢安收到捷报仍与客人下棋，面色如常。职场中，遇到紧急情况时，你的镇定会传染给团队。'
+        },
+        {type:'story',title:'石崇王恺斗富：斗富炫奢，是灭亡的前奏',
+          year:'公元290年',
+          content:'石崇与王恺争豪，王恺用糖水洗锅，石崇用蜡烛当柴烧；王恺作紫丝布步障四十里，石崇作锦步障五十里。晋武帝是王恺的外甥，常资助王恺。他曾赐王恺一株珊瑚树，高二尺许。王恺拿给石崇看，石崇随手用铁如意击碎。王恺大怒，石崇说："不必惋惜，我赔你。"命人取出六七株珊瑚，三四尺高的就有好几株。在西晋灭亡前夜，权贵们正忙着比赛烧钱。',
+          moral:'<b>不要跟别人比"炫"，要比"内功"。</b>石崇与王恺斗富，用蜡烛当柴烧。职场中，不要跟同事比谁穿得好、谁开的车好。真正的高手，比的是内功——能力、格局、认知。'
+        },
+        {type:'story',title:'周处除三害：知错能改，任何时候都不晚',
+          year:'公元280年',
+          content:'周处年少时凶强侠气，为乡里所患。乡人把他和南山猛虎、长桥蛟龙并称"三害"。有人劝周处去杀虎斩蛟，实则希望三害只剩一害。周处先杀虎，又入水击蛟，浮沉三日三夜。乡人以为他死了，互相庆贺。周处杀蛟回来后，得知乡人庆贺，才明白自己被厌恶，遂有改过之意。他去找陆云，说："欲自修而年已蹉跎，恐将无及。"陆云说："古人贵朝闻夕改，君前途尚可。"周处遂发愤读书，终为忠臣。',
+          moral:'<b>人生不怕起点低，怕的是不愿转身。</b>周处被乡人厌恶后，想改过但担心年岁已大。陆云告诉他："古人贵朝闻夕改，君前途尚可。"周处发愤读书，终成忠臣。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'八王之乱 · 永嘉之乱 · 淝水之战',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 八王之乱：分封过度，骨肉相残',
+          background:'晋武帝司马炎吸取曹魏宗室孤弱而亡的教训，大封同姓诸王二十七人，并允许诸王都督诸州军事、掌握军队。他又立痴愚之子司马衷为太子，为后来的大乱埋下祸根。',
+          figures:'晋武帝 — 大封宗室，立嗣不当；晋惠帝司马衷 — 愚弱痴傻，"何不食肉糜"；贾南风 — 惠帝皇后，凶悍多权诈；汝南王、楚王、赵王、齐王、长沙王、成都王、河间王、东海王 — 八王。',
+          event:'晋惠帝即位后，贾后专权，先杀辅政的杨骏，又逼死太子司马遹。赵王司马伦起兵诛贾后，废惠帝自立。此后诸王相继起兵，互相攻杀，前后十六年，史称"八王之乱"。',
+          trigger:'<em>贾后干政与诸王争权</em>。贾后凶悍多权诈，专权十年，直接引发了八王之乱。而根本原因，是晋武帝大封宗室，诸王掌兵自重，中央无法制衡。',
+          result:'<b>八王之乱，中原残破，西晋元气大伤。</b>诸王互相攻杀十六年，人口锐减，经济崩溃。匈奴刘曜趁机攻陷洛阳、长安，西晋灭亡。中原士族大批南渡，史称"衣冠南渡"。'
+        },
+        {type:'event',title:'事件二 · 永嘉之乱：衣冠南渡，中原板荡',
+          background:'八王之乱后，西晋国力衰弱，内迁的匈奴、鲜卑、羯、氐、羌等少数民族趁机起兵。匈奴刘渊建立汉赵，其子刘聪派刘曜、石勒率军进攻西晋。',
+          figures:'刘曜 — 匈奴汉赵名将；石勒 — 羯族首领，后来建立后赵；晋怀帝司马炽 — 被俘后遇害；晋愍帝司马邺 — 西晋末帝，出降后遇害。',
+          event:'公元311年，刘曜攻陷洛阳，俘晋怀帝，屠杀王公士民三万余人，史称"永嘉之乱"。316年，刘曜又攻陷长安，晋愍帝出降，西晋灭亡。中原士族大批南渡，史称"衣冠南渡"。',
+          trigger:'<em>八王之乱导致西晋国力衰弱</em>。诸王互相攻杀，中央权威荡然无存，内迁少数民族趁机起兵。西晋的灭亡，是内乱招致外患的典型。',
+          result:'<b>西晋灭亡，中原士族大批南渡，东晋建立。</b>公元317年，司马睿在建康称帝，建立东晋。中原士族门阀与皇权共治，"王与马，共天下"。北方则进入五胡十六国时期，战乱频仍。'
+        },
+        {type:'event',title:'事件三 · 淝水之战：以少胜多的经典',
+          background:'前秦苻坚统一北方后，率百万大军南下，企图一举灭亡东晋。东晋以谢安为帅，谢玄率北府兵八万迎战。',
+          figures:'苻坚 — 前秦皇帝，雄才大略但骄傲轻敌；谢安 — 东晋宰相，镇定自若；谢玄 — 东晋名将，率北府兵；朱序 — 前秦降将，暗中助晋。',
+          event:'谢玄派使者对苻坚说："您孤军深入，却逼水布阵，这是持久之计。不如稍退，让我军渡河决战。"苻坚想趁晋军半渡时突击，便下令后退。谁知秦军一退就停不下来，朱序在阵后大喊"秦兵败了"，全军大溃。苻坚逃窜时，听到风声鹤唳，都以为是晋军追兵。此战成为以少胜多的经典。',
+          trigger:'<em>苻坚的骄傲轻敌</em>。他自恃兵多，以为可以一举灭晋，却忽视了秦军内部民族复杂、士气不高的问题。他的"稍退"命令，成了秦军崩溃的导火索。',
+          result:'<b>东晋以少胜多，前秦大败，北方重新分裂。</b>淝水之战后，前秦迅速瓦解，北方重新陷入分裂。东晋得以延续，江南文化得以保全。此战成为以少胜多的经典战例。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'祖逖立志 · 陶侃勤勉 · 谢安镇雅 · 惠帝痴愚',
+      brief:'乱世之中，性格决定命运；陶侃的勤勉，是职场最稀缺的品质。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'祖逖',trait:'闻鸡起舞 · 中流击楫 · 志复中原 · 坚毅不拔',
+           desc:'与刘琨同寝，闻鸡鸣即起，舞剑自励。渡江时中流击楫立誓，北伐中原。他在豫州招抚流民，深得民心，多次击败后赵军队。可惜东晋朝廷内斗不断，不支持他北伐，祖逖忧愤成疾，病逝于军中。'},
+          {name:'陶侃',trait:'勤勉自律 · 惜时如金 · 运甓自励 · 终成大器',
+           desc:'出身寒门，靠军功一步步升迁。他每天早上把一百块砖搬到书房外，晚上再搬回，以此自励不忘进取。他常对人说："大禹圣者，乃惜寸阴；至于众人，当惜分阴。"他治军严整，清廉自守，是东晋少有的能臣。'},
+          {name:'谢安',trait:'镇定自若 · 风流儒雅 · 临危不乱 · 东山再起',
+           desc:'早年隐居东山，不愿出仕。桓温专权时被迫出山。淝水之战时，他坐镇建康，收到捷报后仍与客人下棋，面无表情。客人问战况，他只淡淡说："小儿辈遂已破贼。"'},
+          {name:'晋惠帝司马衷',trait:'愚弱痴傻 · 无法自理 · 听人摆布 · 悲剧傀儡',
+           desc:'他的名言是：听到百姓饿死，问"何不食肉糜"；听到蛤蟆叫，问"为官乎，为私乎"。他并非天生残暴，只是智力不足以承担皇帝的责任。他一生被贾后、诸王摆布，最终被毒死。'},
+          {name:'贾南风',trait:'凶悍多权诈 · 善弄权术 · 狠毒残忍 · 不得善终',
+           desc:'晋惠帝皇后，相貌丑陋而性极妒悍。她设计除掉辅政的杨骏，又逼死太子司马遹，专权十年。她直接引发了八王之乱。最终被赵王司马伦废杀，一杯金屑酒结束了她的一生。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'闻鸡起舞 · 中流击楫 · 东山再起 · 草木皆兵 · 何不食肉糜',
+      brief:'晋代成语，多在乱世中诞生，读来令人感慨。',
+      sections:[
+        {type:'idiom',title:'晋纪衍生的经典成语',items:[
+          {word:'闻鸡起舞',source:'《资治通鉴》晋纪 · 祖逖',
+           desc:'祖逖与刘琨同寝，半夜闻鸡鸣，踢醒刘琨说"此非恶声也"，遂起身舞剑。指有志之士及时奋发，刻苦自励。'},
+          {word:'中流击楫',source:'《资治通鉴》晋纪 · 祖逖',
+           desc:'祖逖渡江北伐，在江中击楫发誓："祖逖不能清中原而复济者，有如大江！"指立志收复失地，矢志不渝。'},
+          {word:'东山再起',source:'《资治通鉴》晋纪 · 谢安',
+           desc:'谢安早年隐居东山，不愿出仕；后被迫出山，在淝水之战中指挥若定，大败前秦。指退隐后再度出任要职，也比喻失败后重新崛起。'},
+          {word:'草木皆兵',source:'《资治通鉴》晋纪 · 淝水之战',
+           desc:'苻坚败退时，看到山上草木，都以为是晋军。形容人在极度惊恐时，疑神疑鬼。'},
+          {word:'风声鹤唳',source:'《资治通鉴》晋纪 · 淝水之战',
+           desc:'苻坚逃窜时，听到风声鹤唳，都以为是晋军追兵。形容惊慌失措，自相惊扰。'},
+          {word:'何不食肉糜',source:'《资治通鉴》晋纪 · 晋惠帝',
+           desc:'晋惠帝听到百姓饿死，问："何不食肉糜？"指对事物缺乏了解，脱离实际。'},
+          {word:'囊萤映雪',source:'《晋书》· 车胤、孙康',
+           desc:'车胤家贫，用袋子装萤火虫照明读书；孙康冬夜映雪读书。形容家境贫寒，刻苦读书。'},
+          {word:'闻鸡起舞',source:'《资治通鉴》晋纪 · 祖逖',
+           desc:'祖逖与刘琨闻鸡起舞，苦练本领。指有志向的人及时奋发。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'立志趁早 · 临事有静气 · 立嗣要慎重 · 惜时如金',
+      brief:'晋代乱局，藏着最深的教训；陶侃运甓，是职场人最该学的自律。',
+      sections:[
+        {type:'advice',title:'晋纪留给后人的六条忠告',items:[
+          {title:'立志要趁早，自励要每日',text:'祖逖、刘琨半夜听到鸡叫就起身舞剑，这份自觉来自内心的志向。真正驱动一个人成长的，不是外部的压力，而是内心的不甘。'},
+          {title:'临大事，要有静气',text:'淝水之战，谢安收到捷报仍与客人下棋，面色如常。他的镇定稳定了整个建康的军心。慌乱会传染，镇定也会。'},
+          {title:'立嗣不能以私情废公义',text:'晋武帝明知太子愚钝，却因宠爱皇孙而不肯废立，结果八王之乱、西晋灭亡。选人、选接班人是最大的决策，一旦掺杂私情，代价往往是整个组织的存亡。'},
+          {title:'分权过度，就是分崩离析',text:'晋武帝大封宗室，本意是让诸王屏卫皇室，结果诸王掌兵自重，互相攻杀。分权的边界在哪里？必须保留最终裁决权。'},
+          {title:'斗富炫奢，是灭亡的前奏',text:'石崇与王恺斗富，用蜡烛当柴烧、用锦缎做五十里步障。他们斗富的同时，西晋正在走向灭亡。'},
+          {title:'知错能改，任何时候都不晚',text:'周处被乡人厌恶后，想改过但担心年岁已大。陆云告诉他："古人贵朝闻夕改，君前途尚可。"周处发愤读书，终成忠臣。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：陶侃运甓与谢安的静气',items:[
+          {title:'每天做一点"无用"的事，保持状态',text:'陶侃每天早上把一百块砖搬到书房外，晚上再搬回，以此自励不忘进取。职场中，即使当前工作安逸，也要保持学习、保持锻炼。'},
+          {title:'惜时如金，不要把时间浪费在无效社交上',text:'陶侃说："大禹圣者，乃惜寸阴；至于众人，当惜分阴。"职场中，时间是最宝贵的资源。把时间花在提升自己上。'},
+          {title:'临大事要有静气，稳住自己就是稳住全局',text:'淝水之战，谢安收到捷报仍与客人下棋，面色如常。职场中，遇到紧急情况时，你的镇定会传染给团队。'},
+          {title:'不要跟别人比"炫"，要比"内功"',text:'石崇与王恺斗富，用蜡烛当柴烧。职场中，不要跟同事比谁穿得好、谁开的车好。真正的高手，比的是内功。'},
+          {title:'分权要有边界，不能让别人掌握能推翻你的力量',text:'晋武帝大封宗室，结果诸王掌兵自重。职场中，授权要有限度，核心资源、核心信息、核心决策权不能轻易交给别人。'},
+          {title:'出身寒门，也能靠勤勉逆袭',text:'陶侃出身寒门，靠军功一步步升迁，最终位极人臣。他没有背景、没有资源，靠的是勤勉、自律和坚持。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 7. 南北朝 ============================ */
+{
+  id:'nanbei', name:'南北朝', era:'宋齐梁陈 · 魏齐周', range:'420 — 589', accent:'#10b981',
+  tagline:'南北对峙 · 朝代频替',
+  intro:'南朝宋、齐、梁、陈相继，北朝魏、齐、周轮替。孝文帝迁都、韦叡守合肥、陈庆之白袍——乱世之中，仍有名将与明君，也有职场最稀缺的坚守与谋略。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#10b981',c2:'#047857',
+      headline:'公元420年刘裕代晋建宋',
+      brief:'南北朝开端，至589年隋灭陈统一。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元420年，刘裕接受晋恭帝禅让，建立宋朝，南朝开始。北方则由北魏统一，形成南北对峙局面。'},
+        {type:'list',title:'南北朝朝代更替',items:[
+          '<b>南朝</b>　宋（420—479）→ 齐（479—502）→ 梁（502—557）→ 陈（557—589）',
+          '<b>北朝</b>　北魏（386—534）→ 东魏/西魏（534—550）→ 北齐/北周（550—581）',
+          '<b>589年</b>　隋灭陈，南北重归一统'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'南北对峙 · 门阀衰落 · 寒人掌权',
+      brief:'军权成为改朝换代的唯一筹码。',
+      sections:[
+        {type:'text',title:'权力结构的剧变',text:'南北朝时期，门阀士族虽仍居高位，但实际军权已落入寒门出身的将领手中。刘裕、萧道成、萧衍、陈霸先皆以军功起家，进而代前朝而立。'},
+        {type:'list',title:'南北制度差异',items:[
+          '<b>南朝</b>　门阀政治延续，皇权受士族制约','<b>北朝</b>　北魏孝文帝改革，推行汉化、均田制、三长制',
+          '<b>北周</b>　创府兵制，关陇集团崛起','<b>趋势</b>　北方制度创新，南方因循守旧'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'礼制沦丧，唯力是视',
+      brief:'乱世之中，名分尽失，唯有实力说话。',
+      sections:[
+        {type:'quote',text:'自晋氏以来，礼教陵夷，风俗颓弊。',source:'《资治通鉴》南北朝纪'},
+        {type:'text',title:'礼制崩坏的表现',text:'南朝宋、齐、梁、陈四代，皆以禅让之名行篡夺之实；帝王多被弑杀，宗室互相残害。君臣名分荡然无存。'},
+        {type:'text',title:'乱世中的亮点',text:'北魏孝文帝推行汉化改革，迁都洛阳、改汉姓、穿汉服、通婚姻，促进了民族融合。'}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'汉化则兴，暴虐则亡',
+      brief:'孝文帝汉化 · 侯景之乱 · 梁武帝饿死台城',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'孝文帝汉化改革',text:'北魏孝文帝迁都洛阳，改鲜卑姓为汉姓，禁胡服、断北语、通婚汉族。此举促进民族融合，为隋唐大一统奠定基础。'},
+            {name:'梁武帝前期之治',text:'梁武帝萧衍前期勤政爱民，设谤木肺石函以通民意，江南经济繁荣，史称"天监之治"。'}
+          ],
+          negative:[
+            {name:'侯景之乱',text:'梁武帝晚年佞佛，朝政腐败。侯景以"清君侧"为名起兵，攻陷建康，梁武帝被囚饿死台城。'},
+            {name:'宋齐宗室相残',text:'南朝宋、齐两代，宗室诸王互相残杀，宋前废帝、后废帝皆以残暴著称。骨肉相残，礼制尽失。'}
+          ]},
+        {type:'quote',text:'城门失火，殃及池鱼。',source:'《资治通鉴》引谚'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'南朝四代 · 北朝五朝 轮替',
+      brief:'420—589年 · 政权更迭如走马灯。',
+      sections:[
+        {type:'list',title:'南北朝帝王更替',items:[
+          '<b>420年</b>　刘裕代晋建宋，是为<b>宋武帝</b>','<b>479年</b>　萧道成代宋建齐，是为<b>齐高帝</b>',
+          '<b>502年</b>　萧衍代齐建梁，是为<b>梁武帝</b>（在位48年，饿死台城）',
+          '<b>557年</b>　陈霸先代梁建陈，是为<b>陈武帝</b>','<b>589年</b>　隋灭陈，陈后主被俘，南朝终',
+          '<b>北魏</b>　386年拓跋珪建国，534年分裂为东魏、西魏','<b>北周</b>　557年宇文觉代西魏建周，581年杨坚代周建隋'
+        ]},
+        {type:'text',title:'更迭频繁的根源',text:'南北朝政权更迭之频，为历代所罕见。根本原因在于：军权分散于将领之手，皇权缺乏稳固的制度保障，礼制名分无法约束实力。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'孝文帝迁都 · 韦叡守合肥 · 陈庆之白袍 · 台城之死',
+      brief:'乱世之中，仍有名将与明君；韦叡的谋略、陈庆之的以少胜多，是职场最稀缺的能力。',
+      sections:[
+        {type:'story',title:'孝文帝迁都洛阳：假南伐，真迁都',
+          year:'公元494年',
+          content:'北魏孝文帝想迁都洛阳，但担心群臣反对。他假称要南伐齐国，率大军南下。到了洛阳，正逢大雨，群臣疲惫不堪，纷纷跪求停止南伐。孝文帝说："这次出动大军，若无功而返，如何向后人交代？如果不南伐，那就迁都洛阳。"群臣被迫同意。一场"假南伐"，完成了迁都大业。',
+          moral:'<b>改革要讲究策略，不能蛮干。</b>孝文帝用"假南伐真迁都"的方式化解阻力，既有决心，也有策略。职场中，推动改革时，要先争取关键人物的支持，而不是四面树敌。'
+        },
+        {type:'story',title:'韦叡守合肥：年龄不是问题，能力才是',
+          year:'公元506年',
+          content:'梁将韦叡年过七十，仍率军与北魏作战。合肥城外有东西两座小城，韦叡先攻破二城，魏军不敢出战。他命人在淝水上架浮桥，亲自坐小轿督战。魏军来攻，他指挥若定，一日数战，魏军大败。韦叡体弱不能骑马，常坐板舆督战，但临阵果敢，将士皆愿效死。魏人畏惧他，称他为"韦虎"。',
+          moral:'<b>不要因为年龄而自我设限。</b>韦叡年过七十仍能统军，体弱不能骑马，常坐板舆督战，但临阵果敢，将士皆愿效死。职场中，能力和经验，才是最值钱的。'
+        },
+        {type:'story',title:'陈庆之白袍军：七千对数十万，靠的是谋略和士气',
+          year:'公元529年',
+          content:'陈庆之是梁朝儒将，不善骑射，但善于谋略。他率七千白袍军北伐，从铚县出发，一路攻克三十二城，四十七战全胜，直入洛阳。当时有童谣："名师大将莫自牢，千兵万马避白袍。"七千对数十万，靠的是士气、谋略和出其不意。',
+          moral:'<b>资源不足时，就把注意力放在创造局部优势上。</b>陈庆之七千白袍军横扫中原，靠的不是人多，而是士气、谋略和出其不意。职场中，不要抱怨资源不够，要学会创造局部优势。'
+        },
+        {type:'story',title:'梁武帝饿死台城：接纳叛将，引狼入室',
+          year:'公元548年',
+          content:'梁武帝萧衍晚年痴迷佛教，四次舍身同泰寺，大臣们花巨资把他"赎"回来。他接纳东魏叛将侯景，侯景却起兵反叛，攻陷建康。梁武帝被囚于台城，口苦索蜜不得，说："荷！荷！"然后去世，时年八十六。',
+          moral:'<b>接纳投降者，先看他的品性。</b>梁武帝接纳侯景，是因为贪图利益，想借他收复中原。但侯景反复无常，先后背叛过三个主子。接纳一个不忠的人，就是在自己身边埋雷。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'孝文帝迁都 · 侯景之乱 · 陈庆之北伐',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 孝文帝迁都：假南伐，真迁都',
+          background:'北魏孝文帝拓跋宏五岁即位，冯太后辅政。亲政后，他深感鲜卑旧俗落后，决心推行汉化改革。但北魏都城平城（今大同）地处北方，鲜卑贵族势力强大，改革阻力极大。孝文帝决定迁都洛阳，以摆脱旧势力。',
+          figures:'孝文帝拓跋宏 — 雄才大略、锐意改革；冯太后 — 孝文帝祖母，辅政多年；鲜卑贵族 — 反对迁都，留恋旧俗；汉族士人 — 支持汉化改革。',
+          event:'孝文帝想迁都洛阳，但担心群臣反对。他假称要南伐齐国，率大军南下。到了洛阳，正逢大雨，群臣疲惫不堪，纷纷跪求停止南伐。孝文帝说："这次出动大军，若无功而返，如何向后人交代？如果不南伐，那就迁都洛阳。"群臣被迫同意。一场"假南伐"，完成了迁都大业。随后，他推行改汉姓、禁胡服、断北语、通婚汉族等一系列汉化改革。',
+          trigger:'<em>孝文帝的汉化决心与政治智慧</em>。他深知迁都会遭到鲜卑贵族反对，于是用"假南伐"的方式，让群臣在"南伐"和"迁都"之间做选择，巧妙地化解了阻力。',
+          result:'<b>迁都洛阳，汉化改革成功，民族大融合。</b>孝文帝的汉化改革，促进了鲜卑族与汉族的融合，为隋唐大一统奠定了基础。他以"假南伐真迁都"的方式化解阻力，显示出高超的政治智慧。可惜三十三岁就病逝，改革大业未竟。'
+        },
+        {type:'event',title:'事件二 · 侯景之乱：接纳叛将，引狼入室',
+          background:'梁武帝萧衍晚年痴迷佛教，四次舍身同泰寺，大臣们花巨资把他"赎"回来。朝政荒废，政治腐败。东魏叛将侯景先投西魏，后投梁朝。梁武帝贪图利益，接纳侯景，想借他收复中原。',
+          figures:'梁武帝萧衍 — 前期勤政，晚年佞佛，刚愎纳叛；侯景 — 反复无常、残暴嗜杀、野心勃勃；萧纲 — 梁武帝之子，后为简文帝；陈霸先 — 后来击败侯景，建立陈朝。',
+          event:'侯景先属北魏，后投东魏，再降西魏，最后归梁。他身体残疾，但骁勇善战。梁武帝接纳他后，又因与东魏议和而出卖侯景。侯景大怒，以"清君侧"为名起兵反叛，攻陷建康。梁武帝被囚于台城，口苦索蜜不得，说："荷！荷！"然后去世，时年八十六。侯景屠戮江南，繁华毁于一旦。',
+          trigger:'<em>梁武帝的贪利与失信</em>。他接纳侯景，是想借他收复中原；但又与东魏议和，出卖侯景。侯景反复无常，被出卖后起兵反叛。接纳一个不忠的人，就是在自己身边埋雷。',
+          result:'<b>梁武帝饿死台城，江南残破，士族门阀遭毁灭打击。</b>侯景之乱使江南经济文化遭受毁灭性打击，士族门阀大批死亡。陈霸先击败侯景，建立陈朝。此事件成为南北朝由乱到治的转折点。'
+        },
+        {type:'event',title:'事件三 · 陈庆之北伐：七千白袍，横扫中原',
+          background:'陈庆之是梁朝儒将，不善骑射，但善于谋略。公元529年，梁武帝派陈庆之率军护送北魏宗室元颢北还，讨伐北魏。陈庆之率七千白袍军北伐。',
+          figures:'陈庆之 — 儒将风范、谋略过人、以少胜多；元颢 — 北魏宗室，被梁朝扶植；尔朱荣 — 北魏权臣，率军反击。',
+          event:'陈庆之率七千白袍军北伐，从铚县出发，一路攻克三十二城，四十七战全胜，直入洛阳。当时有童谣："名师大将莫自牢，千兵万马避白袍。"七千对数十万，靠的是士气、谋略和出其不意。但元颢进入洛阳后，骄奢淫逸，不听陈庆之劝告。尔朱荣率大军反击，元颢被杀，陈庆之兵败，只身逃回梁朝。',
+          trigger:'<em>梁武帝的北伐野心与元颢的无能</em>。梁武帝想借元颢之名北伐，元颢却只想做皇帝，不思进取。陈庆之虽有谋略，但孤军深入，后援不继。',
+          result:'<b>陈庆之北伐先胜后败，但七千白袍军的传奇流传千古。</b>他以七千对数十万，四十七战全胜，创造了军事史上的奇迹。毛泽东读《陈庆之传》时，批注"再读此传，为之神往"。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'孝文帝雄略 · 韦叡老成 · 陈庆之儒将 · 梁武帝痴佛',
+      brief:'乱世人物，各有各的活法；韦叡的谋略与陈庆之的以少胜多，是职场最稀缺的能力。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'北魏孝文帝拓跋宏',trait:'雄才大略 · 锐意改革 · 深谋远虑 · 英年早逝',
+           desc:'五岁即位，冯太后辅政。亲政后推行汉化改革：迁都洛阳、改汉姓、禁胡服、断北语、通婚汉族。他以"假南伐真迁都"的方式化解阻力，显示出高超的政治智慧。可惜三十三岁就病逝。'},
+          {name:'韦叡',trait:'老成持重 · 临阵果敢 · 体恤士卒 · 不慕虚荣',
+           desc:'年过七十仍能统军，体弱不能骑马，常坐板舆督战。他治军宽厚，与士卒同甘共苦，所得赏赐分给部下。魏军畏惧他，称他为"韦虎"。他从不争功，临终遗命薄葬。'},
+          {name:'陈庆之',trait:'儒将风范 · 谋略过人 · 以少胜多 · 谦逊自持',
+           desc:'不善骑射，但深通谋略。率七千白袍军北伐，四十七战全胜，攻克三十二城，直入洛阳。他始终谦逊，不居功自傲。毛泽东读《陈庆之传》时，批注"再读此传，为之神往"。'},
+          {name:'梁武帝萧衍',trait:'博学多才 · 前期勤政 · 晚年佞佛 · 刚愎纳叛',
+           desc:'南朝在位最久的皇帝，四十八年。前期励精图治，江南经济繁荣。晚年痴迷佛教，四次舍身同泰寺，荒废朝政。他刚愎自用，接纳东魏叛将侯景，最终被囚台城，饥病而死。'},
+          {name:'侯景',trait:'反复无常 · 残暴嗜杀 · 野心勃勃 · 不得善终',
+           desc:'先属北魏，后投东魏，再降西魏，最后归梁。他身体残疾，但骁勇善战。梁武帝接纳他后，他又因被出卖而起兵反叛，攻陷建康，饿死梁武帝。最终被陈霸先击败，被部下所杀。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'千兵万马避白袍 · 韦虎 · 侯景之乱 · 江郎才尽 · 画龙点睛',
+      brief:'南北朝成语，多与乱世名将、朝代更迭相关。',
+      sections:[
+        {type:'idiom',title:'南北朝衍生的经典成语',items:[
+          {word:'千兵万马避白袍',source:'《资治通鉴》南北朝 · 陈庆之',
+           desc:'陈庆之率七千白袍军北伐，四十七战全胜，攻克三十二城，直入洛阳。童谣云："名师大将莫自牢，千兵万马避白袍。"形容以少胜多、所向披靡。'},
+          {word:'韦虎',source:'《资治通鉴》南北朝 · 韦叡',
+           desc:'梁将韦叡年过七十仍能统军，体弱不能骑马，常坐板舆督战，但临阵果敢，将士皆愿效死。魏人畏惧他，称他为"韦虎"。指令敌人畏惧的名将。'},
+          {word:'侯景之乱',source:'《资治通鉴》南北朝 · 侯景',
+           desc:'侯景以"清君侧"为名起兵，攻陷建康，饿死梁武帝，江南繁华毁于一旦。指反复无常之人引发的巨大动乱。'},
+          {word:'自我得之，自我失之',source:'《资治通鉴》南北朝 · 梁武帝',
+           desc:'梁武帝被囚台城，叹曰："自我得之，自我失之，亦复何恨！"指自己得到的东西，又由自己失去。'},
+          {word:'山中宰相',source:'《南史》· 陶弘景',
+           desc:'陶弘景隐居山中，梁武帝每有大事必咨询他，时人称"山中宰相"。指隐居而有宰相之实的人。'},
+          {word:'江郎才尽',source:'《南史》· 江淹',
+           desc:'江淹晚年才思衰退，时人谓之"江郎才尽"。指才思枯竭，写不出好作品。'},
+          {word:'画龙点睛',source:'《历代名画记》· 张僧繇',
+           desc:'梁朝画家张僧繇画龙不点眼睛，说点了就会飞走。人请点之，龙果然破壁飞去。指在关键处点明要旨。'},
+          {word:'天花乱坠',source:'《高僧传》· 云光法师',
+           desc:'梁武帝时云光法师讲经，感动上天，天花纷纷坠落。形容说话有声有色，非常动听。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'改革要敢破旧制 · 纳降要察其心 · 以少胜多靠谋略',
+      brief:'南北朝的教训，写在血里；韦叡的谋略、陈庆之的以少胜多，是职场最稀缺的能力。',
+      sections:[
+        {type:'advice',title:'南北朝留给后人的六条忠告',items:[
+          {title:'真正的改革，要敢于打破旧制',text:'孝文帝迁都、改姓、易服，每一项都会触动鲜卑贵族的利益。他用"假南伐真迁都"的方式化解阻力，既有决心，也有策略。'},
+          {title:'接纳投降者，先看他的品性',text:'梁武帝接纳侯景，是因为贪图利益，想借他收复中原。但侯景反复无常，先后背叛过三个主子。接纳一个不忠的人，就是在自己身边埋雷。'},
+          {title:'信仰不能替代治理',text:'梁武帝四次舍身同泰寺，大臣们花巨资赎他，朝政荒废。他信佛数十年，却在八十六岁时被饿死台城。信仰是私事，治理是公事。'},
+          {title:'以少胜多，靠的是谋略和士气',text:'陈庆之七千白袍军横扫中原，靠的不是人多，而是士气、谋略和出其不意。资源不足时，就把注意力放在创造局部优势上。'},
+          {title:'谦逊的人，走得更远',text:'韦叡老成持重，不慕虚荣，所得赏赐都分给部下，将士愿为他效死。反观那些争功诿过的人，往往在关键时刻众叛亲离。'},
+          {title:'宽严相济，不可只施仁政而无威',text:'南朝宋齐两代，宗室诸王互相残杀；梁武帝一味宽纵，最终被侯景所害。仁政是必要的，但必须有制度和威慑做支撑。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：韦叡的谋略与陈庆之的以少胜多',items:[
+          {title:'年龄不是问题，能力才是',text:'韦叡年过七十仍能统军，体弱不能骑马，常坐板舆督战，但临阵果敢，将士皆愿效死。职场中，不要因为年龄而自我设限。'},
+          {title:'以少胜多，靠的是谋略和士气',text:'陈庆之七千白袍军横扫中原，靠的不是人多，而是士气、谋略和出其不意。职场中，资源不足时，就把注意力放在创造局部优势上。'},
+          {title:'谦逊的人，走得更远',text:'韦叡不慕虚荣，所得赏赐都分给部下，将士愿为他效死。职场中，那些争功诿过的人，往往在关键时刻众叛亲离。'},
+          {title:'接纳"空降兵"，先看他的品性',text:'梁武帝接纳侯景，是因为贪图利益。但侯景反复无常，先后背叛过三个主子。职场中，招聘或合作时，先看对方的品性和过往记录。'},
+          {title:'信仰不能替代工作',text:'梁武帝四次舍身同泰寺，荒废朝政。职场中，个人爱好、副业、信仰都不能影响主业。分清主次，才能走得更远。'},
+          {title:'改革要讲究策略，不能蛮干',text:'孝文帝用"假南伐真迁都"的方式化解阻力，既有决心，也有策略。职场中，推动改革时，要先争取关键人物的支持。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 8. 隋纪 ============================ */
+{
+  id:'sui', name:'隋纪', era:'隋朝', range:'581 — 618', accent:'#a3e635',
+  tagline:'开皇之治 · 大业暴政',
+  intro:'隋文帝杨坚统一南北，创三省六部、科举取士，开皇之治为历代称道。然隋炀帝杨广穷奢极欲、三征高丽，三十八年而亡。文帝的节俭与炀帝的奢靡，是职场最鲜明的对比。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#a3e635',c2:'#4d7c0f',
+      headline:'公元581年杨坚代周建隋 · 589年灭陈统一',
+      brief:'结束近三百年分裂，重归一统。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元581年，杨坚接受北周静帝禅让，建立隋朝。公元589年，隋军渡江灭陈，结束自西晋末年以来近三百年的分裂局面。'},
+        {type:'list',title:'隋纪大事年表',items:[
+          '<b>581年</b>　杨坚代周建隋，是为隋文帝','<b>589年</b>　灭陈，南北统一',
+          '<b>604年</b>　隋文帝崩，杨广继位，是为隋炀帝','<b>605年</b>　开凿大运河，营建东都洛阳',
+          '<b>612年</b>　第一次征高丽，大败','<b>618年</b>　隋炀帝被杀于江都，隋亡'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'三省六部 · 科举取士',
+      brief:'制度创新，影响后世一千三百年。',
+      sections:[
+        {type:'text',title:'制度的重大创新',text:'隋文帝废北周六官制，创三省六部制：中书省草拟诏令，门下省审核，尚书省执行。又废九品中正制，初创科举，以考试取士。'},
+        {type:'list',title:'权力结构变革',items:[
+          '<b>三省</b>　中书（决策）、门下（审议）、尚书（执行）','<b>六部</b>　吏、户、礼、兵、刑、工',
+          '<b>科举</b>　分科考试，寒门可入仕，门阀垄断被打破','<b>地方</b>　废郡存州，州县两级，中央直接管辖'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'节俭则兴，奢靡则亡',
+      brief:'隋文帝与隋炀帝的鲜明对比。',
+      sections:[
+        {type:'quote',text:'俭以养德，奢以败德。',source:'司马光论隋室兴亡'},
+        {type:'text',title:'司马光的评述',text:'隋文帝躬行节俭，宫中妃嫔不得服绫罗，天下赋税轻简，故能致开皇之治。隋炀帝继位后，营东都、开运河、三征高丽，役民百万，天下怨叛。'},
+        {type:'list',title:'隋之得失',items:[
+          '<b>得</b>　统一南北，结束三百年分裂','<b>得</b>　创三省六部、科举制，为唐所承',
+          '<b>得</b>　开凿大运河，沟通南北经济','<b>失</b>　炀帝滥用民力，三征高丽耗尽国力',
+          '<b>失</b>　拒谏饰非，杀戮忠良，众叛亲离'
+        ]}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'开皇之治与江都之变',
+      brief:'开皇之治 · 大运河 · 三征高丽 · 江都兵变',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'开皇之治',text:'隋文帝轻徭薄赋、躬行节俭、整顿吏治、修订《开皇律》。至开皇末年，天下户口大增，仓储丰实。'},
+            {name:'大运河开凿',text:'隋炀帝开凿大运河，以洛阳为中心，北抵涿郡，南达余杭。虽役民过重，但沟通南北，惠及后世千年。'}
+          ],
+          negative:[
+            {name:'三征高丽',text:'隋炀帝三次征讨高丽，动用民夫数百万，死者相枕。第一次征高丽出动军队一百一十三万，惨败而归。'},
+            {name:'江都兵变',text:'公元618年，隋炀帝在江都被宇文化及发动兵变缢杀。炀帝临死前问："我有何罪至此？"'}
+          ]},
+        {type:'quote',text:'君，舟也；人，水也。水能载舟，亦能覆舟。',source:'《资治通鉴》引唐太宗语'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'隋文帝崩 → 其子杨广继位',
+      brief:'604年 · 仁寿宫变，隋祚将终。',
+      sections:[
+        {type:'list',title:'隋纪帝王更替',items:[
+          '<b>581年</b>　杨坚代周建隋，是为<b>隋文帝</b>',
+          '<b>604年</b>　文帝崩于仁寿宫（传为杨广所弑），其子杨广继位，是为<b>隋炀帝</b>',
+          '<b>617年</b>　李渊太原起兵，攻入长安，立杨侑为帝（恭帝）',
+          '<b>618年</b>　炀帝被杀于江都；杨侑禅位于李渊，隋亡'
+        ]},
+        {type:'text',title:'继位之谜',text:'隋文帝临终前发现杨广调戏宣华夫人，大怒欲废太子、复立杨勇，但为杨广党羽所阻。文帝当日暴崩，杨广继位。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'杨坚代周 · 开皇节俭 · 运河与征辽 · 江都之死',
+      brief:'一个王朝，两副面孔；文帝的节俭与炀帝的奢靡，是职场最鲜明的对比。',
+      sections:[
+        {type:'story',title:'杨坚代周：外戚夺权，建立隋朝',
+          year:'公元581年',
+          content:'北周宣帝去世，年幼的静帝继位。杨坚以外戚身份（皇后之父）入朝总揽军政。相州总管尉迟迥起兵讨伐杨坚，各地响应者数十万。杨坚派老将韦孝宽迎战，在邺城大破尉迟迥。随后杨坚接受静帝禅让，建立隋朝。',
+          moral:'<b>机会总是留给有准备的人。</b>杨坚以外戚身份入朝，抓住北周主少国疑的机会，总揽军政，最终代周建隋。职场中，要善于把握时机，在关键时刻展现自己的能力。'
+        },
+        {type:'story',title:'开皇节俭：节俭不是抠门，是一种长期主义',
+          year:'公元589年',
+          content:'隋文帝躬行节俭，后宫妃嫔不得穿绫罗绸缎。他乘舆服御，有破旧的就修补再用。有一次关中饥荒，他派人去看百姓吃的什么，得知是豆屑杂糠，他流泪拿给群臣看，深自咎责，一年不吃酒肉。在他治下，天下户口大增，仓储丰实。',
+          moral:'<b>控制成本、珍惜资源，是长期主义的表现。</b>隋文帝宫中妃嫔不得穿绫罗，乘舆服御破了就修补再用。正是这种节俭，让隋朝在短期内积累了巨大的财富。'
+        },
+        {type:'story',title:'大运河与三征高丽：透支民力的代价',
+          year:'公元605年',
+          content:'隋炀帝即位后，营建东都洛阳，每月役使民夫二百万人；开凿大运河，全长两千余公里，役夫数百万，死者十之四五。他又三次征讨高丽，第一次出动军队一百一十三万，民夫加倍，结果惨败而归。天下由此骚动，起义蜂起。',
+          moral:'<b>任何事业都有节奏，透支民力必遭反噬。</b>隋炀帝开运河、征高丽，每一项都是千年之功，但他把所有功业压缩在十几年内完成，动用民夫数百万，死者十之四五。职场中，不要为了短期业绩而透支团队的健康和信任。'
+        },
+        {type:'story',title:'江都之死：拒谏饰非，众叛亲离',
+          year:'公元618年',
+          content:'公元618年，隋炀帝在江都（今扬州），天下已大乱，他仍沉迷酒色。宇文化及发动兵变，率禁军入宫。炀帝问："我有何罪至此？"马文举答："陛下违弃宗庙，巡游不息，外勤征讨，内极奢淫，使丁壮尽于矢刃，女弱填于沟壑，四民丧业，盗贼蜂起；专任佞谀，饰非拒谏，何谓无罪！"炀帝要求饮鸩自杀，不许，遂被缢杀。',
+          moral:'<b>拒绝听批评的人，最终会失去一切。</b>隋炀帝临死问"我有何罪"，马文举历数其罪。他不是不知道自己做了什么，而是从不允许别人告诉他。拒谏饰非，是所有亡国之君的通病。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'江都兵变 · 三征高丽 · 开皇之治',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 江都兵变：暴君的末路',
+          background:'隋炀帝即位后，营东都、开运河、三征高丽，滥用民力，天下怨叛。各地起义蜂起，隋朝统治土崩瓦解。公元618年，隋炀帝在江都（今扬州），仍沉迷酒色，不愿北归。',
+          figures:'隋炀帝杨广 — 聪慧多才、好大喜功、拒谏饰非、穷奢极欲；宇文化及 — 炀帝宠臣，发动兵变；马文举 — 历数炀帝罪状；萧皇后 — 炀帝皇后，无力劝阻。',
+          event:'宇文化及发动兵变，率禁军入宫。炀帝问："我有何罪至此？"马文举答："陛下违弃宗庙，巡游不息，外勤征讨，内极奢淫，使丁壮尽于矢刃，女弱填于沟壑，四民丧业，盗贼蜂起；专任佞谀，饰非拒谏，何谓无罪！"炀帝要求饮鸩自杀，不许，遂被缢杀。',
+          trigger:'<em>隋炀帝的暴政与拒谏</em>。他滥用民力，三征高丽，死者相枕；他拒谏饰非，对劝谏的大臣说"我性不喜人谏"。百姓活不下去，禁军也不愿再追随他，最终众叛亲离。',
+          result:'<b>隋炀帝被杀于江都，隋朝灭亡。</b>炀帝临死前问"我有何罪"，马文举历数其罪。他不是不知道自己做了什么，而是从不允许别人告诉他。拒谏饰非，是所有亡国之君的通病。'
+        },
+        {type:'event',title:'事件二 · 三征高丽：透支民力的代价',
+          background:'高丽（高句丽）是隋朝东北方的强国。隋炀帝好大喜功，想效法秦始皇、汉武帝，开疆拓土，征服高丽。他先后三次征讨高丽，动用民夫数百万。',
+          figures:'隋炀帝杨广 — 好大喜功，穷兵黩武；宇文述 — 隋将，率军征高丽；来护儿 — 隋将，率水军征高丽；高元 — 高丽王。',
+          event:'公元612年，隋炀帝第一次征高丽，出动军队一百一十三万，民夫加倍。隋军围攻辽东城，久攻不下。宇文述率军渡过鸭绿江，被高丽军击败，三十万五千人只剩二千七百人逃回。炀帝大怒，又发动第二次、第三次征高丽，均未成功。',
+          trigger:'<em>隋炀帝的好大喜功</em>。他想效法秦皇汉武，开疆拓土，却忽视了民力的承受极限。第一次征高丽出动军队一百一十三万，民夫加倍，天下骚动。',
+          result:'<b>三征高丽失败，天下怨叛，起义蜂起。</b>隋炀帝征高丽，民夫死者相枕；开运河，役夫死者十之四五。百姓活不下去，就会揭竿而起。任何组织的根基，都是那些最普通的人。'
+        },
+        {type:'event',title:'事件三 · 开皇之治：节俭兴国的典范',
+          background:'隋文帝杨坚代周建隋后，面临的是一个分裂了近三百年的天下。他躬行节俭，轻徭薄赋，整顿吏治，修订《开皇律》，开创了"开皇之治"。',
+          figures:'隋文帝杨坚 — 勤政节俭、外质内敏；独孤皇后 — 与帝并称"二圣"；高颎 — 隋朝名相，辅佐文帝；苏威 — 隋朝名臣，修订律令。',
+          event:'隋文帝躬行节俭，后宫妃嫔不得穿绫罗绸缎。他乘舆服御，有破旧的就修补再用。有一次关中饥荒，他派人去看百姓吃的什么，得知是豆屑杂糠，他流泪拿给群臣看，深自咎责，一年不吃酒肉。在他治下，天下户口大增，仓储丰实。',
+          trigger:'<em>隋文帝对历史教训的深刻反思</em>。他亲眼目睹北周宣帝的荒淫无度，深知节俭兴国、奢靡亡身的道理。他以身作则，躬行节俭，为天下表率。',
+          result:'<b>开皇之治，天下户口大增，仓储丰实。</b>隋文帝的节俭，让隋朝在短期内积累了巨大的财富。但晚年废太子杨勇、立杨广，酿成亡国之祸。同一对父子，一俭一奢，一兴一亡。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'文帝勤俭 · 炀帝骄奢 · 独孤贤明 · 李密志大',
+      brief:'一父一子，一俭一奢，一兴一亡。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'隋文帝杨坚',trait:'勤政节俭 · 外质内敏 · 猜忌苛察 · 晚年失察',
+           desc:'出身关陇贵族，以外戚身份代周建隋。他生活极其节俭，宫中妃嫔不得穿绫罗；他勤于政事，每日早朝至日昃。但他猜忌心重，对功臣刻薄；晚年又废太子杨勇、立杨广，酿成亡国之祸。'},
+          {name:'隋炀帝杨广',trait:'聪慧多才 · 好大喜功 · 拒谏饰非 · 穷奢极欲',
+           desc:'美姿仪，少敏慧，善属文，曾在文帝面前装出节俭孝顺的样子，骗得太子之位。即位后露出真面目：营东都、开运河、三征高丽、巡游江都。他才华横溢，却把才华用于满足个人野心。'},
+          {name:'独孤皇后',trait:'贤明有识 · 与帝并称"二圣" · 但干预废立',
+           desc:'独孤伽罗是隋文帝的皇后，夫妻感情甚笃，文帝誓无异生之子。她参与朝政，与文帝并称"二圣"。但她性忌，反对大臣纳妾，又力主废太子杨勇、立杨广。'},
+          {name:'李密',trait:'才略出众 · 志大才疏 · 反复无常 · 不得善终',
+           desc:'出身贵族，曾为隋炀帝侍卫。参加瓦岗军后成为首领，发布讨隋檄文，历数炀帝十大罪状，中有"罄南山之竹，书罪无穷；决东海之波，流恶难尽"。但他猜忌翟让，将其杀害，导致瓦岗军内部分裂。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'罄竹难书 · 开皇之治 · 水能载舟 · 破镜重圆',
+      brief:'隋代成语，多与暴政兴亡相关，字字警醒。',
+      sections:[
+        {type:'idiom',title:'隋纪衍生的经典成语',items:[
+          {word:'罄竹难书',source:'《资治通鉴》隋纪 · 李密',
+           desc:'李密发布讨隋檄文，历数炀帝十大罪状，中有"罄南山之竹，书罪无穷；决东海之波，流恶难尽"。指罪行多得写不完。'},
+          {word:'开皇之治',source:'《资治通鉴》隋纪 · 隋文帝',
+           desc:'隋文帝轻徭薄赋、躬行节俭、整顿吏治，至开皇末年天下户口大增，仓储丰实。指政治清明、经济繁荣的盛世。'},
+          {word:'我性不喜人谏',source:'《资治通鉴》隋纪 · 隋炀帝',
+           desc:'隋炀帝对劝谏的大臣说："我性不喜人谏。"拒谏饰非，最终众叛亲离。指拒绝接受批评意见。'},
+          {word:'水能载舟，亦能覆舟',source:'《资治通鉴》隋纪 · 唐太宗引',
+           desc:'唐太宗引此言警示自己。指百姓可以拥戴君主，也可以推翻君主。'},
+          {word:'江都兵变',source:'《资治通鉴》隋纪 · 宇文化及',
+           desc:'公元618年，宇文化及在江都发动兵变，缢杀隋炀帝。指臣下弑君篡权的政变。'},
+          {word:'十八路反王',source:'《资治通鉴》隋纪',
+           desc:'隋末天下大乱，各地起义军蜂起，号称十八路反王。指天下大乱、群雄并起的局面。'},
+          {word:'破镜重圆',source:'《本事诗》· 徐德言',
+           desc:'陈末乐昌公主与徐德言破镜各执一半，约定他日正月望日卖于都市。后以破镜为凭，夫妻重聚。指夫妻离散后重新团圆。'},
+          {word:'一发千钧',source:'《资治通鉴》隋纪',
+           desc:'形容形势极其危险，如同千钧重物系在一根头发上。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'节俭兴国 · 奢靡亡身 · 拒谏必败',
+      brief:'隋朝三十八年，写尽兴亡；文帝的节俭与炀帝的奢靡，是职场最鲜明的对比。',
+      sections:[
+        {type:'advice',title:'隋纪留给后人的六条忠告',items:[
+          {title:'节俭可以兴国，奢靡足以亡身',text:'隋文帝宫中妃嫔不得穿绫罗，天下仓储丰实；隋炀帝营东都、开运河、巡游无度，天下怨叛。同一对父子，一俭一奢，一兴一亡。'},
+          {title:'不要透支未来的资源',text:'隋炀帝开运河、征高丽，每一项都是千年之功，但他把所有功业压缩在十几年内完成，动用民夫数百万，死者十之四五。任何事业都有节奏，透支民力必遭反噬。'},
+          {title:'拒绝听批评的人，最终会失去一切',text:'隋炀帝临死问"我有何罪"，马文举历数其罪。他不是不知道自己做了什么，而是从不允许别人告诉他。拒谏饰非，是所有亡国之君的通病。'},
+          {title:'继承人的选择，决定王朝命运',text:'隋文帝废杨勇、立杨广，是因为杨广伪装得好。选接班人不能只看表面表现，要看长期行为。伪装可以骗一时，骗不了长久。'},
+          {title:'父子相疑，则骨肉相残',text:'隋文帝临终发现杨广不轨，想复立杨勇，却被杨广党羽阻断，当日暴崩。废立不明，则父子相疑；父子相疑，则骨肉相残。'},
+          {title:'水能载舟，亦能覆舟',text:'隋炀帝征高丽，民夫死者相枕；开运河，役夫死者十之四五。百姓活不下去，就会揭竿而起。任何组织的根基，都是那些最普通的人。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：文帝的节俭与炀帝的透支',items:[
+          {title:'节俭不是抠门，是一种长期主义',text:'隋文帝宫中妃嫔不得穿绫罗，乘舆服御破了就修补再用。正是这种节俭，让隋朝在短期内积累了巨大的财富。职场中，控制成本、珍惜资源，是长期主义的表现。'},
+          {title:'不要透支未来的资源',text:'隋炀帝开运河、征高丽，每一项都是千年之功，但他把所有功业压缩在十几年内完成，动用民夫数百万，死者十之四五。职场中，不要为了短期业绩而透支团队的健康和信任。'},
+          {title:'拒绝听批评的人，最终会失去一切',text:'隋炀帝临死问"我有何罪"，马文举历数其罪。职场中，那些听不进批评、容不下不同意见的人，最终会失去所有人的支持。'},
+          {title:'继承人的选择，决定组织命运',text:'隋文帝废杨勇、立杨广，是因为杨广伪装得好。职场中，选接班人不能只看表面表现，要看长期行为。'},
+          {title:'不要跟老板说"你不行，我行"',text:'隋炀帝对劝谏的大臣说"我性不喜人谏"，最终众叛亲离。职场中，即使你能力再强，也要给老板留面子。'},
+          {title:'水能载舟，亦能覆舟',text:'隋炀帝征高丽，民夫死者相枕；开运河，役夫死者十之四五。职场中，任何组织的根基，都是那些最普通的人。善待基层员工，就是善待组织的未来。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 9. 唐纪 ============================ */
+{
+  id:'tang', name:'唐纪', era:'唐朝', range:'618 — 907', accent:'#ef4444',
+  tagline:'贞观之治 · 安史之乱',
+  intro:'唐朝是中国古代最辉煌的时代之一。太宗纳谏、贞观致治；玄宗前期开元盛世，后期天宝骄奢。魏征直谏、郭子仪谦退、李泌进退——这些故事，写尽了职场的智慧与格局。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#ef4444',c2:'#991b1b',
+      headline:'公元618年李渊建唐 · 626年李世民继位',
+      brief:'从太原起兵到贞观之治。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元618年，李渊在长安称帝，建立唐朝。公元626年，玄武门之变后李世民继位，次年改元贞观，开启"贞观之治"。'},
+        {type:'list',title:'唐纪大事年表',items:[
+          '<b>618年</b>　李渊建唐，是为唐高祖','<b>626年</b>　玄武门之变，李世民继位，是为唐太宗',
+          '<b>649年</b>　太宗崩，李治继位，是为唐高宗','<b>690年</b>　武则天称帝，改国号为周',
+          '<b>712年</b>　李隆基继位，是为唐玄宗，开元盛世始','<b>755年</b>　安史之乱爆发',
+          '<b>907年</b>　朱温代唐，唐亡'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'三省六部 · 节度使 · 藩镇割据',
+      brief:'从中央集权到地方坐大。',
+      sections:[
+        {type:'text',title:'权力结构的演变',text:'唐初完善三省六部制，中央集权稳固。开元以后，为防御边疆，设十个节度使，掌兵、财、民之权。安史之乱后，藩镇割据，中央权威衰落。'},
+        {type:'list',title:'权力结构三阶段',items:[
+          '<b>唐初</b>　三省六部，宰相集体议政，皇权与相权制衡','<b>开元</b>　节度使掌边兵，权力渐大，尾大不掉',
+          '<b>安史之乱后</b>　藩镇割据、宦官专权、朋党之争，三者交织','<b>晚唐</b>　皇帝多由宦官拥立，形同傀儡'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'纳谏则治，拒谏则乱',
+      brief:'太宗以人为镜，玄宗晚年蔽塞。',
+      sections:[
+        {type:'quote',text:'以铜为镜，可以正衣冠；以古为镜，可以知兴替；以人为镜，可以明得失。',source:'唐太宗李世民'},
+        {type:'text',title:'司马光的评述',text:'唐太宗纳魏征之谏，终成贞观之治；唐玄宗前期用姚崇、宋璟，后期宠李林甫、杨国忠，拒谏饰非，终致安史之乱。'},
+        {type:'list',title:'贞观之治的治国要诀',items:[
+          '<b>纳谏</b>　广开言路，魏征进谏二百余事','<b>用人</b>　不问亲疏，唯才是举',
+          '<b>轻徭</b>　减轻赋税，与民休息','<b>慎刑</b>　死刑须五复奏，慎之又慎'
+        ]}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'贞观纳谏与天宝骄奢',
+      brief:'贞观之治 · 开元盛世 · 安史之乱 · 甘露之变',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'贞观之治',text:'唐太宗纳谏如流，任用房玄龄、杜如晦、魏征等贤臣。数年之间，天下大治，路不拾遗，夜不闭户。'},
+            {name:'开元盛世',text:'唐玄宗前期励精图治，任姚崇、宋璟为相。开元年间，人口增至五千余万，长安成为世界最大都市。'}
+          ],
+          negative:[
+            {name:'安史之乱',text:'唐玄宗后期宠信杨贵妃，任李林甫、杨国忠为相，边将安禄山兼领三镇节度使。755年安禄山起兵反唐，八年战乱使唐人口锐减三分之二。'},
+            {name:'甘露之变',text:'唐文宗不甘宦官专权，密谋诛杀宦官，事泄失败，宦官仇士良率禁军大杀朝臣。此后宦官更加专横，皇帝形同傀儡。'}
+          ]},
+        {type:'quote',text:'靡不有初，鲜克有终。',source:'《诗经》· 司马光引以评唐玄宗'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'唐高祖退位 → 李世民继位',
+      brief:'626年 · 玄武门之变，开启贞观。',
+      sections:[
+        {type:'list',title:'唐纪帝王更替',items:[
+          '<b>618年</b>　李渊称帝，是为<b>唐高祖</b>',
+          '<b>626年</b>　玄武门之变，李渊退位，李世民继位，是为<b>唐太宗</b>',
+          '<b>649年</b>　太宗崩，其子李治继位，是为<b>唐高宗</b>',
+          '<b>690年</b>　武则天称帝，改国号为周，史称"武周"',
+          '<b>705年</b>　神龙政变，中宗李显复位',
+          '<b>712年</b>　李隆基继位，是为<b>唐玄宗</b>',
+          '<b>756年</b>　安史之乱中，玄宗奔蜀，太子李亨即位，是为<b>唐肃宗</b>',
+          '<b>907年</b>　朱温代唐，唐哀帝禅位，唐亡'
+        ]},
+        {type:'text',title:'玄武门之变的警示',text:'李世民杀兄李建成、弟李元吉，逼父退位。虽开创贞观之治，但开了唐代皇位继承以武力争夺的先例。名分不正，则后世效仿，祸乱无穷。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'玄武门之变 · 魏征进谏 · 安史之乱 · 郭子仪单骑退敌 · 李泌进退',
+      brief:'唐朝最动人，也最惨烈的几个瞬间；郭子仪的谦退、李泌的进退，是职场最稀缺的智慧。',
+      sections:[
+        {type:'story',title:'玄武门之变：兄弟相残，开启贞观',
+          year:'626年',
+          content:'李渊建唐后，太子李建成与秦王李世民争夺储位。公元626年，李世民在玄武门设伏，亲手射杀太子李建成，尉迟敬德射杀齐王李元吉。随后李世民入宫见李渊，李渊被迫立他为太子，两个月后退位。李世民继位后开创贞观之治，但这场兄弟相残，成为他一生难以抹去的阴影。',
+          moral:'<b>名分不正，则后世效仿。</b>李世民杀兄逼父登上皇位，虽开创贞观之治，但开了唐代以武力争夺皇位的先例。做事的方式，决定了后来者的选择。'
+        },
+        {type:'story',title:'魏征进谏：以人为镜，可以明得失',
+          year:'630年',
+          content:'唐太宗得到一只好鹞鹰，正放在臂上玩赏，远远看见魏征走来，赶紧把鹞鹰藏进怀里。魏征假装没看见，故意奏事很久。等魏征走后，太宗掏出鹞鹰，已经闷死了。魏征一生进谏二百余事，太宗对他又敬又怕。魏征死后，太宗痛哭："以人为镜，可以明得失。魏征殂逝，遂亡一镜矣！"',
+          moral:'<b>一个能听进批评的人，才能不断修正自己。</b>唐太宗说，他常保三面镜子：铜镜正衣冠，古镜知兴替，人镜明得失。职场中，找到能给你真实反馈的人，是成长最快的路径。'
+        },
+        {type:'story',title:'安史之乱：唐由盛转衰的转折点',
+          year:'755年',
+          content:'唐玄宗后期，宠信杨贵妃，任李林甫、杨国忠为相。安禄山身兼平卢、范阳、河东三镇节度使，拥兵十五万。755年，他以"清君侧、诛国忠"为名起兵，攻陷洛阳、长安。玄宗仓皇逃往蜀地，途经马嵬坡，禁军哗变，杀杨国忠，逼玄宗赐死杨贵妃。八年战乱，唐人口从五千余万降至一千余万。',
+          moral:'<b>靡不有初，鲜克有终。</b>唐玄宗前期英明，后期昏聩，同一人却判若两人。开始做得好不难，难的是善始善终。'
+        },
+        {type:'story',title:'郭子仪单骑退敌：以勇气和智慧化解危机',
+          year:'765年',
+          content:'安史之乱后，回纥、吐蕃联军包围泾阳。年近七旬的郭子仪决定单骑去见回纥首领。他脱去盔甲，放下武器，只带几名随从前往。回纥首领药葛罗见是郭子仪，连忙下马跪拜。郭子仪说服回纥与唐结盟，共击吐蕃。一场大战，消弭于一次单骑赴会。',
+          moral:'<b>功高不震主，是极高的智慧。</b>郭子仪功盖天下，却多次主动交出兵权；被谗言中伤，也从无怨言。他明白：功越高，越要谦退。职场中，当你功勋卓著时，主动让出部分利益，反而能保住更多。'
+        },
+        {type:'story',title:'李泌进退：功成身退，明哲保身',
+          year:'787年',
+          content:'李泌是唐代著名的谋士，历经玄宗、肃宗、代宗、德宗四朝。他多次辅佐皇帝平定叛乱，但每次功成之后都主动请退，归隐山林。肃宗想让他做宰相，他坚决推辞；德宗时他被迫为相，但一年多后便去世。他一生"出则为帝王师，入则为山中仙"，在政治漩涡中始终保持着进退自如的姿态。',
+          moral:'<b>进退自如，是职场最高的境界。</b>李泌历经四朝，多次辅佐皇帝平定叛乱，但每次功成之后都主动请退。职场中，知道什么时候该进、什么时候该退，比一味向前冲更重要。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'玄武门之变 · 安史之乱 · 贞观之治',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 玄武门之变：兄弟相残，开启贞观',
+          background:'李渊建唐后，太子李建成与秦王李世民争夺储位。李世民战功赫赫，麾下人才济济；李建成身为太子，得到李渊和部分大臣的支持。双方明争暗斗，矛盾日益激化。',
+          figures:'李世民 — 雄才大略、战功赫赫；李建成 — 太子，宽厚但战功不如李世民；李元吉 — 齐王，支持李建成；李渊 — 唐高祖，优柔寡断；尉迟敬德 — 李世民部将，玄武门之变的关键人物。',
+          event:'公元626年六月，李世民在玄武门设伏，亲手射杀太子李建成，尉迟敬德射杀齐王李元吉。随后李世民入宫见李渊，李渊被迫立他为太子，两个月后退位。李世民继位后开创贞观之治。',
+          trigger:'<em>储位之争与李建成的排挤</em>。李建成身为太子，忌惮李世民的战功和威望，多次排挤李世民。李世民为自保，先下手为强，发动玄武门之变。',
+          result:'<b>李世民继位，开创贞观之治；但开了唐代以武力争夺皇位的先例。</b>虽开创贞观之治，但开了唐代皇位继承以武力争夺的先例。此后唐代宫廷政变频发，名分不正，则后世效仿，祸乱无穷。'
+        },
+        {type:'event',title:'事件二 · 安史之乱：唐由盛转衰的转折点',
+          background:'唐玄宗后期，宠信杨贵妃，任李林甫、杨国忠为相。李林甫"口蜜腹剑"，蔽塞言路；杨国忠专权，与安禄山矛盾激化。安禄山身兼平卢、范阳、河东三镇节度使，拥兵十五万，野心勃勃。',
+          figures:'唐玄宗 — 前期英明，后期昏聩；杨贵妃 — 玄宗宠妃；李林甫 — 口蜜腹剑，蔽塞言路；杨国忠 — 专权，与安禄山矛盾激化；安禄山 — 三镇节度使，野心勃勃；郭子仪、李光弼 — 平定安史之乱的功臣。',
+          event:'755年，安禄山以"清君侧、诛国忠"为名起兵，攻陷洛阳、长安。玄宗仓皇逃往蜀地，途经马嵬坡，禁军哗变，杀杨国忠，逼玄宗赐死杨贵妃。八年战乱，唐人口从五千余万降至一千余万。',
+          trigger:'<em>李林甫的蔽塞言路与杨国忠的专权</em>。李林甫对玄宗说"明主在上，群臣将顺不暇，亦何所论"，导致玄宗晚年听不到真话；杨国忠与安禄山矛盾激化，成为安史之乱的导火索。',
+          result:'<b>安史之乱，唐由盛转衰，藩镇割据，宦官专权。</b>八年战乱使唐人口锐减三分之二，经济崩溃。此后藩镇割据、宦官专权、朋党之争，三者交织，唐朝走向衰落。'
+        },
+        {type:'event',title:'事件三 · 贞观之治：纳谏用贤的典范',
+          background:'李世民通过玄武门之变登基后，面临的是一个百废待兴的天下。他吸取隋朝灭亡的教训，决心纳谏用贤，与民休息，开创一个清明的时代。',
+          figures:'唐太宗李世民 — 纳谏如流、知人善任；魏征 — 直言敢谏，进谏二百余事；房玄龄 — 善于谋划，宰相之才；杜如晦 — 善于决断，与房玄龄并称"房谋杜断"；李靖 — 军事天才，平定突厥。',
+          event:'唐太宗纳谏如流，任用房玄龄、杜如晦、魏征等贤臣。他轻徭薄赋，慎用刑罚，死刑须五复奏。数年之间，天下大治，路不拾遗，夜不闭户，四夷宾服，被尊为"天可汗"。',
+          trigger:'<em>唐太宗对隋亡教训的深刻反思</em>。他亲眼目睹隋炀帝拒谏饰非、滥用民力而亡国，深知"君，舟也；人，水也。水能载舟，亦能覆舟"的道理。',
+          result:'<b>贞观之治，天下大治，四夷宾服。</b>唐太宗纳谏用贤，开创了贞观之治，为唐朝的繁荣奠定了基础。他"以人为镜"的治国理念，成为后世君主的楷模。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'太宗纳谏 · 魏征直谏 · 郭子仪谦退 · 李泌进退',
+      brief:'唐朝人物的性格，就是一部治国教科书；郭子仪的谦退、李泌的进退，是职场最稀缺的智慧。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'唐太宗李世民',trait:'纳谏如流 · 知人善任 · 雄才大略 · 玄武门有亏',
+           desc:'十八岁起兵，二十四岁平定天下，二十九岁登基。他任用房玄龄、杜如晦、魏征，开创贞观之治。他能容忍魏征的犯颜直谏，也能知错就改。但他杀兄逼父登上皇位，这是他一生最大的污点。'},
+          {name:'魏征',trait:'直言敢谏 · 犯颜无隐 · 刚正不阿 · 鞠躬尽瘁',
+           desc:'原是李建成的谋士，李世民即位后不计前嫌，任为谏议大夫。他一生进谏二百余事，从政策到私生活无所不谏。他死后，太宗说"以人为镜，可以明得失"，可见其分量。'},
+          {name:'郭子仪',trait:'功盖天下而主不疑 · 位极人臣而众不嫉 · 谦退自守',
+           desc:'平定安史之乱的第一功臣。他曾单骑退敌，也曾被谗言夺权，但从不怨恨。他深知"功高震主"的危险，多次主动交出兵权。他七子八婿皆显贵，全家三千人，但从不骄纵。活了八十五岁，是唐代少有的功成身退、善始善终的名将。'},
+          {name:'李泌',trait:'功成身退 · 明哲保身 · 出则为帝王师 · 入则为山中仙',
+           desc:'历经四朝，多次辅佐皇帝平定叛乱，但每次功成之后都主动请退。他一生在政治漩涡中保持着进退自如的姿态，是唐代最懂得"进退"的谋士。'},
+          {name:'唐玄宗李隆基',trait:'前期英明 · 后期昏聩 · 多才多艺 · 晚景凄凉',
+           desc:'他发动唐隆政变，诛韦后、太平公主，稳定政局；前期励精图治，开创开元盛世。但后期宠杨贵妃、任李林甫杨国忠、纵容安禄山，酿成安史之乱。同一人，前期是明君，后期是昏君。'},
+          {name:'李林甫',trait:'口蜜腹剑 · 蔽塞言路 · 嫉贤妒能 · 遗祸深远',
+           desc:'唐玄宗后期的宰相，在位十九年。他表面温和，内心阴险，"口有蜜，腹有剑"。他极力阻止言路，对玄宗说："明主在上，群臣将顺不暇，亦何所论？"导致玄宗晚年听不到真话。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'口蜜腹剑 · 兼听则明 · 以人为镜 · 单骑退敌 · 靡不有初',
+      brief:'唐代成语，多与纳谏、用人、兴亡相关，蕴含治国智慧。',
+      sections:[
+        {type:'idiom',title:'唐纪衍生的经典成语',items:[
+          {word:'口蜜腹剑',source:'《资治通鉴》唐纪 · 李林甫',
+           desc:'李林甫为相十九年，表面温和，内心阴险，"口有蜜，腹有剑"。指嘴上说得很甜，肚子里却藏着害人的主意。'},
+          {word:'兼听则明，偏信则暗',source:'《资治通鉴》唐纪 · 魏征',
+           desc:'魏征对太宗说："兼听则明，偏信则暗。"指广泛听取意见才能明辨是非，只听一面之词就会糊涂。'},
+          {word:'以人为镜',source:'《资治通鉴》唐纪 · 唐太宗',
+           desc:'唐太宗说："以铜为镜，可以正衣冠；以古为镜，可以知兴替；以人为镜，可以明得失。"指把别人的成败得失作为自己的借鉴。'},
+          {word:'单骑退敌',source:'《资治通鉴》唐纪 · 郭子仪',
+           desc:'郭子仪年近七旬，单骑去见回纥首领，脱去盔甲，放下武器，说服回纥与唐结盟。指以勇气和智慧化解危机。'},
+          {word:'靡不有初，鲜克有终',source:'《诗经》· 司马光引评唐玄宗',
+           desc:'《诗经》语，司马光引以评唐玄宗前期英明、后期昏聩。指做事都有开头，但很少能坚持到最终。'},
+          {word:'玄武门之变',source:'《资治通鉴》唐纪 · 李世民',
+           desc:'李世民在玄武门设伏，杀兄李建成、弟李元吉，逼父退位。指兄弟相残、以武力争夺皇位。'},
+          {word:'请君入瓮',source:'《资治通鉴》唐纪 · 来俊臣',
+           desc:'来俊臣问周兴："犯人不认罪怎么办？"周兴说："取大瓮，以炭火烤，令犯人入内。"来俊臣说："请兄入此瓮。"周兴惶恐认罪。指用某人整人的办法来整他自己。'},
+          {word:'桃李满天下',source:'《资治通鉴》唐纪 · 狄仁杰',
+           desc:'狄仁杰荐举张柬之、姚崇等数十人，皆为名臣。有人对他说："天下桃李，悉在公门矣。"指培养的学生或荐举的人才很多。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'以人为镜 · 兼听则明 · 功成不居 · 进退自如',
+      brief:'唐朝的智慧，至今仍不过时；郭子仪的谦退、李泌的进退，是职场最稀缺的智慧。',
+      sections:[
+        {type:'advice',title:'唐纪留给后人的六条忠告',items:[
+          {title:'以人为镜，可以明得失',text:'唐太宗说，他常保三面镜子：铜镜正衣冠，古镜知兴替，人镜明得失。一个能听进批评的人，才能不断修正自己。'},
+          {title:'兼听则明，偏信则暗',text:'魏征曾对太宗说："兼听则明，偏信则暗。"李林甫专权时，蔽塞言路，玄宗再也听不到真话，最终酿成安史之乱。'},
+          {title:'靡不有初，鲜克有终',text:'唐玄宗前期英明，后期昏聩，同一人却判若两人。开始做得好不难，难的是善始善终。'},
+          {title:'功高不震主，是极高的智慧',text:'郭子仪功盖天下，却多次主动交出兵权；被谗言中伤，也从无怨言。他明白：功越高，越要谦退。他活了八十五岁，全家平安。'},
+          {title:'亲贤臣，远小人',text:'诸葛亮在《出师表》中说："亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。"唐玄宗用姚崇、宋璟则兴，用李林甫、杨国忠则乱。'},
+          {title:'名分不正，则后世效仿',text:'李世民通过玄武门之变登基，虽开创贞观之治，但开了唐代以武力争夺皇位的先例。做事的方式，决定了后来者的选择。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：郭子仪的谦退与李泌的进退',items:[
+          {title:'功高不震主，是极高的智慧',text:'郭子仪功盖天下，却多次主动交出兵权；被谗言中伤，也从无怨言。他明白：功越高，越要谦退。职场中，当你功勋卓著时，主动让出部分利益，反而能保住更多。'},
+          {title:'进退自如，是职场最高的境界',text:'李泌历经四朝，多次辅佐皇帝平定叛乱，但每次功成之后都主动请退。职场中，知道什么时候该进、什么时候该退，比一味向前冲更重要。'},
+          {title:'以人为镜，可以明得失',text:'唐太宗说，他常保三面镜子：铜镜正衣冠，古镜知兴替，人镜明得失。职场中，找到能给你真实反馈的人，是成长最快的路径。'},
+          {title:'兼听则明，偏信则暗',text:'魏征曾对太宗说："兼听则明，偏信则暗。"职场中，做决策时要多听不同意见，不要只听自己喜欢听的话。'},
+          {title:'不要跟老板说"你不行，我行"',text:'李林甫蔽塞言路，对玄宗说"明主在上，群臣将顺不暇，亦何所论"。职场中，即使你能力再强，也要给老板留面子。'},
+          {title:'靡不有初，鲜克有终',text:'唐玄宗前期英明，后期昏聩。职场中，开始做得好不难，难的是善始善终。保持谦逊、保持学习，才能走得更远。'}
+        ]}
+      ]}
+  }
+},
+
+/* ============================ 10. 五代 ============================ */
+{
+  id:'wudai', name:'五代', era:'后梁 — 后周', range:'907 — 959', accent:'#f97316',
+  tagline:'武人政治 · 礼崩乐坏',
+  intro:'五代十国，武人当国，兵变夺权如家常便饭。五十三年间，中原五朝更替，八姓十四帝。然乱世之末，后周世宗励精图治，为北宋统一奠定基础。冯道历事四朝，是乱世中最有争议的人物。',
+  frames:{
+    time:{icon:'📅',label:'时间节点',c1:'#f97316',c2:'#9a3412',
+      headline:'公元907年朱温代唐建后梁',
+      brief:'五代十国开端，至959年后周世宗止笔。',
+      sections:[
+        {type:'text',title:'关键时间点',text:'公元907年，朱温接受唐哀帝禅让，建立后梁，唐朝灭亡，中国进入五代十国时期。《资治通鉴》记至后周世宗显德六年（959年）止。'},
+        {type:'list',title:'五代朝代更替',items:[
+          '<b>后梁</b>　907—923，朱温建，都开封','<b>后唐</b>　923—936，李存勖建，都洛阳',
+          '<b>后晋</b>　936—947，石敬瑭建，割燕云十六州','<b>后汉</b>　947—950，刘知远建，仅存四年',
+          '<b>后周</b>　951—960，郭威建，世宗柴荣改革','<b>959年</b>　《资治通鉴》至此止笔'
+        ]}
+      ]},
+    power:{icon:'🏛',label:'权力结构',c1:'#a78bfa',c2:'#6d4bc9',
+      headline:'武人政治 · 兵变夺权',
+      brief:'谁掌兵权，谁做皇帝。',
+      sections:[
+        {type:'text',title:'权力的野蛮逻辑',text:'五代时期，节度使掌握地方军政财权，一旦实力足够便起兵夺位。后唐庄宗、明宗、废帝，后晋高祖，后汉高祖，后周太祖，皆以军功或兵变得国。'},
+        {type:'list',title:'权力结构特点',items:[
+          '<b>中央</b>　禁军将领成为决定皇位的关键力量','<b>地方</b>　节度使割据一方，形同独立王国',
+          '<b>文官</b>　地位极低，武人视文士如草芥','<b>礼制</b>　君臣名分荡然无存，篡弑相寻'
+        ]}
+      ]},
+    core:{icon:'💡',label:'核心思想',c1:'#fbbf24',c2:'#c07a08',
+      headline:'礼崩乐坏之极，乱世终有明君',
+      brief:'五代之乱，反证礼制之不可废。',
+      sections:[
+        {type:'quote',text:'五代之乱，极矣！自上无礼，下无法，君臣父子之间，荡然无所顾忌。',source:'司马光论五代'},
+        {type:'text',title:'司马光的评述',text:'五代五十三年，八姓十四帝，篡弑相寻，生灵涂炭。司马光以此反证《资治通鉴》开篇之旨：礼制一失，则天下大乱。'},
+        {type:'text',title:'乱世中的希望',text:'后周世宗柴荣励精图治，整顿军纪、发展生产、南征北战，为北宋统一奠定基础。'}
+      ]},
+    example:{icon:'⚖',label:'正反例证',c1:'#4ade80',c2:'#f87171',
+      headline:'世宗振作与石晋割地',
+      brief:'后周世宗改革 · 石敬瑭割燕云十六州',
+      sections:[
+        {type:'compare',title:'正反两面案例对比',
+          positive:[
+            {name:'后周世宗改革',text:'柴荣继位后，整顿军队，淘汰老弱，招募精壮；减轻赋税，招抚流民，兴修水利。又南征南唐、北伐契丹，收复三关。史称"神武雄略，乃一代之英主"。'},
+            {name:'郭威节俭治国',text:'后周太祖郭威出身贫寒，深知民间疾苦。称帝后生活节俭，废除苛捐杂税，惩治贪官。临终嘱薄葬，以瓦棺纸衣敛。'}
+          ],
+          negative:[
+            {name:'石敬瑭割燕云十六州',text:'后晋高祖石敬瑭为借契丹兵夺位，向契丹称"儿皇帝"，割让燕云十六州。此举使中原失去北方屏障，此后四百余年中原王朝始终处于被动挨打局面。'},
+            {name:'朱温弑唐昭宗',text:'后梁太祖朱温为夺权，弑唐昭宗，另立哀帝，后又代唐称帝。臣弑其君，篡夺名分，五代乱局自此开启。'}
+          ]},
+        {type:'quote',text:'礼义廉耻，国之四维；四维不张，国乃灭亡。',source:'《管子》· 司马光引以论五代'}
+      ]},
+    succession:{icon:'👑',label:'帝王更迭',c1:'#60a5fa',c2:'#2563eb',
+      headline:'后周世宗崩 → 其子柴宗训继位',
+      brief:'959年 · 《资治通鉴》止笔于此。',
+      sections:[
+        {type:'list',title:'五代帝王更替',items:[
+          '<b>907年</b>　朱温代唐建后梁，是为<b>后梁太祖</b>','<b>923年</b>　李存勖灭后梁建后唐，是为<b>后唐庄宗</b>',
+          '<b>936年</b>　石敬瑭借契丹兵灭后唐建后晋，是为<b>后晋高祖</b>','<b>947年</b>　刘知远建后汉，是为<b>后汉高祖</b>',
+          '<b>951年</b>　郭威建后周，是为<b>后周太祖</b>','<b>954年</b>　郭威崩，养子柴荣继位，是为<b>后周世宗</b>',
+          '<b>959年</b>　世宗崩，其子柴宗训继位（恭帝），年仅七岁','<b>960年</b>　赵匡胤陈桥兵变，代周建宋（《资治通鉴》未记）'
+        ]},
+        {type:'text',title:'止笔于959年的深意',text:'《资治通鉴》记至后周世宗显德六年（959年）止。次年赵匡胤陈桥兵变建宋，而北宋正是司马光所处的当代。不写本朝，意在保持"史鉴"的客观性。'}
+      ]},
+    story:{icon:'📖',label:'历史故事',c1:'#f472b6',c2:'#9d174d',
+      headline:'朱温篡唐 · 石敬瑭割地 · 世宗高平之战 · 冯道历事四朝',
+      brief:'乱世之末，已见治世曙光；冯道的争议，是职场最深的思考。',
+      sections:[
+        {type:'story',title:'朱温篡唐：臣弑其君，篡夺名分',
+          year:'公元907年',
+          content:'朱温原是黄巢起义军将领，后降唐，被赐名"全忠"，逐步掌控中原。他先后弑唐昭宗，立哀帝，又于907年接受哀帝禅让，建立后梁。臣弑其君，篡夺名分，五代乱局自此开启。朱温本人荒淫残暴，最终被自己的儿子朱友珪所弑。',
+          moral:'<b>用不正当手段得到的东西，往往会被同样的方式夺走。</b>朱温弑君篡位，最终被自己的儿子所弑。弑君者被亲子所弑，篡位者被亲子所篡。'
+        },
+        {type:'story',title:'石敬瑭割燕云十六州：儿皇帝的遗祸',
+          year:'公元936年',
+          content:'后唐末年，石敬瑭为夺取皇位，向契丹求援。他开出条件：向契丹称"儿皇帝"，割让燕云十六州，每年进贡帛三十万匹。契丹主耶律德光大喜，出兵助他灭后唐，建立后晋。燕云十六州的丢失，使中原失去北方屏障，此后四百余年，中原王朝始终处于被动挨打局面。',
+          moral:'<b>卖国求荣者，遗臭万年。</b>石敬瑭为夺皇位，向契丹称"儿皇帝"，割让燕云十六州。此后四百年，中原王朝始终处于被动挨打局面。任何时候，出卖国家利益换取个人权位，都会被钉在历史的耻辱柱上。'
+        },
+        {type:'story',title:'后周世宗高平之战：亲冒矢石，整肃军纪',
+          year:'公元954年',
+          content:'公元954年，北汉联合契丹大举南侵。后周世宗柴荣刚继位，亲率大军迎战。在高平，后周右军主将樊爱能、何徽临阵脱逃，形势危急。柴荣亲自冒着箭矢督战，禁军将领赵匡胤、张永德奋勇冲杀，大败北汉军。战后，柴荣严惩逃将樊爱能、何徽，整肃军纪。此战奠定了后周强盛的基础。',
+          moral:'<b>改革要敢于触动利益。</b>柴荣高平之战后，严惩临阵脱逃的樊爱能、何徽，整肃军纪。职场中，推动改革时，要敢于触动既得利益，但也要注意策略和节奏。'
+        },
+        {type:'story',title:'冯道历事四朝十君：乱世中最有争议的人物',
+          year:'公元954年',
+          content:'冯道身处五代乱世，历仕后唐、后晋、后汉、后周四朝，共十位皇帝，始终位居宰辅。他自号"长乐老"，著《长乐老自叙》自我总结。有人赞他保全百姓、延续文化；有人骂他毫无气节、反复无常。司马光对他评价极低，认为"忠臣不事二君"。但冯道自己说："但知行好事，莫要问前程。"他是乱世中最有争议的人物。',
+          moral:'<b>在乱世中，守住底线比什么都重要。</b>冯道历事四朝十君，有人赞他保全百姓，有人骂他毫无气节。职场中，跳槽可以，但不要为了利益出卖原则。底线一旦突破，就再也回不去了。'
+        }
+      ]},
+    event:{icon:'📰',label:'历史事件',c1:'#38bdf8',c2:'#0369a1',
+      headline:'石敬瑭割地 · 高平之战 · 陈桥兵变',
+      brief:'按背景 / 人物 / 事件 / 导火索 / 结局五段式展开，看清事件全貌。',
+      sections:[
+        {type:'event',title:'事件一 · 石敬瑭割燕云十六州：儿皇帝的遗祸',
+          background:'后唐末年，末帝李从珂与河东节度使石敬瑭互相猜忌。石敬瑭为夺取皇位，向契丹求援。契丹主耶律德光早有南下中原的野心，双方一拍即合。',
+          figures:'石敬瑭 — 后晋高祖，卖国求荣；耶律德光 — 契丹主，野心勃勃；李从珂 — 后唐末帝，被石敬瑭所灭；赵德钧 — 后唐将领，也想借契丹之力夺位。',
+          event:'石敬瑭向契丹开出条件：向契丹称"儿皇帝"，割让燕云十六州，每年进贡帛三十万匹。契丹主耶律德光大喜，出兵助他灭后唐，建立后晋。石敬瑭比耶律德光还大十岁，却心甘情愿做"儿皇帝"。燕云十六州的丢失，使中原失去北方屏障。',
+          trigger:'<em>石敬瑭的皇位野心</em>。他为夺取皇位，不惜出卖国家利益，向契丹称臣割地。他的贪欲和短视，给中原王朝带来了四百余年的被动局面。',
+          result:'<b>燕云十六州丢失，中原失去北方屏障，此后四百余年被动挨打。</b>此后四百余年，中原王朝始终处于被动挨打局面。直到明朝朱元璋北伐，才收复燕云十六州。卖国求荣者，遗臭万年。'
+        },
+        {type:'event',title:'事件二 · 高平之战：后周世宗的立威之战',
+          background:'公元954年，后周太祖郭威去世，养子柴荣继位，是为后周世宗。北汉主刘崇认为后周新丧，有机可乘，联合契丹大举南侵。柴荣刚继位，地位未稳，决定亲率大军迎战。',
+          figures:'后周世宗柴荣 — 英明果决、励精图治；北汉主刘崇 — 联合契丹南侵；樊爱能、何徽 — 后周右军主将，临阵脱逃；赵匡胤、张永德 — 后周禁军将领，奋勇冲杀。',
+          event:'两军在高平相遇。后周右军主将樊爱能、何徽临阵脱逃，形势危急。柴荣亲自冒着箭矢督战，禁军将领赵匡胤、张永德奋勇冲杀，大败北汉军。战后，柴荣严惩逃将樊爱能、何徽，整肃军纪。',
+          trigger:'<em>北汉与契丹的南侵</em>。刘崇认为后周新丧，有机可乘，联合契丹南侵。柴荣刚继位，地位未稳，但他选择亲征，以立威定国。',
+          result:'<b>后周大败北汉，柴荣整肃军纪，奠定后周强盛的基础。</b>高平之战后，柴荣整顿军队、减轻赋税、兴修水利、修订刑律，为北宋统一奠定了基础。此战成为后周强盛的起点。'
+        },
+        {type:'event',title:'事件三 · 陈桥兵变：黄袍加身，代周建宋',
+          background:'后周世宗柴荣三十九岁病逝，其子柴宗训继位，年仅七岁。殿前都点检赵匡胤掌握禁军，威望极高。公元960年，传闻契丹与北汉联合南侵，朝廷派赵匡胤率军北上御敌。',
+          figures:'赵匡胤 — 殿前都点检，掌握禁军；赵普 — 赵匡胤谋士；石守信、王审琦 — 赵匡胤部将，在开封城内接应；柴宗训 — 后周恭帝，年仅七岁。',
+          event:'赵匡胤率军行至陈桥驿，将士们将黄袍披在他身上，拥立他为帝。赵匡胤"被迫"接受，率军返回开封。石守信、王审琦在城内接应，打开城门。后周恭帝禅位，赵匡胤建立宋朝，改元建隆。',
+          trigger:'<em>主少国疑，禁军拥立</em>。后周恭帝年仅七岁，主少国疑，禁军将领们需要一位强有力的领袖。赵匡胤威望极高，成为众望所归。陈桥兵变，是五代武人政治的又一次重演。',
+          result:'<b>赵匡胤代周建宋，五代十国结束，北宋统一。</b>赵匡胤吸取五代武人政治的教训，杯酒释兵权，加强中央集权，开创了北宋三百余年的基业。《资治通鉴》记至959年止，未记此事，意在保持"史鉴"的客观性。'
+        }
+      ]},
+    character:{icon:'🎭',label:'人物性格分析',c1:'#22d3ee',c2:'#0e7490',
+      headline:'世宗英主 · 冯道圆滑 · 石晋卖国 · 朱温暴虐',
+      brief:'乱世人物的选择，最见人心；冯道的争议，是职场最深的思考。',
+      sections:[
+        {type:'figure',title:'核心人物性格图谱',items:[
+          {name:'后周世宗柴荣',trait:'英明果决 · 励精图治 · 亲冒矢石 · 英年早逝',
+           desc:'郭威的养子，继位后励精图治。高平之战亲自督战，扭转危局；随后整顿军队、减轻赋税、兴修水利、修订刑律。他曾立下"十年开拓天下，十年养百姓，十年致太平"的宏愿，可惜年仅三十九岁病逝。'},
+          {name:'冯道',trait:'圆滑世故 · 历事四朝 · 保全百姓 · 争议极大',
+           desc:'他身处乱世，历仕四朝十君，始终位居宰辅。他曾劝阻契丹主滥杀，保护了不少百姓；也主持雕印《九经》，保存了文化。但欧阳修、司马光都严厉批评他"无廉耻"。冯道的困境是：在礼崩乐坏的时代，是做忠臣去死，还是做能臣做事？'},
+          {name:'石敬瑭',trait:'卖国求荣 · 寡廉鲜耻 · 遗祸四百年',
+           desc:'为了夺取皇位，他向契丹称"儿皇帝"，割让燕云十六州，每年进贡。他比契丹主耶律德光还大十岁，却心甘情愿做"儿皇帝"。此举使中原失去北方屏障，此后四百余年，中原王朝始终处于被动挨打局面。'},
+          {name:'后周太祖郭威',trait:'出身寒微 · 深知民苦 · 节俭爱民 · 深谋远虑',
+           desc:'出身贫寒，深知民间疾苦。称帝后生活节俭，废除苛捐杂税，惩治贪官。他临终嘱咐薄葬，用瓦棺纸衣。他把皇位传给养子柴荣，而不是自己的侄子，显示出以天下为重的格局。'},
+          {name:'朱温',trait:'残暴荒淫 · 弑君篡位 · 反复无常 · 死于亲子',
+           desc:'原是黄巢部将，降唐后赐名"全忠"，却弑唐昭宗、篡唐建梁。他荒淫无度，甚至让儿媳入宫侍寝，最终被自己的儿子朱友珪派人刺杀。弑君者被亲子所弑，篡位者被亲子所篡。'}
+        ]}
+      ]},
+    idiom:{icon:'🀄',label:'历史成语',c1:'#f472b6',c2:'#9d174d',
+      headline:'儿皇帝 · 长乐老 · 黄袍加身 · 陈桥兵变 · 礼义廉耻',
+      brief:'五代成语，多与乱世政治、气节争议相关，发人深省。',
+      sections:[
+        {type:'idiom',title:'五代衍生的经典成语',items:[
+          {word:'儿皇帝',source:'《资治通鉴》五代 · 石敬瑭',
+           desc:'石敬瑭为借契丹兵夺位，向契丹主耶律德光称"儿皇帝"，割让燕云十六州。指对外屈膝投降、甘做傀儡的统治者。'},
+          {word:'长乐老',source:'《资治通鉴》五代 · 冯道',
+           desc:'冯道历仕四朝十君，自号"长乐老"，著《长乐老自叙》。指历仕多朝、毫无气节的人。'},
+          {word:'黄袍加身',source:'《资治通鉴》五代 · 赵匡胤',
+           desc:'陈桥兵变中，将士将黄袍披在赵匡胤身上，拥立他为帝。指被部下拥立为皇帝。'},
+          {word:'陈桥兵变',source:'《资治通鉴》五代 · 赵匡胤',
+           desc:'公元960年，赵匡胤在陈桥驿发动兵变，代周建宋。《资治通鉴》记至959年止，未记此事。指以兵变夺取政权。'},
+          {word:'礼义廉耻，国之四维',source:'《管子》· 司马光引论五代',
+           desc:'《管子》语，司马光引以论五代："礼义廉耻，国之四维；四维不张，国乃灭亡。"五代五十三年，八姓十四帝，篡弑相寻，正是因为四维不张。'},
+          {word:'但知行好事，莫要问前程',source:'《资治通鉴》五代 · 冯道',
+           desc:'冯道自述处世之道："但知行好事，莫要问前程。"指只管做好事，不必考虑将来的回报。'},
+          {word:'燕云十六州',source:'《资治通鉴》五代 · 石敬瑭',
+           desc:'石敬瑭割让燕云十六州给契丹，使中原失去北方屏障。此后四百余年，中原王朝始终处于被动挨打局面。指战略要地的丧失。'},
+          {word:'十年开拓天下，十年养百姓，十年致太平',source:'《资治通鉴》五代 · 柴荣',
+           desc:'后周世宗柴荣立下的宏愿，可惜年仅三十九岁病逝，壮志未酬。指宏伟的治国规划。'}
+        ]}
+      ]},
+    advice:{icon:'🧭',label:'给人的忠告',c1:'#fb923c',c2:'#b45309',
+      headline:'礼义廉耻 · 国之四维 · 卖国者遗臭万年 · 冯道的争议',
+      brief:'五代乱世，是最后的警钟；冯道的争议，是职场最深的思考。',
+      sections:[
+        {type:'advice',title:'五代留给后人的六条忠告',items:[
+          {title:'礼义廉耻，国之四维',text:'《管子》说："礼义廉耻，国之四维；四维不张，国乃灭亡。"五代五十三年，八姓十四帝，篡弑相寻，正是因为四维不张。'},
+          {title:'卖国求荣者，遗臭万年',text:'石敬瑭为夺皇位，向契丹称"儿皇帝"，割让燕云十六州。此后四百年，中原王朝始终处于被动挨打局面。任何时候，出卖国家利益换取个人权位，都会被钉在历史的耻辱柱上。'},
+          {title:'在乱世中，也要守住底线',text:'冯道历事四朝十君，有人赞他保全百姓，有人骂他毫无气节。这个争议至今没有定论。但有一点是确定的：在极端环境下，守住底线比平时更难，也更有价值。'},
+          {title:'英主早逝，是时代的遗憾',text:'后周世宗柴荣三十九岁病逝，他"十年开拓天下，十年养百姓，十年致太平"的宏愿未竟。健康与传承，同样重要。'},
+          {title:'改革要敢于触动利益',text:'柴荣高平之战后，严惩临阵脱逃的樊爱能、何徽，整肃军纪。改革必然触动既得利益，但不敢触动利益的改革，都是假改革。'},
+          {title:'治乱在人不在天',text:'五代之乱，乱到极点；但后周世宗励精图治，又让人看到了希望。即使在最黑暗的时代，人的努力仍然有意义。'}
+        ]},
+        {type:'work',title:'💼 职场镜鉴：冯道的争议与世宗的改革',items:[
+          {title:'在乱世中，守住底线比什么都重要',text:'冯道历事四朝十君，有人赞他保全百姓，有人骂他毫无气节。职场中，跳槽可以，但不要为了利益出卖原则。底线一旦突破，就再也回不去了。'},
+          {title:'改革要敢于触动利益',text:'柴荣高平之战后，严惩临阵脱逃的樊爱能、何徽，整肃军纪。职场中，推动改革时，要敢于触动既得利益，但也要注意策略和节奏。'},
+          {title:'不要为了短期利益出卖长期信誉',text:'石敬瑭为夺皇位，向契丹称"儿皇帝"，割让燕云十六州。职场中，不要为了短期业绩而损害长期信誉。信誉一旦失去，就很难挽回。'},
+          {title:'健康与传承，同样重要',text:'后周世宗柴荣三十九岁病逝，宏愿未竟。职场中，不要为了工作透支健康；同时，要注重培养接班人，让事业能够延续。'},
+          {title:'在乱世中，也要保持专业能力',text:'冯道能在四朝十君中始终位居宰辅，靠的是过硬的专业能力。职场中，无论环境如何变化，专业能力都是你最大的底气。'},
+          {title:'治乱在人不在天',text:'五代之乱，乱到极点；但后周世宗励精图治，又让人看到了希望。职场中，即使环境再差，也不要放弃努力。你的努力，终会改变些什么。'}
+        ]}
+      ]}
+  }
+}
+];
+
+/* =========================================================
+   工具函数
+   ========================================================= */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let currentId = DATA[0].id;
+
+function renderTimeline(){
+  $('timeline').innerHTML = DATA.map(p => {
+    const events = EVENTS[p.id] || [];
+    return `
+      <div class="v-item ${p.id===currentId?'on':''}" data-id="${p.id}" style="--acc:${p.accent}">
+        <span class="v-dot"></span>
+        <div class="v-body">
+          <div class="v-name">${esc(p.name)}<em>${esc(p.era)}</em></div>
+          <div class="v-range">${esc(p.range)}　·　${esc(p.tagline)}</div>
+          <div class="v-events">
+            ${events.map(ev=>`<div class="v-event"><b>${esc(ev.y)}</b>　${esc(ev.e)}</div>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function cardHTML(f, key){
+  return `
+    <article class="card" data-frame="${key}" style="--c1:${f.c1};--c2:${f.c2}">
+      <div class="card-top">
+        <div class="card-icon">${f.icon}</div>
+        <div class="card-label">${esc(f.label)}</div>
+      </div>
+      <h3>${esc(f.headline)}</h3>
+      <p class="brief">${esc(f.brief)}</p>
+      <div class="card-foot">
+        <span>点击展开详情透视</span>
+        <span class="arrow">→</span>
+      </div>
+    </article>
+  `;
+}
+
+function renderPeriod(id){
+  currentId = id;
+  const p = DATA.find(x => x.id === id);
+  if(!p) return;
+  document.documentElement.style.setProperty('--acc', p.accent);
+
+  const hero = `
+    <section class="hero" style="--acc:${p.accent}">
+      <div class="hero-tag">◈ ${esc(p.era)}</div>
+      <h2>${esc(p.name)}</h2>
+      <div class="range">${esc(p.range)}　·　${esc(p.tagline)}</div>
+      <p class="intro">${esc(p.intro)}</p>
+    </section>
+  `;
+
+  const figs = FIGURES[p.id] || [];
+  const figuresBar = figs.length ? `
+    <div class="figures-bar" data-period="${p.id}">
+      <span class="fb-label">📜 本纪人物 · ${esc(p.name)}</span>
+      <div class="fb-list">
+        ${figs.map(f=>`<span class="fb-chip" data-figure="${esc(f)}" title="点击查看该纪故事">${esc(f)}</span>`).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  const baseKeys = ['time','power','core','example','succession'];
+  const deepKeys = ['story','event','character','idiom','advice'];
+  const baseCards = baseKeys.map(k => cardHTML(p.frames[k], k)).join('');
+  const deepCards = deepKeys.map(k => cardHTML(p.frames[k], k)).join('');
+
+  $('main').innerHTML = hero + figuresBar + `
+    <div class="grid-title"><em>壹</em> 五 大 历 史 框 架</div>
+    <div class="cards">${baseCards}</div>
+    <div class="grid-title"><em>贰</em> 五 大 深 度 解 读</div>
+    <div class="cards">${deepCards}</div>
+  `;
+
+  document.querySelectorAll('.v-item').forEach(el=>{
+    el.classList.toggle('on', el.dataset.id === id);
+  });
+}
+
+function renderSections(sections){
+  return sections.map(s => {
+    if(s.type === 'quote'){
+      return `<blockquote class="quote">${esc(s.text)}${s.source?`<cite>${esc(s.source)}</cite>`:''}</blockquote>`;
+    }
+    if(s.type === 'text'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4><p>${s.text}</p></div>`;
+    }
+    if(s.type === 'list'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4><ul>${
+        s.items.map(i=>`<li>${i}</li>`).join('')
+      }</ul></div>`;
+    }
+    if(s.type === 'compare'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4>
+        <div class="cmp">
+          <div class="cmp-col pos">
+            <h5>✅ 正面例证</h5>
+            ${s.positive.map(x=>`<div class="cmp-item"><b>${esc(x.name)}</b><p>${esc(x.text)}</p></div>`).join('')}
+          </div>
+          <div class="cmp-col neg">
+            <h5>❌ 反面例证</h5>
+            ${s.negative.map(x=>`<div class="cmp-item"><b>${esc(x.name)}</b><p>${esc(x.text)}</p></div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+    }
+    if(s.type === 'figure'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4>
+        <div class="figure-grid">
+          ${s.items.map(x=>`
+            <div class="figure-card">
+              <div class="figure-name">${esc(x.name)}</div>
+              <div class="figure-trait">${esc(x.trait)}</div>
+              <p>${esc(x.desc)}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+    }
+    if(s.type === 'idiom'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4>
+        <div class="idiom-grid">
+          ${s.items.map(x=>`
+            <div class="idiom-card">
+              <div class="idiom-word">${esc(x.word)}</div>
+              <div class="idiom-source">${esc(x.source)}</div>
+              <p>${esc(x.desc)}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+    }
+    if(s.type === 'advice'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4>
+        <ol class="advice-list">
+          ${s.items.map(x=>`<li><b>${esc(x.title)}</b><span>${esc(x.text)}</span></li>`).join('')}
+        </ol>
+      </div>`;
+    }
+    if(s.type === 'work'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4>
+        <ul class="work-list">
+          ${s.items.map(x=>`<li><b>${esc(x.title)}</b><span>${esc(x.text)}</span></li>`).join('')}
+        </ul>
+      </div>`;
+    }
+    if(s.type === 'event'){
+      return `<div class="sec"><h4>${esc(s.title)}</h4>
+        <div class="event-item">
+          <div class="event-bd">
+            <div class="ev-step"><div class="ev-key">📋 背景</div><div class="ev-val">${s.background}</div></div>
+            <div class="ev-step"><div class="ev-key">👥 人物</div><div class="ev-val">${s.figures}</div></div>
+            <div class="ev-step"><div class="ev-key">⚔ 事件</div><div class="ev-val">${s.event}</div></div>
+            <div class="ev-step"><div class="ev-key">🔥 导火索</div><div class="ev-val">${s.trigger}</div></div>
+            <div class="ev-step"><div class="ev-key">🏁 结局</div><div class="ev-val">${s.result}</div></div>
+          </div>
+        </div>
+      </div>`;
+    }
+    /* ===== 历史故事（更丰富，含年份与启示） ===== */
+    if(s.type === 'story'){
+      return `<div class="sec"><h4>${esc(s.title)}${s.year?`　<em style="font-size:12px;color:var(--mc);font-style:normal">${esc(s.year)}</em>`:''}</h4>
+        <div class="story-item">
+          <div class="story-bd">${s.content}
+            ${s.moral?`<div class="story-moral">💡 ${s.moral}</div>`:''}
+          </div>
+        </div>
+      </div>`;
+    }
+    return '';
+  }).join('');
+}
+
+function openModal(periodId, frameKey){
+  const p = DATA.find(x => x.id === periodId);
+  if(!p) return;
+  const f = p.frames[frameKey];
+  if(!f) return;
+  $('modal').style.setProperty('--mc', f.c1);
+  $('modal').innerHTML = `
+    <div class="modal-hd" style="--mc:${f.c1}">
+      <div class="tag">${f.icon} ${esc(f.label)}　·　${esc(p.name)}</div>
+      <h3>${esc(f.headline)}</h3>
+      <div class="sub">${esc(p.range)}　|　${esc(f.brief)}</div>
+      <div class="close" id="btnClose">✕</div>
+    </div>
+    <div class="modal-bd">
+      ${renderSections(f.sections)}
+    </div>
+  `;
+  $('overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  $('btnClose').addEventListener('click', closeModal);
+}
+
+function closeModal(){
+  $('overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('click', e => {
+  const tl = e.target.closest('.v-item');
+  if(tl){
+    renderPeriod(tl.dataset.id);
+    return;
+  }
+  const chip = e.target.closest('.fb-chip');
+  if(chip){
+    openModal(currentId, 'story');
+    return;
+  }
+  const card = e.target.closest('.card');
+  if(card){
+    openModal(currentId, card.dataset.frame);
+    return;
+  }
+  if(e.target.id === 'overlay') closeModal();
+});
+
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+renderTimeline();
+renderPeriod(DATA[0].id);
+</script>
+</body>
+</html>
